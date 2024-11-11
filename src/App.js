@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CarDetailPage from './pages/CarDetailPage';
 import ContactPage from './pages/ContactPage';
-import Header from './components/Header';
+import Header from './components/HeaderComponents/Header';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import * as Sentry from '@sentry/react';
