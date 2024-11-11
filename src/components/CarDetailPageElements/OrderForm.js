@@ -1,11 +1,12 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const OrderFormComponent = ({ sendEmail, car }) => {
-  const form = useRef();
-
+const OrderFormComponent = ({ formRef, sendEmail, carName }) => {
   return (
-    <OrderForm ref={form} onSubmit={sendEmail}>
+    <OrderForm ref={formRef} onSubmit={sendEmail}>
+      {/* Hidden input to pass car name */}
+      <Input type="hidden" name="car_name" value={carName} />
+
       <Label htmlFor="user_name">Název firmy / jméno a příjmení *</Label>
       <Input type="text" name="user_name" id="user_name" required />
 
@@ -33,20 +34,26 @@ const OrderFormComponent = ({ sendEmail, car }) => {
 
       <Label htmlFor="message">Vaše zpráva</Label>
       <TextArea name="message" id="message" />
+      
+      <CheckboxContainer>
+        <Checkbox type="checkbox" required />
+        <CheckboxLabel>
+          * Uděluji souhlas s poskytnutím a zpracováním osobních údajů
+        </CheckboxLabel>
+      </CheckboxContainer>
 
       <Button type="submit">ODESLAT POPTÁVKU</Button>
     </OrderForm>
   );
 };
 
-// Styled components
+// Styled components for OrderFormComponent
 const OrderForm = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
   max-width: 800px;
   min-width: 520px;
-  margin-left: 10px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
@@ -56,6 +63,21 @@ const OrderForm = styled.form`
     grid-template-columns: 1fr;
     min-width: 300px;
   }
+`;
+
+const CheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  grid-column: span 2;
+`;
+
+const Checkbox = styled.input`
+  margin-right: 10px;
+`;
+
+const CheckboxLabel = styled.label`
+  font-size: 1em;
 `;
 
 const Label = styled.label`
