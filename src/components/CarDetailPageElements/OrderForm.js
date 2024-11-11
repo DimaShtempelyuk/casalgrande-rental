@@ -135,7 +135,7 @@ const OrderForm = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-  max-width: 800px;
+  max-width: 60dvw;
   min-width: 520px;
   margin: 0 auto;
   padding: 20px;
