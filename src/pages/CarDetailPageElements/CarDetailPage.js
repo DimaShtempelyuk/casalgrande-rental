@@ -7,7 +7,8 @@ import { cars } from '../../data/carData';
 import Swal from 'sweetalert2';
 import PriceTable from '../../components/PriceTable';
 import OrderForm from '../../components/CarDetailPageElements/OrderForm';
-import AutoImageCarousel from './CarDetailElements/AutoImageCarousel'; 
+import AutoImageCarousel from './CarDetailElements/AutoImageCarousel';
+import CompactDescription from './CarDetailElements/CompactDescription';
 
 const CarDetailPage = () => {
   const { id } = useParams();
@@ -33,145 +34,67 @@ const CarDetailPage = () => {
     emailjs
       .send('service_iggsweb', 'template_eah3lbr', formData, 'HuUqQRhtUZI0Fj6-O')
       .then(
-        (result) => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Poptávka odeslána!',
-            text: 'Vaše objednávka byla úspěšně odeslána. Brzy Vás budeme kontaktovat!',
-            confirmButtonColor: '#3085d6',
-          });
-        },
-        (error) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'No to teda...',
-            text: 'Chyba. Zkuste později.',
-            confirmButtonColor: '#d33',
-          });
-        }
+        () => Swal.fire({ icon: 'success', title: 'Poptávka odeslána!', text: 'Vaše objednávka byla úspěšně odeslána.' }),
+        () => Swal.fire({ icon: 'error', title: 'Chyba', text: 'Zkuste později.' })
       );
   };
 
-  if (!car) {
-    return <p>Car not found.</p>;
-  }
+  if (!car) return <p>Car not found.</p>;
 
   return (
     <DetailContainer>
-      <CarInfo>
-        <ImageCarousel>
-          <AutoImageCarousel images={car.images} /> {/* Use the new component here */}
-        </ImageCarousel>
-        <CarDescription>
-          <h2>{car.name}</h2>
-          <p>{car.description}</p>
-          <Specifications>
-            {car.specs.map((spec, index) => (
-              <SpecRow key={index}>
-                <SpecTitle>{spec.title}:</SpecTitle>
-                <SpecValue>{spec.value}</SpecValue>
-              </SpecRow>
-            ))}
-          </Specifications>
-        </CarDescription>
-      </CarInfo>
-      <AdditionalInfo>
-        <PriceTable priceRanges={car.priceRanges} deposit="15 000 Kč" />
-        <OrderForm formRef={form} sendEmail={sendEmail} carName={car.name} />
-      </AdditionalInfo>
+      <ImageCarouselContainer>
+        <AutoImageCarousel images={car.images} />
+      </ImageCarouselContainer>
+      
+      <ContentContainer>
+          <CompactDescription car={car}/>
+
+
+        <AdditionalInfo>
+          <PriceTable priceRanges={car.priceRanges} deposit="15 000 Kč" />
+          <OrderForm formRef={form} sendEmail={sendEmail} carName={car.name} />
+        </AdditionalInfo>
+      </ContentContainer>
     </DetailContainer>
   );
 };
 
-// Styled components
+// Styled Components
 const DetailContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 75%;
-  padding-left: 12.5%;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 0;
-  }
 `;
 
-const CarInfo = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 40px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const ImageCarousel = styled.div`
-  flex: 2;
-  max-width: 700px;
-`;
-
-const CarDescription = styled.div`
+const ImageCarouselContainer = styled.div`
   flex: 1;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  line-height: 1.6;
-  font-size: 16px;
+  max-width: 800px;
+  position: fixed;
+  left: 0;
+  top: 10dvh;
+  bottom: 0;
+  padding: 10px;
+  overflow-y: auto;
+  z-index: 1;
 
-  h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 2dvh;
-  }
-
-  p {
-    margin-bottom: 20px;
-    color: #333;
-  }
-
-  @media (max-width: 768px) {
+  .carousel .slide img {
+    border-radius: 8px;
     width: 100%;
-    padding: 10px;
+    height: auto;
+    object-fit: cover;
   }
 `;
 
+const ContentContainer = styled.div`
+  flex: 2;
+  margin-left: 800px;
+  padding: 20px;
+  width: 100%;
+`;
 
 const AdditionalInfo = styled.div`
-  width: 100%;
-  max-width: 1400px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-// Styled components
-const Specifications = styled.div`
   margin-top: 20px;
-`;
-
-const SpecRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
-`;
-
-const SpecTitle = styled.div`
-  font-weight: bold;
-`;
-
-const SpecValue = styled.div`
-  text-align: right;
 `;
 
 export default CarDetailPage;

@@ -18,11 +18,11 @@ export const cars = [
     specs: [
       { title: 'Druh vozidla', value: 'Nákladní automobil – nosič kontejneru' },
       { title: 'Počet míst', value: '2 – 3' },
+      { title: 'Užitečná hmotnost', value: '1142 kg' },
       { title: 'Celková délka vozidla', value: '6404 mm (ložná plocha kontejneru 3240 mm)' },
       { title: 'Celková šířka vozidla', value: '1974 mm (ložná plocha kontejneru 1920 mm)' },
       { title: 'Celková výška vozidla', value: '2623 mm (ložná plocha kontejneru 420 mm)' },
       { title: 'Provozní hmotnost', value: '2358 kg' },
-      { title: 'Užitečná hmotnost', value: '1142 kg' },
       { title: 'Celková hmotnost', value: '3500 kg' },
       { title: 'Tažné zařízení', value: 'Nebrzděného 750 kg / brzděného 2800 kg' },
       { title: 'Palivo', value: 'nafta' },
@@ -52,11 +52,12 @@ export const cars = [
     specs: [
       { title: 'Druh vozidla', value: 'Nákladní automobil – nosič kontejneru' },
       { title: 'Počet míst', value: '6' },
+      { title: 'Užitečná hmotnost', value: '1142 kg' },
       { title: 'Celková délka vozidla', value: '6404 mm (ložná plocha kontejneru 3240 mm)' },
       { title: 'Celková šířka vozidla', value: '1974 mm (ložná plocha kontejneru 1920 mm)' },
       { title: 'Celková výška vozidla', value: '2623 mm (ložná plocha kontejneru 420 mm)' },
       { title: 'Provozní hmotnost', value: '2358 kg' },
-      { title: 'Užitečná hmotnost', value: '1142 kg' },
+      
       { title: 'Celková hmotnost', value: '3500 kg' },
       { title: 'Tažné zařízení', value: 'Nebrzděného 750 kg / brzděného 2800 kg' },
       { title: 'Palivo', value: 'nafta' },
