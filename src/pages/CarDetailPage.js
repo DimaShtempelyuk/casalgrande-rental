@@ -37,8 +37,8 @@ const CarDetailPage = () => {
           console.log(result.text);
           Swal.fire({
             icon: 'success',
-            title: 'Order Sent!',
-            text: 'Your car order has been successfully sent. We will contact you soon!',
+            title: 'Poptávka odeslána!',
+            text: 'Vaše objednávka byla úspěšně odeslána. Brzy Vás budeme kontaktovat!',
             confirmButtonColor: '#3085d6',
           });
         },
@@ -46,8 +46,8 @@ const CarDetailPage = () => {
           console.log(error.text);
           Swal.fire({
             icon: 'error',
-            title: 'Oops...',
-            text: 'Failed to send order. Please try again later.',
+            title: 'No to teda...',
+            text: 'Chyba. Zkuste později.',
             confirmButtonColor: '#d33',
           });
         }

@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaCalendarAlt } from 'react-icons/fa';
 
 const OrderFormComponent = ({ formRef, sendEmail, carName }) => {
-  const [rentalDate, setRentalDate] = React.useState(null);
-  const [returnDate, setReturnDate] = React.useState(null);
+  const [rentalDate, setRentalDate] = useState(null);
+  const [returnDate, setReturnDate] = useState(null);
+  const [isIcoSelected, setIsIcoSelected] = useState(true);
+  const [icoValue, setIcoValue] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState(null);
+
+  const handleToggle = (isIco) => {
+    setIsIcoSelected(isIco);
+    setIcoValue('');
+    setDateOfBirth(null);
+  };
+
+  const handleIcoChange = (e) => {
+    const value = e.target.value;
+    if (/^\d{0,8}$/.test(value)) {
+      setIcoValue(value);
+    }
+  };
 
   return (
     <OrderForm ref={formRef} onSubmit={sendEmail}>
@@ -14,9 +30,49 @@ const OrderFormComponent = ({ formRef, sendEmail, carName }) => {
 
       <Label htmlFor="user_name">Název firmy / jméno a příjmení *</Label>
       <Input type="text" name="user_name" id="user_name" required />
+      <SegmentedControl>
+        <SegmentOption
+          isActive={isIcoSelected}
+          onClick={() => handleToggle(true)}
+        >
+          IČO
+        </SegmentOption>
+        <SegmentOption
+          isActive={!isIcoSelected}
+          onClick={() => handleToggle(false)}
+        >
+          Datum narození
+        </SegmentOption>
+      </SegmentedControl>
 
-      <Label htmlFor="user_id">IČO / datum narození</Label>
-      <Input type="text" name="user_id" id="user_id" />
+      {isIcoSelected ? (
+        <Input
+          type="text"
+          name="user_id"
+          placeholder="8 digit IČO"
+          value={icoValue}
+          onChange={handleIcoChange}
+          required
+        />
+      ) : (
+        <DateContainer>
+          <DatePicker
+  selected={dateOfBirth}
+  onChange={(date) => setDateOfBirth(date)}
+  dateFormat="dd/MM/yyyy"
+  placeholderText="DD/MM/YYYY"
+  name="user_id"
+  required
+  customInput={<CustomInput />}
+  showYearDropdown
+  scrollableYearDropdown
+  yearDropdownItemNumber={100} // Shows 100 years in dropdown
+  maxDate={new Date()} // Today's date
+/>
+
+          <CalendarIcon />
+        </DateContainer>
+      )}
 
       <Label htmlFor="rental_date">Datum zapůjčení *</Label>
       <DateContainer>
@@ -26,7 +82,6 @@ const OrderFormComponent = ({ formRef, sendEmail, carName }) => {
           dateFormat="dd/MM/yyyy"
           placeholderText="DD/MM/YYYY"
           name="rental_date"
-          id="rental_date"
           required
           customInput={<CustomInput />}
         />
@@ -41,7 +96,6 @@ const OrderFormComponent = ({ formRef, sendEmail, carName }) => {
           dateFormat="dd/MM/yyyy"
           placeholderText="DD/MM/YYYY"
           name="return_date"
-          id="return_date"
           required
           customInput={<CustomInput />}
         />
@@ -76,24 +130,7 @@ const OrderFormComponent = ({ formRef, sendEmail, carName }) => {
   );
 };
 
-// Custom styled components
-const DateContainer = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-`;
-
-const CalendarIcon = styled(FaCalendarAlt)`
-  position: absolute;
-  right: 10px;
-  color: #888;
-  pointer-events: none;
-`;
-
-const CustomInput = React.forwardRef(({ value, onClick, placeholder }, ref) => (
-  <StyledInput onClick={onClick} ref={ref} value={value} placeholder={placeholder} readOnly />
-));
-
+// Styled components
 const OrderForm = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -111,24 +148,29 @@ const OrderForm = styled.form`
   }
 `;
 
-const CheckboxContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  grid-column: span 2;
-`;
-
-const Checkbox = styled.input`
-  margin-right: 10px;
-`;
-
-const CheckboxLabel = styled.label`
-  font-size: 1em;
-`;
-
 const Label = styled.label`
   font-weight: bold;
   margin-bottom: 5px;
+`;
+
+const SegmentedControl = styled.div`
+  display: flex;
+  width: 100%;
+  grid-column: 2 4;
+`;
+
+const SegmentOption = styled.div`
+  flex: 1;
+  padding: 6px;
+  font-size: 0.91rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: ${(props) => (props.isActive ? '#ffcc00' : '#f9f9f9')};
+  border: ${(props) => (props.isActive ? '2px solid #ffcc00' : '2px solid #ddd')};
+  color: ${(props) => (props.isActive ? '#333' : '#888')};
+  font-weight: ${(props) => (props.isActive ? 'bold' : 'normal')};
+  border-radius: ${(props, index) =>
+    props.isActive && index === 0 ? '8px 0 0 8px' : props.isActive && index === 1 ? '0 8px 8px 0' : '8px'};
 `;
 
 const Input = styled.input`
@@ -136,6 +178,32 @@ const Input = styled.input`
   font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 4px;
+`;
+
+const DateContainer = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
+
+const CalendarIcon = styled(FaCalendarAlt)`
+  position: absolute;
+  right: 10px;
+  color: #888;
+  pointer-events: none;
+`;
+
+const CustomInput = React.forwardRef(({ value, onClick, placeholder }, ref) => (
+  <StyledInput onClick={onClick} ref={ref} value={value} placeholder={placeholder} readOnly />
+));
+
+const StyledInput = styled.input`
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 const Select = styled.select`
@@ -154,6 +222,21 @@ const TextArea = styled.textarea`
   min-height: 100px;
 `;
 
+const CheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  grid-column: span 2;
+`;
+
+const Checkbox = styled.input`
+  margin-right: 10px;
+`;
+
+const CheckboxLabel = styled.label`
+  font-size: 1em;
+`;
+
 const Button = styled.button`
   grid-column: span 2;
   padding: 15px;
@@ -167,15 +250,6 @@ const Button = styled.button`
   &:hover {
     background-color: #e65c00;
   }
-`;
-
-const StyledInput = styled.input`
-  padding: 10px;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
 `;
 
 export default OrderFormComponent;
