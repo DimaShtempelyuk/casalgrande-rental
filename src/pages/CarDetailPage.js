@@ -7,6 +7,7 @@ import emailjs from 'emailjs-com';
 import { cars } from '../data/carData';
 import Swal from 'sweetalert2';
 import PriceTable from '../components/PriceTable';
+import OrderForm from '../components/CarDetailPageElements/OrderForm';
 
 const CarDetailPage = () => {
     
@@ -189,17 +190,6 @@ const AdditionalInfo = styled.div`
 `;
 
 
-
-const OrderForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 500px;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
 
 const Input = styled.input`
   padding: 10px;
