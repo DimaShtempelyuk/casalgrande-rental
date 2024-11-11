@@ -11,9 +11,15 @@ const PriceTable = ({ priceRanges }) => {
         <div className="header">Cena s DPH</div>
         {priceRanges.map((price, index) => (
           <React.Fragment key={index}>
-            <div className="cell">{price.description}</div>
-            <div className="cell">{price.withoutTax}</div>
-            <div className="cell">{price.withTax}</div>
+            <div className={`cell ${price.description.includes('15 – 30 dní') ? 'highlight' : ''}`}>
+              {price.description}
+            </div>
+            <div className={`cell ${price.description.includes('15 – 30 dní') ? 'highlight' : ''}`}>
+              {price.withoutTax}
+            </div>
+            <div className={`cell ${price.description.includes('15 – 30 dní') ? 'highlight' : ''}`}>
+              {price.withTax}
+            </div>
           </React.Fragment>
         ))}
       </StyledTable>
@@ -31,6 +37,7 @@ const Deposit = styled.div`
   font-size: 1.2em;
   margin-bottom: 20px;
   padding: 12px;
+  font-weight: 500;
   background-color: #f4f4f4;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -39,12 +46,13 @@ const Deposit = styled.div`
 
 const StyledTable = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
- 
+  grid-template-columns: repeat(3, 1fr);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-size: 1em;
   width: 100%;
   text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
 
   .header {
     background-color: #f4f4f4;
@@ -59,21 +67,26 @@ const StyledTable = styled.div`
     border: 1px solid #ddd;
     text-align: center;
     font-weight: 500;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 204, 0, 0.50);
+    }
+  }
+
+  .highlight {
+    background-color: rgba(255, 204, 0, 0.15); /* Soft yellow background for highlighting */
+    border: 2px solid #ffcc00;
+    font-weight: bold;
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr 1fr 1fr; /* Ensuring 3 equal columns */
-    
-    /* Adjust long cells to appear correctly */
-    .cell:nth-child(3n) {
-        grid-column: span 3; /* Make the third column span across on mobile */
-    }
+    grid-template-columns: 1fr 1fr 1fr;
 
     .cell:nth-child(3n) {
-        grid-column: span 1; /* Ensuring second cell takes two columns */
+      grid-column: span 3;
     }
-}
-
+  }
 `;
 
 export default PriceTable;

@@ -69,6 +69,8 @@ const CarDetailPage = () => {
 
         <AdditionalInfo>
           <PriceTable priceRanges={car.priceRanges} deposit="15 000 Kč" />
+          <br></br>
+          <h1>Poptejte toto auto už dneska!</h1>
           <OrderForm formRef={form} sendEmail={sendEmail} carName={car.name} />
         </AdditionalInfo>
       </ContentContainer>
@@ -81,6 +83,8 @@ const DetailContainer = styled.div`
   display: flex;
   align-items: flex-start;
   padding: 20px;
+  width: 80%;
+  margin-left: 10%;
 `;
 
 const ImageCarouselContainer = styled.div`
@@ -93,6 +97,7 @@ const ImageCarouselContainer = styled.div`
   padding: 10px;
   overflow-y: auto;
   z-index: 1;
+  margin-left: 10%;
 
   .carousel .slide img {
     border-radius: 8px;
