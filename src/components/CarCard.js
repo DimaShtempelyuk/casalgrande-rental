@@ -76,19 +76,23 @@ const ImageCarousel = styled(Carousel)`
 
   .carousel .control-prev.control-arrow {
     left: 10px;
+    border: 2px solid #ffcc00;
   }
 
   .carousel .control-next.control-arrow {
     right: 10px;
+    border: 2px solid #ffcc00;
   }
 
   .carousel .control-arrow:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(255, 204, 0, 0.7);
+    border: 2px solid #ffcc00;
   }
 
   .carousel .control-arrow:before {
     font-size: 2em;
     color: white;
+    
   }
 
   @media (max-width: 768px) {
