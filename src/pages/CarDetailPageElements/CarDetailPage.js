@@ -1,13 +1,13 @@
-import React, { useRef,useState } from 'react';
+// CarDetailPage.js
+import React, { useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import emailjs from 'emailjs-com';
-import { cars } from '../data/carData';
+import { cars } from '../../data/carData';
 import Swal from 'sweetalert2';
-import PriceTable from '../components/PriceTable';
-import OrderForm from '../components/CarDetailPageElements/OrderForm';
+import PriceTable from '../../components/PriceTable';
+import OrderForm from '../../components/CarDetailPageElements/OrderForm';
+import AutoImageCarousel from './CarDetailElements/AutoImageCarousel'; 
 
 const CarDetailPage = () => {
   const { id } = useParams();
@@ -15,9 +15,9 @@ const CarDetailPage = () => {
   const form = useRef();
   const [rentalDate] = useState(null);
   const [returnDate] = useState(null);
+
   const sendEmail = (e) => {
     e.preventDefault();
-  
     const formData = {
       car_name: car ? car.name : '',
       user_name: e.target.user_name.value,
@@ -29,12 +29,11 @@ const CarDetailPage = () => {
       abroad_trip: e.target.abroad_trip.value,
       message: e.target.message.value,
     };
-  
+
     emailjs
       .send('service_iggsweb', 'template_eah3lbr', formData, 'HuUqQRhtUZI0Fj6-O')
       .then(
         (result) => {
-          console.log(result.text);
           Swal.fire({
             icon: 'success',
             title: 'Poptávka odeslána!',
@@ -43,7 +42,6 @@ const CarDetailPage = () => {
           });
         },
         (error) => {
-          console.log(error.text);
           Swal.fire({
             icon: 'error',
             title: 'No to teda...',
@@ -52,8 +50,6 @@ const CarDetailPage = () => {
           });
         }
       );
-  
-    // Do not reset the form if you want to retain the data
   };
 
   if (!car) {
@@ -64,13 +60,7 @@ const CarDetailPage = () => {
     <DetailContainer>
       <CarInfo>
         <ImageCarousel>
-          <Carousel showThumbs={true} showStatus={false}>
-            {car.images.map((image, index) => (
-              <div key={index}>
-                <img src={image} alt={`${car.name} ${index + 1}`} />
-              </div>
-            ))}
-          </Carousel>
+          <AutoImageCarousel images={car.images} /> {/* Use the new component here */}
         </ImageCarousel>
         <CarDescription>
           <h2>{car.name}</h2>
@@ -87,7 +77,6 @@ const CarDetailPage = () => {
       </CarInfo>
       <AdditionalInfo>
         <PriceTable priceRanges={car.priceRanges} deposit="15 000 Kč" />
-        {/* Pass form and sendEmail to OrderFormComponent */}
         <OrderForm formRef={form} sendEmail={sendEmail} carName={car.name} />
       </AdditionalInfo>
     </DetailContainer>
@@ -122,22 +111,7 @@ const CarInfo = styled.div`
 
 const ImageCarousel = styled.div`
   flex: 2;
-  margin-right: 20px;
   max-width: 700px;
-
-  .carousel .thumbs-wrapper {
-    margin-top: 10px;
-  }
-
-  .carousel .thumb img {
-    height: 80px;
-    object-fit: cover;
-  }
-
-  @media (max-width: 768px) {
-    margin-right: 0;
-    width: 100%;
-  }
 `;
 
 const CarDescription = styled.div`
@@ -165,6 +139,7 @@ const CarDescription = styled.div`
     padding: 10px;
   }
 `;
+
 
 const AdditionalInfo = styled.div`
   width: 100%;
@@ -198,6 +173,5 @@ const SpecTitle = styled.div`
 const SpecValue = styled.div`
   text-align: right;
 `;
-
 
 export default CarDetailPage;

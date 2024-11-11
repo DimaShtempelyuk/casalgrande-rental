@@ -6,7 +6,7 @@ import { cars } from '../data/carData';
 const HomePage = () => {
     return (
       <Container>
-        <Title>Welcome to Vehicle Rental</Title>
+        <Title>Vítejte v Casalgrande</Title>
         <CardContainer>
           {cars.map((car) => (
             <CarCard key={car.id} id={car.id} name={car.name} images={car.images} description={car.description} />
