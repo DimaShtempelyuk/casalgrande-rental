@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
@@ -10,17 +10,27 @@ import PriceTable from '../components/PriceTable';
 import OrderForm from '../components/CarDetailPageElements/OrderForm';
 
 const CarDetailPage = () => {
-    
-  const { id } = useParams(); // Get car ID from URL
-  const car = cars.find((car) => car.id === parseInt(id)); // Find the car data by ID
-
-  const form = React.useRef();
+  const { id } = useParams();
+  const car = cars.find((car) => car.id === parseInt(id));
+  const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+  
+    const formData = {
+      car_name: car.name,
+      user_name: form.current.user_name.value,
+      user_email: form.current.user_email.value,
+      user_phone: form.current.user_phone.value,
+      user_id: form.current.user_id.value,
+      rental_date: form.current.rental_date.value,
+      return_date: form.current.return_date.value,
+      abroad_trip: form.current.abroad_trip.value,
+      message: form.current.message.value,
+    };
+  
     emailjs
-      .sendForm('service_iggsweb', 'template_eah3lbr', form.current, 'G-QYLRqEt_PRIW66r')
+      .send('service_iggsweb', 'template_eah3lbr', formData, 'HuUqQRhtUZI0Fj6-O')
       .then(
         (result) => {
           console.log(result.text);
@@ -41,8 +51,8 @@ const CarDetailPage = () => {
           });
         }
       );
-
-    e.target.reset();
+  
+    // Do not reset the form if you want to retain the data
   };
 
   if (!car) {
@@ -76,21 +86,9 @@ const CarDetailPage = () => {
       </CarInfo>
       <AdditionalInfo>
         <PriceTable priceRanges={car.priceRanges} deposit="15 000 Kč" />
-        <OrderForm ref={form} onSubmit={sendEmail}>
-          {/* Form fields here */}
-        </OrderForm>
+        {/* Pass form and sendEmail to OrderFormComponent */}
+        <OrderForm formRef={form} sendEmail={sendEmail} carName={car.name} />
       </AdditionalInfo>
-      
-      <GDPRContainer>
-        <GDPRCheckbox type="checkbox" required />
-        <GDPRLabel>
-          Uděluji souhlas s poskytnutím a zpracováním osobních údajů
-        </GDPRLabel>
-      </GDPRContainer>
-
-      <SubmitButton type="submit" form="orderForm">
-        ODESLAT POPTÁVKU
-      </SubmitButton>
     </DetailContainer>
   );
 };
@@ -180,41 +178,6 @@ const AdditionalInfo = styled.div`
   }
 `;
 
-const GDPRContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin-top: 10px;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 4px;
-`;
-
-const GDPRCheckbox = styled.input`
-  margin-right: 10px;
-`;
-
-const GDPRLabel = styled.label`
-  font-size: 14px;
-  color: #555;
-`;
-
-const SubmitButton = styled.button`
-  width: 100%;
-  padding: 15px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #ff6a00;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 15px;
-
-  &:hover {
-    background-color: #e65c00;
-  }
-`;
 // Styled components
 const Specifications = styled.div`
   margin-top: 20px;
