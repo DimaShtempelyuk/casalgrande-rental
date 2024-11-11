@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
@@ -13,20 +13,21 @@ const CarDetailPage = () => {
   const { id } = useParams();
   const car = cars.find((car) => car.id === parseInt(id));
   const form = useRef();
-
+  const [rentalDate] = useState(null);
+  const [returnDate] = useState(null);
   const sendEmail = (e) => {
     e.preventDefault();
   
     const formData = {
-      car_name: car.name,
-      user_name: form.current.user_name.value,
-      user_email: form.current.user_email.value,
-      user_phone: form.current.user_phone.value,
-      user_id: form.current.user_id.value,
-      rental_date: form.current.rental_date.value,
-      return_date: form.current.return_date.value,
-      abroad_trip: form.current.abroad_trip.value,
-      message: form.current.message.value,
+      car_name: car ? car.name : '',
+      user_name: e.target.user_name.value,
+      user_email: e.target.user_email.value,
+      user_phone: e.target.user_phone.value,
+      user_id: e.target.user_id.value,
+      rental_date: rentalDate ? rentalDate.toLocaleDateString('en-GB') : '',
+      return_date: returnDate ? returnDate.toLocaleDateString('en-GB') : '',
+      abroad_trip: e.target.abroad_trip.value,
+      message: e.target.message.value,
     };
   
     emailjs
