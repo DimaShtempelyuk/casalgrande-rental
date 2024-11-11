@@ -36,18 +36,20 @@ const CompactDescription = ({ car }) => {
         ))}
       </SpecsList>
 
-      {/* Animated section for full description */}
+      {/* Animated section for full description with table layout */}
       <AnimatedFullDescription style={expandAnimation}>
         <div ref={ref}>
-          <p>{car.description}</p>
-          <FullSpecsList>
-            {car.specs.slice(3).map((spec, index) => (
-              <SpecItem key={index}>
-                <SpecTitle>{spec.title}:</SpecTitle>
-                <SpecValue>{spec.value}</SpecValue>
-              </SpecItem>
-            ))}
-          </FullSpecsList>
+          <DescriptionText>{car.description}</DescriptionText>
+          <SpecsTable>
+            <tbody>
+              {car.specs.slice(3).map((spec, index) => (
+                <TableRow key={index}>
+                  <TableCellTitle>{spec.title}</TableCellTitle>
+                  <TableCellValue>{spec.value}</TableCellValue>
+                </TableRow>
+              ))}
+            </tbody>
+          </SpecsTable>
         </div>
       </AnimatedFullDescription>
 
@@ -79,10 +81,6 @@ const SpecsList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
-`;
-
-const FullSpecsList = styled(SpecsList)`
-  margin-top: 1.5em;
 `;
 
 const SpecItem = styled.div`
@@ -123,10 +121,32 @@ const AnimatedFullDescription = styled(animated.div)`
   margin-bottom: 1.5em;
   color: #333;
   line-height: 1.6;
+`;
 
-  p {
-    margin-bottom: 1em;
-  }
+const DescriptionText = styled.p`
+  margin-bottom: 1em;
+`;
+
+const SpecsTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+`;
+
+const TableRow = styled.tr`
+  border-bottom: 1px solid #ddd;
+`;
+
+const TableCellTitle = styled.td`
+  font-weight: bold;
+  padding: 8px;
+  color: #333;
+  width: 50%;
+`;
+
+const TableCellValue = styled.td`
+  padding: 8px;
+  color: #666;
+  text-align: right;
 `;
 
 const ExpandButton = styled.div`
@@ -138,6 +158,7 @@ const ExpandButton = styled.div`
   cursor: pointer;
   transition: color 0.3s;
   margin-top: 2dvh;
+
   &:hover {
     color: #1a6bbf;
   }
