@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
@@ -7,26 +7,38 @@ import emailjs from 'emailjs-com';
 import { cars } from '../data/carData';
 import Swal from 'sweetalert2';
 import PriceTable from '../components/PriceTable';
+import OrderForm from '../components/CarDetailPageElements/OrderForm';
 
 const CarDetailPage = () => {
-    
-  const { id } = useParams(); // Get car ID from URL
-  const car = cars.find((car) => car.id === parseInt(id)); // Find the car data by ID
-
-  const form = React.useRef();
-  
+  const { id } = useParams();
+  const car = cars.find((car) => car.id === parseInt(id));
+  const form = useRef();
+  const [rentalDate] = useState(null);
+  const [returnDate] = useState(null);
   const sendEmail = (e) => {
     e.preventDefault();
-
+  
+    const formData = {
+      car_name: car ? car.name : '',
+      user_name: e.target.user_name.value,
+      user_email: e.target.user_email.value,
+      user_phone: e.target.user_phone.value,
+      user_id: e.target.user_id.value,
+      rental_date: rentalDate ? rentalDate.toLocaleDateString('en-GB') : '',
+      return_date: returnDate ? returnDate.toLocaleDateString('en-GB') : '',
+      abroad_trip: e.target.abroad_trip.value,
+      message: e.target.message.value,
+    };
+  
     emailjs
-      .sendForm('service_iggsweb', 'template_eah3lbr', form.current, 'G-QYLRqEt_PRIW66r')
+      .send('service_iggsweb', 'template_eah3lbr', formData, 'HuUqQRhtUZI0Fj6-O')
       .then(
         (result) => {
           console.log(result.text);
           Swal.fire({
             icon: 'success',
-            title: 'Order Sent!',
-            text: 'Your car order has been successfully sent. We will contact you soon!',
+            title: 'Poptávka odeslána!',
+            text: 'Vaše objednávka byla úspěšně odeslána. Brzy Vás budeme kontaktovat!',
             confirmButtonColor: '#3085d6',
           });
         },
@@ -34,14 +46,14 @@ const CarDetailPage = () => {
           console.log(error.text);
           Swal.fire({
             icon: 'error',
-            title: 'Oops...',
-            text: 'Failed to send order. Please try again later.',
+            title: 'No to teda...',
+            text: 'Chyba. Zkuste později.',
             confirmButtonColor: '#d33',
           });
         }
       );
-
-    e.target.reset();
+  
+    // Do not reset the form if you want to retain the data
   };
 
   if (!car) {
@@ -61,48 +73,27 @@ const CarDetailPage = () => {
           </Carousel>
         </ImageCarousel>
         <CarDescription>
-  <h2>{car.name}</h2>
-  <p>{car.description}</p>
-  <Specifications>
-    {car.specs.map((spec, index) => (
-      <SpecRow key={index}>
-        <SpecTitle>{spec.title}:</SpecTitle>
-        <SpecValue>{spec.value}</SpecValue>
-      </SpecRow>
-    ))}
-  </Specifications>
+          <h2>{car.name}</h2>
+          <p>{car.description}</p>
+          <Specifications>
+            {car.specs.map((spec, index) => (
+              <SpecRow key={index}>
+                <SpecTitle>{spec.title}:</SpecTitle>
+                <SpecValue>{spec.value}</SpecValue>
+              </SpecRow>
+            ))}
+          </Specifications>
         </CarDescription>
-
       </CarInfo>
       <AdditionalInfo>
         <PriceTable priceRanges={car.priceRanges} deposit="15 000 Kč" />
-
-
-
-        <OrderForm ref={form} onSubmit={sendEmail}>
-            
-          <Input type="hidden" name="car_name" value={car.name} />
-          <Input type="text" name="user_name" placeholder="Name*" required />
-          <Input type="email" name="user_email" placeholder="Email*" required />
-          <Input type="text" name="user_phone" placeholder="Phone*" required />
-          <TextArea name="message" placeholder="Message*" required />
-          <Button type="submit">Order Now</Button>
-        </OrderForm>
+        {/* Pass form and sendEmail to OrderFormComponent */}
+        <OrderForm formRef={form} sendEmail={sendEmail} carName={car.name} />
       </AdditionalInfo>
     </DetailContainer>
   );
 };
 
-// Styled components
-const Deposit = styled.div`
-  font-size: 1.2em;
-  margin-bottom: 20px;
-  padding: 12px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-`;
 // Styled components
 const DetailContainer = styled.div`
   padding: 20px;
@@ -188,47 +179,6 @@ const AdditionalInfo = styled.div`
   }
 `;
 
-
-
-const OrderForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 500px;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-const Input = styled.input`
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-`;
-
-const TextArea = styled.textarea`
-  resize: none;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  overflow: auto;
-`;
-
-const Button = styled.button`
-  padding: 12px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #555;
-  }
-`;
 // Styled components
 const Specifications = styled.div`
   margin-top: 20px;
