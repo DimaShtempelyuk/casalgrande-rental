@@ -7,30 +7,30 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 const CarCard = ({ id, name, images, description }) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(`/car/${id}`); 
+  const handleNavigate = () => {
+    navigate(`/car/${id}`);
   };
 
   return (
-    <Card onClick={handleClick}>
-      <ImageCarousel 
-  showThumbs={false} 
-  showStatus={false} 
-  autoPlay 
-  interval={5000} 
-  infiniteLoop 
-  transitionTime={1000} // Sets the transition duration to 1 second (1000 ms)
->
-  {images.map((image, index) => (
-    <div key={index}>
-      <img src={image} alt={`Car ${index + 1}`} />
-    </div>
-  ))}
-</ImageCarousel>
-
-
-      <Title>{name}</Title>
-      <Description>{description}</Description>
+    <Card>
+      <ImageCarousel
+        showThumbs={false}
+        showStatus={false}
+        autoPlay
+        interval={3000}
+        infiniteLoop
+        transitionTime={1000}
+      >
+        {images.map((image, index) => (
+          <div key={index} onClick={handleNavigate} role="button" style={{ cursor: 'pointer' }}>
+            <img src={image} alt={`Car ${index + 1}`} />
+          </div>
+        ))}
+      </ImageCarousel>
+      <CardContent onClick={handleNavigate}>
+        <Title>{name}</Title>
+        <Description>{description}</Description>
+      </CardContent>
     </Card>
   );
 };
@@ -39,8 +39,7 @@ const CarCard = ({ id, name, images, description }) => {
 const Card = styled.div`
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 32px;
-  cursor: pointer;
+  overflow: hidden;
   max-width: 750px;
   text-align: center;
   margin: 20px;
@@ -52,7 +51,6 @@ const Card = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 20px;
     max-width: 100%;
     margin: 10px;
   }
@@ -62,17 +60,59 @@ const ImageCarousel = styled(Carousel)`
   .carousel .slide img {
     border-radius: 8px;
     width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;
+  }
 
-    @media (max-width: 768px) {
-      height: 200px;
+  .carousel .control-arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .carousel .control-prev.control-arrow {
+    left: 10px;
+    border: 2px solid #ffcc00;
+  }
+
+  .carousel .control-next.control-arrow {
+    right: 10px;
+    border: 2px solid #ffcc00;
+  }
+
+  .carousel .control-arrow:hover {
+    background-color: rgba(255, 204, 0, 0.7);
+    border: 2px solid #ffcc00;
+  }
+
+  .carousel .control-arrow:before {
+    font-size: 2em;
+    color: white;
+    
+  }
+
+  @media (max-width: 768px) {
+    .carousel .slide img {
+      height: 250px;
+    }
+    .carousel .control-arrow {
+      width: 40px;
+      height: 40px;
     }
   }
 `;
 
+const CardContent = styled.div`
+  padding: 16px;
+  cursor: pointer;
+`;
+
 const Title = styled.h3`
-  margin: 24px 0 12px;
+  margin: 12px 0;
   font-size: 1.8em;
 
   @media (max-width: 768px) {
@@ -88,6 +128,5 @@ const Description = styled.p`
     font-size: 1em;
   }
 `;
-
 
 export default CarCard;

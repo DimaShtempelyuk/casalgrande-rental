@@ -1,10 +1,54 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { FaInstagram } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import LanguageDropdown from './LanguageDropdown.js';
 
 const IconsContainer = ({ viewportWidth }) => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    // Start the wiggle animation
+    controls.start({
+      rotate: [0, 8, -7, 10, -6, 0],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: 'mirror',
+        ease: 'easeInOut',
+      },
+    });
+  }, [controls]);
+
+  const handleMouseEnter = () => {
+    // On hover, perform a 360° rotation and scale up
+    controls.start({
+      rotate: 360,
+      scale: 1.2,
+      transition: { duration: 0.7, ease: 'easeOut' },
+    });
+  };
+
+  const handleMouseLeave = () => {
+    // After hover, reset to initial state and resume wiggle
+    controls.start({
+      rotate: 0,
+      scale: 1,
+      transition: { duration: 1.2, ease: 'easeOut' },
+    }).then(() => {
+      // Resume wiggle animation
+      controls.start({
+        rotate: [0, 8, -7, 10, -6, 0],
+        transition: {
+          duration: 2,
+          repeat: Infinity,
+          repeatType: 'mirror',
+          ease: 'easeInOut',
+        },
+      });
+    });
+  };
+
   return (
     <Container>
       <LanguageDropdown />
@@ -12,27 +56,9 @@ const IconsContainer = ({ viewportWidth }) => {
         href="https://www.instagram.com/casalgranderental/"
         target="_blank"
         rel="noopener noreferrer"
-        initial={{
-          scale: 1,
-          rotate: 0,
-        }}
-        animate={{
-          rotate: [0, 8, -7, 10, -6, 0], // Wiggle effect
-          transition: {
-            duration: 2,
-            repeat: Infinity,
-            repeatType: "mirror",
-            ease: "easeInOut",
-          },
-        }}
-        whileHover={{
-          scale: 1.2,
-          rotate: 360, // Full rotation on hover
-        }}
-        transition={{
-          duration: 0.9,
-          ease: "easeOut",
-        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        animate={controls}
       >
         <FaInstagram size={80} />
       </StickyInstagram>
@@ -46,7 +72,6 @@ const Container = styled.div`
   gap: 15px;
 `;
 
-// Styled component for the sticky Instagram icon
 const StickyInstagram = styled(motion.a)`
   position: fixed;
   bottom: 8dvh;
