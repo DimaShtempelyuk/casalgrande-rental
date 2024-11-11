@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
-import { FaBars } from 'react-icons/fa'; // For hamburger icon
+import { FaBars, FaInstagram } from 'react-icons/fa';
+import logo from '../assets/images/casalgrande_logo.png';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [language, setLanguage] = useState('CZ'); // Default language
 
   const handleMenuToggle = () => {
     if (isMobile) {
@@ -14,7 +16,11 @@ const Header = () => {
     }
   };
 
-  // Check screen size on resize
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+    // Add additional logic here if you want to change the app language
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -30,6 +36,12 @@ const Header = () => {
           <FaBars size={30} />
         </BurgerMenuButton>
       )}
+
+      <LogoContainer>
+        <Logo src={logo} alt="Casagrande Furgon Rental" />
+        {!isMobile && <BrandLink to="/">Casagrande Furgon Rental</BrandLink>}
+      </LogoContainer>
+
       {isMobile ? (
         <Menu 
           left
@@ -38,21 +50,38 @@ const Header = () => {
           styles={menuStyles}
           customBurgerIcon={false}
         >
-          <MenuLink to="/">Casagrande Furgon Rental</MenuLink>
           <MenuLink to="/">Naše vozy</MenuLink>
           <MenuLink to="/services">Naše služby</MenuLink>
           <MenuLink to="/contact">Kontaktuj nás</MenuLink>
         </Menu>
       ) : (
         <NavLinks>
-          <MenuLink to="/">Casagrande Furgon Rental</MenuLink>
           <MenuLink to="/">Naše vozy</MenuLink>
           <MenuLink to="/services">Naše služby</MenuLink>
           <MenuLink to="/contact">Kontaktuj nás</MenuLink>
         </NavLinks>
       )}
-      
-      <PhoneNumber href="tel:+420724239319">+420 704 057 272</PhoneNumber>
+
+      <IconsContainer>
+        <PhoneNumber href="tel:+420704057272">+420 704 057 272</PhoneNumber>
+        <InstagramLink href="https://www.instagram.com/casalgranderental/" target="_blank" rel="noopener noreferrer">
+          <FaInstagram size={24} />
+        </InstagramLink>
+        <LanguageSwitcher>
+          <LanguageOption
+            isActive={language === 'CZ'}
+            onClick={() => handleLanguageChange('CZ')}
+          >
+            CZ
+          </LanguageOption>
+          <LanguageOption
+            isActive={language === 'EN'}
+            onClick={() => handleLanguageChange('EN')}
+          >
+            EN
+          </LanguageOption>
+        </LanguageSwitcher>
+      </IconsContainer>
     </HeaderContainer>
   );
 };
@@ -72,43 +101,87 @@ const HeaderContainer = styled.header`
   z-index: 1000;
 `;
 
+const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const Logo = styled.img`
+  height: 95px;
+  width: auto;
+`;
+
+const BrandLink = styled(Link)`
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+`;
+
 const PhoneNumber = styled.a`
   font-size: 1.8em;
   color: #ffcc00;
   text-decoration: none;
-  animation: pulse 1.5s infinite;
   font-weight: bold;
-  margin-right: 25dvw;
+  padding-right: 1dvw;
+  animation: pulse 1.5s infinite;
 
   &:hover {
     text-decoration: underline;
   }
 
   @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
   }
 
   @media (max-width: 768px) {
-    font-size: 1.5em;
+    font-size: 1em;
+  }
+`;
+
+const IconsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+`;
+
+const InstagramLink = styled.a`
+  color: #fff;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #ffcc00;
+  }
+`;
+
+const LanguageSwitcher = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+`;
+
+const LanguageOption = styled.div`
+  cursor: pointer;
+  font-size: 1em;
+  color: ${(props) => (props.isActive ? '#ffcc00' : '#fff')};
+  font-weight: ${(props) => (props.isActive ? 'bold' : 'normal')};
+
+  &:hover {
+    color: #ffcc00;
   }
 `;
 
 const BurgerMenuButton = styled.div`
   cursor: pointer;
   z-index: 1001;
-  padding-left: 5dvw;
-  display: block;
+  padding-right: 10px;
 
   @media (min-width: 769px) {
-    display: none; /* Hide burger menu button on larger screens */
+    display: none;
   }
 `;
 
@@ -119,7 +192,6 @@ const NavLinks = styled.nav`
 
 const MenuLink = styled(Link)`
   display: block;
-  margin: 10px 0;
   text-decoration: none;
   font-size: 1.5em;
   color: #fff;
