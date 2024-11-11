@@ -34,8 +34,24 @@ const CarDetailPage = () => {
     emailjs
       .send('service_iggsweb', 'template_eah3lbr', formData, 'HuUqQRhtUZI0Fj6-O')
       .then(
-        () => Swal.fire({ icon: 'success', title: 'Poptávka odeslána!', text: 'Vaše objednávka byla úspěšně odeslána.' }),
-        () => Swal.fire({ icon: 'error', title: 'Chyba', text: 'Zkuste později.' })
+        (result) => {
+          console.log(result.text);
+          Swal.fire({
+            icon: 'success',
+            title: 'Poptávka odeslána!',
+            text: 'Vaše objednávka byla úspěšně odeslána. Brzy Vás budeme kontaktovat!',
+            confirmButtonColor: '#3085d6',
+          });
+        },
+        (error) => {
+          console.log(error.text);
+          Swal.fire({
+            icon: 'error',
+            title: 'No to teda...',
+            text: 'Chyba. Zkuste později.',
+            confirmButtonColor: '#d33',
+          });
+        }
       );
   };
 
