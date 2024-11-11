@@ -48,6 +48,22 @@ export const cars = [
       Renault2_4
     ],
     description: 'Univerzální plochý nákladní vůz vhodný pro přepravu stavebních materiálů a objemného nákladu.\n\n Vhodné pro 6 osob',
+    //temp description of a second car
+    specs: [
+      { title: 'Druh vozidla', value: 'Nákladní automobil – nosič kontejneru' },
+      { title: 'Počet míst', value: '6' },
+      { title: 'Celková délka vozidla', value: '6404 mm (ložná plocha kontejneru 3240 mm)' },
+      { title: 'Celková šířka vozidla', value: '1974 mm (ložná plocha kontejneru 1920 mm)' },
+      { title: 'Celková výška vozidla', value: '2623 mm (ložná plocha kontejneru 420 mm)' },
+      { title: 'Provozní hmotnost', value: '2358 kg' },
+      { title: 'Užitečná hmotnost', value: '1142 kg' },
+      { title: 'Celková hmotnost', value: '3500 kg' },
+      { title: 'Tažné zařízení', value: 'Nebrzděného 750 kg / brzděného 2800 kg' },
+      { title: 'Palivo', value: 'nafta' },
+      { title: 'Klimatizace', value: 'ANO' },
+      { title: 'Vzduchové vaky', value: 'ANO' },
+      { title: 'Poznámka', value: 'Velikost ložné plochy dle typu kontejneru' },
+    ],
     priceRanges: [
       { description: '1 – 4 hodiny', withoutTax: '1 200,00 Kč', withTax: '1 452,00 Kč' },
       { description: '1 – 15 dní / 1 den', withoutTax: '2 890,00 Kč', withTax: '3 497,00 Kč' },
