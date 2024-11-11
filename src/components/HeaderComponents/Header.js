@@ -5,42 +5,42 @@ import { slide as BurgerMenu } from 'react-burger-menu';
 import LogoSection from './HeaderSubComponents/LogoSection';
 import NavLinks from './HeaderSubComponents/Navigation';
 import IconsContainer from './HeaderSubComponents/IconsContainer';
+import LanguageDropdown from './HeaderSubComponents/LanguageDropdown';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   const handleMenuToggle = () => {
-    if (isMobile) setIsOpen(!isOpen);
+    if (viewportWidth < 1280) setIsOpen(!isOpen);
   };
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => setViewportWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
     <HeaderContainer>
-      {isMobile && (
+      {(viewportWidth < 1280) && (
         <BurgerMenuButton onClick={handleMenuToggle}>
           <FaBars size={30} />
         </BurgerMenuButton>
       )}
-      <LogoSection isMobile={isMobile} />
-      {isMobile ? (
-        <BurgerMenu
-          left
-          isOpen={isOpen}
-          onStateChange={({ isOpen }) => setIsOpen(isOpen)}
-          styles={menuStyles}
-          customBurgerIcon={false}
-        >
-          <NavLinks isMobile />
-        </BurgerMenu>
-      ) : (
-        <NavLinks />
+      
+      <LogoSection isMobile={viewportWidth < 768} showName={viewportWidth >= 768} />
+      
+      {viewportWidth >= 1280 && <NavLinks />} {/* Centered links for desktop */}
+
+      {(viewportWidth < 1280) && (
+        <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
       )}
+
+      {viewportWidth >= 1280 && (
+        <DesktopPhoneNumber href="tel:+420704057272">+420 704 057 272</DesktopPhoneNumber>
+      )}
+
       <IconsContainer />
     </HeaderContainer>
   );
@@ -64,9 +64,38 @@ const BurgerMenuButton = styled.div`
   cursor: pointer;
   z-index: 1001;
   padding-right: 10px;
-  @media (min-width: 769px) {
+
+  @media (min-width: 1280px) {
     display: none;
   }
+`;
+
+const PulsingPhoneNumber = styled.a`
+  font-size: 1.8em;
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  animation: pulse 1.5s infinite;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
+`;
+
+const DesktopPhoneNumber = styled(PulsingPhoneNumber)`
+  margin-left: auto;
+  padding-right: 1dvw;
 `;
 
 const menuStyles = {

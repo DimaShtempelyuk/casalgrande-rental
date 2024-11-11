@@ -1,33 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaInstagram } from 'react-icons/fa';
+import LanguageDropdown from './LanguageDropdown.js';
 
-const IconsContainer = () => {
-  const [language, setLanguage] = useState('CZ');
-
-  const handleLanguageChange = (lang) => setLanguage(lang);
-
+const IconsContainer = ({ viewportWidth }) => {
   return (
     <Container>
-      <PhoneNumber href="tel:+420704057272">+420 704 057 272</PhoneNumber>
-      <InstagramLink href="https://www.instagram.com/casalgranderental/" target="_blank" rel="noopener noreferrer">
-        <FaInstagram size={24} />
-      </InstagramLink>
-      <LanguageSwitcher>
-        <LanguageOption
-          isActive={language === 'CZ'}
-          onClick={() => handleLanguageChange('CZ')}
-        >
-          CZ
-        </LanguageOption>
-        <LanguageOption
-          isActive={language === 'EN'}
-          onClick={() => handleLanguageChange('EN')}
-        >
-          EN
-        </LanguageOption>
-      </LanguageSwitcher>
+      <LanguageDropdown />
+      <StickyInstagram><FaInstagram></FaInstagram></StickyInstagram>
     </Container>
+    
   );
 };
 
@@ -37,53 +19,20 @@ const Container = styled.div`
   gap: 15px;
 `;
 
-const PhoneNumber = styled.a`
-  font-size: 1.8em;
-  color: #ffcc00;
-  text-decoration: none;
-  font-weight: bold;
-  padding-right: 1dvw;
-  animation: pulse 1.5s infinite;
 
+const StickyInstagram = styled.a`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  z-index: 1000;
   &:hover {
-    text-decoration: underline;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1em;
-  }
-`;
-
-const InstagramLink = styled.a`
-  color: #fff;
-  transition: color 0.3s;
-
-  &:hover {
-    color: #ffcc00;
-  }
-`;
-
-const LanguageSwitcher = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: 10px;
-`;
-
-const LanguageOption = styled.div`
-  cursor: pointer;
-  font-size: 1em;
-  color: ${(props) => (props.isActive ? '#ffcc00' : '#fff')};
-  font-weight: ${(props) => (props.isActive ? 'bold' : 'normal')};
-
-  &:hover {
-    color: #ffcc00;
+    transform: scale(1.1);
   }
 `;
 
