@@ -15,7 +15,7 @@ const CarDetailPage = () => {
   const car = cars.find((car) => car.id === parseInt(id)); // Find the car data by ID
 
   const form = React.useRef();
-  
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -62,48 +62,39 @@ const CarDetailPage = () => {
           </Carousel>
         </ImageCarousel>
         <CarDescription>
-  <h2>{car.name}</h2>
-  <p>{car.description}</p>
-  <Specifications>
-    {car.specs.map((spec, index) => (
-      <SpecRow key={index}>
-        <SpecTitle>{spec.title}:</SpecTitle>
-        <SpecValue>{spec.value}</SpecValue>
-      </SpecRow>
-    ))}
-  </Specifications>
+          <h2>{car.name}</h2>
+          <p>{car.description}</p>
+          <Specifications>
+            {car.specs.map((spec, index) => (
+              <SpecRow key={index}>
+                <SpecTitle>{spec.title}:</SpecTitle>
+                <SpecValue>{spec.value}</SpecValue>
+              </SpecRow>
+            ))}
+          </Specifications>
         </CarDescription>
-
       </CarInfo>
       <AdditionalInfo>
         <PriceTable priceRanges={car.priceRanges} deposit="15 000 Kč" />
-
-
-
         <OrderForm ref={form} onSubmit={sendEmail}>
-            
-          <Input type="hidden" name="car_name" value={car.name} />
-          <Input type="text" name="user_name" placeholder="Name*" required />
-          <Input type="email" name="user_email" placeholder="Email*" required />
-          <Input type="text" name="user_phone" placeholder="Phone*" required />
-          <TextArea name="message" placeholder="Message*" required />
-          <Button type="submit">Order Now</Button>
+          {/* Form fields here */}
         </OrderForm>
       </AdditionalInfo>
+      
+      <GDPRContainer>
+        <GDPRCheckbox type="checkbox" required />
+        <GDPRLabel>
+          Uděluji souhlas s poskytnutím a zpracováním osobních údajů
+        </GDPRLabel>
+      </GDPRContainer>
+
+      <SubmitButton type="submit" form="orderForm">
+        ODESLAT POPTÁVKU
+      </SubmitButton>
     </DetailContainer>
   );
 };
 
-// Styled components
-const Deposit = styled.div`
-  font-size: 1.2em;
-  margin-bottom: 20px;
-  padding: 12px;
-  background-color: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-`;
 // Styled components
 const DetailContainer = styled.div`
   padding: 20px;
@@ -189,34 +180,39 @@ const AdditionalInfo = styled.div`
   }
 `;
 
-
-
-const Input = styled.input`
+const GDPRContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #f9f9f9;
   padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 4px;
 `;
 
-const TextArea = styled.textarea`
-  resize: none;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  overflow: auto;
+const GDPRCheckbox = styled.input`
+  margin-right: 10px;
 `;
 
-const Button = styled.button`
-  padding: 12px;
-  background-color: #333;
-  color: white;
+const GDPRLabel = styled.label`
+  font-size: 14px;
+  color: #555;
+`;
+
+const SubmitButton = styled.button`
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ff6a00;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
+  margin-top: 15px;
 
   &:hover {
-    background-color: #555;
+    background-color: #e65c00;
   }
 `;
 // Styled components
