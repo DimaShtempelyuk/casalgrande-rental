@@ -19,18 +19,22 @@ const CarDetailPage = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+  
+    const rentalDateString = rentalDate ? rentalDate.toLocaleDateString('en-GB') : '';
+    const returnDateString = returnDate ? returnDate.toLocaleDateString('en-GB') : '';
+  
     const formData = {
       car_name: car ? car.name : '',
       user_name: e.target.user_name.value,
       user_email: e.target.user_email.value,
       user_phone: e.target.user_phone.value,
       user_id: e.target.user_id.value,
-      rental_date: rentalDate ? rentalDate.toLocaleDateString('en-GB') : '',
-      return_date: returnDate ? returnDate.toLocaleDateString('en-GB') : '',
+      rental_date: rentalDateString,
+      return_date: returnDateString,
       abroad_trip: e.target.abroad_trip.value,
       message: e.target.message.value,
     };
-
+  
     emailjs
       .send('service_iggsweb', 'template_eah3lbr', formData, 'HuUqQRhtUZI0Fj6-O')
       .then(
@@ -54,6 +58,7 @@ const CarDetailPage = () => {
         }
       );
   };
+  
 
   if (!car) return <p>Car not found.</p>;
 

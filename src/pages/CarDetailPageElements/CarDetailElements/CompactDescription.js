@@ -19,7 +19,11 @@ const CompactDescription = ({ car }) => {
     config: { tension: 250, friction: 20 },
   });
 
-  const icons = [<FaTruck />, <FaUserFriends />, <FaWeightHanging />];
+  const icons = [
+    <YellowIcon as={FaTruck} />,
+    <YellowIcon as={FaUserFriends} />,
+    <YellowIcon as={FaWeightHanging} />
+  ];
 
   return (
     <DescriptionContainer>
@@ -91,11 +95,17 @@ const SpecItem = styled.div`
 `;
 
 const IconContainer = styled.div`
-  color: #3085d6;
-  font-size: 1.8em;
   margin-right: 10px;
   display: flex;
   align-items: center;
+`;
+
+const YellowIcon = styled.div`
+  color: black; /* Yellow color */
+  font-size: 1.8em;
+  border: 2px solid black; /* Black border */
+  border-radius: 50%; /* Circular border */
+  padding: 4px; /* Padding inside border */
 `;
 
 const SpecContent = styled.div`
