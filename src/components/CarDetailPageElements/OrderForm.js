@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
 import { FaCalendarAlt } from 'react-icons/fa';
 
-const OrderFormComponent = ({ formRef, sendEmail, carName }) => {
+const OrderFormComponent = ({ carName }) => {
+  const formRef = useRef();
   const [rentalDate, setRentalDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
   const [isIcoSelected, setIsIcoSelected] = useState(true);
@@ -22,6 +25,55 @@ const OrderFormComponent = ({ formRef, sendEmail, carName }) => {
     if (/^\d{0,8}$/.test(value)) {
       setIcoValue(value);
     }
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    const rentalDateFormatted = rentalDate
+      ? rentalDate.toLocaleDateString('cs-CZ')
+      : 'N/A';
+    const returnDateFormatted = returnDate
+      ? returnDate.toLocaleDateString('cs-CZ')
+      : 'N/A';
+
+    const formData = {
+      car_name: carName,
+      user_name: e.target.user_name.value,
+      user_email: e.target.user_email.value,
+      user_phone: e.target.user_phone.value,
+      user_id: isIcoSelected ? icoValue : dateOfBirth?.toLocaleDateString('cs-CZ'),
+      rental_date: rentalDateFormatted,
+      return_date: returnDateFormatted,
+      abroad_trip: e.target.abroad_trip.value,
+      message: e.target.message.value,
+    };
+
+    emailjs
+      .send(
+        'service_iggsweb', // Replace with your EmailJS service ID
+        'template_eah3lbr', // Replace with your EmailJS template ID
+        formData,
+        'HuUqQRhtUZI0Fj6-O' // Replace with your EmailJS public key
+      )
+      .then(
+        () => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Poptávka odeslána!',
+            text: 'Vaše objednávka byla úspěšně odeslána. Brzy Vás budeme kontaktovat!',
+            confirmButtonColor: '#3085d6',
+          });
+        },
+        () => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Chyba!',
+            text: 'Nepodařilo se odeslat poptávku. Kontaktujte nás na +420 704 057 272.',
+            confirmButtonColor: '#d33',
+          });
+        }
+      );
   };
 
   return (
@@ -57,18 +109,18 @@ const OrderFormComponent = ({ formRef, sendEmail, carName }) => {
       ) : (
         <DateContainer>
           <DatePicker
-  selected={dateOfBirth}
-  onChange={(date) => setDateOfBirth(date)}
-  dateFormat="dd/MM/yyyy"
-  placeholderText="DD/MM/YYYY"
-  name="user_id"
-  required
-  customInput={<CustomInput />}
-  showYearDropdown
-  scrollableYearDropdown
-  yearDropdownItemNumber={100} // Shows 100 years in dropdown
-  maxDate={new Date()} // Today's date
-/>
+            selected={dateOfBirth}
+            onChange={(date) => setDateOfBirth(date)}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="DD/MM/YYYY"
+            name="user_id"
+            required
+            customInput={<CustomInput />}
+            showYearDropdown
+            scrollableYearDropdown
+            yearDropdownItemNumber={100} // Shows 100 years in dropdown
+            maxDate={new Date()} // Today's date
+          />
 
           <CalendarIcon />
         </DateContainer>
@@ -135,7 +187,7 @@ const OrderForm = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-  max-width: 800px;
+  max-width: 60dvw;
   min-width: 520px;
   margin: 0 auto;
   padding: 20px;
