@@ -30,6 +30,7 @@ const CarDetailPage = () => {
           <OrderForm carName={car.name} />
         </AdditionalInfo>
       </ContentContainer>
+
     </DetailContainer>
   );
 };
@@ -73,5 +74,6 @@ const ContentContainer = styled.div`
 const AdditionalInfo = styled.div`
   margin-top: 20px;
 `;
+
 
 export default CarDetailPage;
