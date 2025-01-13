@@ -1,33 +1,89 @@
 {
-    "ourservices": "Unsere Dienstleistungen",
-    "cars": {
-      "renaultMascottSingle": {
-        "name": "Renault Mascott 150.65",
-        "description": "Schwerlast-Lkw, ideal für den Transport von schweren Materialien und industrielle Anwendungen.\n\nGeeignet für 3 Personen.",
-        "specs": {
-          "vehicleType": "Lkw – Containerträger",
-          "seatingCapacity": "2 – 3",
-          "payload": "1142 kg",
-          "totalLength": "6404 mm (Containerplattform 3240 mm)",
-          "totalWidth": "1974 mm (Containerplattform 1920 mm)",
-          "totalHeight": "2623 mm (Containerplattform 420 mm)",
-          "operatingWeight": "2358 kg",
-          "grossWeight": "3500 kg",
-          "towingCapacity": "Ungebremst 750 kg / gebremst 2800 kg",
-          "fuel": "Diesel",
-          "airConditioning": "JA",
-          "airbags": "JA",
-          "note": "Die Größe der Ladefläche hängt vom Containertyp ab"
+  "ourservices": "Unsere Dienstleistungen",
+  "cars": {
+    "renaultMascottSingle": {
+      "name": "Renault Mascott 150.65",
+      "description": "Schwerlast-Lkw, ideal für den Transport schwerer Materialien und den industriellen Einsatz.\n\nGeeignet für 3 Personen.",
+      "specs": {
+        "vehicleType": {
+          "label": "Fahrzeugtyp",
+          "value": "Lkw – Containerträger"
         },
-        "priceRanges": {
-          "shortTerm": "1 – 4 Stunden",
-          "daily": "1 – 15 Tage / 1 Tag",
-          "mediumTerm": "15 – 30 Tage / 1 Tag",
-          "longTerm": "Langzeitmiete über 30 Tage (max. 10.000 km)",
-          "weekend": "Wochenende (Fr 14:00 bis Mo 9:00)",
-          "extraMileage": "Über 600 km pro 24 Stunden"
+        "seatingCapacity": {
+          "label": "Sitzkapazität",
+          "value": "2 – 3"
+        },
+        "payload": {
+          "label": "Nutzlast",
+          "value": "1142 kg"
+        },
+        "totalLength": {
+          "label": "Gesamtlänge",
+          "value": "6404 mm (Containerplattform 3240 mm)"
+        },
+        "totalWidth": {
+          "label": "Gesamtbreite",
+          "value": "1974 mm (Containerplattform 1920 mm)"
+        },
+        "totalHeight": {
+          "label": "Gesamthöhe",
+          "value": "2623 mm (Containerplattform 420 mm)"
+        },
+        "operatingWeight": {
+          "label": "Betriebsgewicht",
+          "value": "2358 kg"
+        },
+        "grossWeight": {
+          "label": "Gesamtgewicht",
+          "value": "3500 kg"
+        },
+        "towingCapacity": {
+          "label": "Zugkapazität",
+          "value": "Ungebremst 750 kg / gebremst 2800 kg"
+        },
+        "fuel": {
+          "label": "Kraftstoff",
+          "value": "Diesel"
+        },
+        "airConditioning": {
+          "label": "Klimaanlage",
+          "value": "JA"
+        },
+        "airbags": {
+          "label": "Airbags",
+          "value": "JA"
+        },
+        "note": {
+          "label": "Hinweis",
+          "value": "Die Ladebereichsgröße hängt vom Containertyp ab"
+        }
+      },
+      "priceRanges": {
+        "shortTerm": {
+          "label": "Kurzzeitmiete",
+          "value": "1 – 4 Stunden"
+        },
+        "daily": {
+          "label": "Tagesmiete",
+          "value": "1 – 15 Tage / 1 Tag"
+        },
+        "mediumTerm": {
+          "label": "Mittelfristmiete",
+          "value": "15 – 30 Tage / 1 Tag"
+        },
+        "longTerm": {
+          "label": "Langzeitmiete",
+          "value": "Langzeitmiete über 30 Tage (max. 10.000 km)"
+        },
+        "weekend": {
+          "label": "Wochenende",
+          "value": "Wochenende (Fr 14:00 bis Mo 09:00)"
+        },
+        "extraMileage": {
+          "label": "Zusätzliche Kilometer",
+          "value": "Über 600 km pro 24 Stunden"
         }
       }
     }
   }
-  
+}

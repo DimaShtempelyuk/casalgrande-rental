@@ -1,30 +1,52 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 const PriceTable = ({ priceRanges }) => {
+  const { t } = useTranslation();
+
   return (
     <TableWrapper>
-      <Deposit>Kauce (Deposit): 15 000 Kč</Deposit>
+      <Deposit>{t('deposit')}: 15 000 Kč</Deposit>
       <StyledTable>
-        <div className="header">Rental Duration</div>
-        <div className="header">Cena bez DPH</div>
-        <div className="header">Cena s DPH</div>
+        <div className="header">{t('rentalDuration')}</div>
+        <div className="header">{t('priceWithoutTax')}</div>
+        <div className="header">{t('priceWithTax')}</div>
         {priceRanges.map((price, index) => (
           <React.Fragment key={index}>
-            <div className={`cell ${price.description.includes('15 – 30 dní') ? 'highlight' : ''}`}>
-              {price.description}
+            <div
+              className={`cell ${
+                t(`cars.renaultMascottSingle.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
+              }`}
+            >
+              <strong>{t(`cars.renaultMascottSingle.priceRanges.${price.name}.label`)}</strong>
+              <br />
+              {t(`cars.renaultMascottSingle.priceRanges.${price.name}.value`)}
             </div>
-            <div className={`cell ${price.description.includes('15 – 30 dní') ? 'highlight' : ''}`}>
-              {price.withoutTax}
+            <div
+              className={`cell ${
+                t(`cars.renaultMascottSingle.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
+              }`}
+            >
+              <strong style={{  fontWeight: 'bold' }}>
+                {price.withoutTax}
+              </strong>
             </div>
-            <div className={`cell ${price.description.includes('15 – 30 dní') ? 'highlight' : ''}`}>
-              {price.withTax}
+            <div
+              className={`cell ${
+                t(`cars.renaultMascottSingle.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
+              }`}
+            >
+              <strong style={{  fontWeight: 'bold' }}>
+                {price.withTax}
+              </strong>
             </div>
           </React.Fragment>
         ))}
       </StyledTable>
     </TableWrapper>
   );
+  
 };
 
 // Styled components for the table
@@ -70,7 +92,7 @@ const StyledTable = styled.div`
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: rgba(255, 204, 0, 0.50);
+      background-color: rgba(255, 204, 0, 0.5);
     }
   }
 

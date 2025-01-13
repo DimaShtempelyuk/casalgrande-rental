@@ -35,8 +35,8 @@ const CompactDescription = ({ car }) => {
           <SpecItem key={index}>
             <IconContainer>{icons[index]}</IconContainer>
             <SpecContent>
-              <SpecTitle>{t(spec.title)}:</SpecTitle>
-              <SpecValue>{t(spec.value)}</SpecValue>
+              <SpecTitle>{t(`cars.renaultMascottSingle.specs.${spec.name}.label`)}:</SpecTitle>
+              <SpecValue>{t(`cars.renaultMascottSingle.specs.${spec.name}.value`)}</SpecValue>
             </SpecContent>
           </SpecItem>
         ))}
@@ -50,8 +50,8 @@ const CompactDescription = ({ car }) => {
             <tbody>
               {car.specs.slice(3).map((spec, index) => (
                 <TableRow key={index}>
-                  <TableCellTitle>{t(spec.title)}</TableCellTitle>
-                  <TableCellValue>{t(spec.value)}</TableCellValue>
+                  <TableCellTitle>{t(`cars.renaultMascottSingle.specs.${spec.name}.label`)}</TableCellTitle>
+                  <TableCellValue>{t(`cars.renaultMascottSingle.specs.${spec.name}.value`)}</TableCellValue>
                 </TableRow>
               ))}
             </tbody>

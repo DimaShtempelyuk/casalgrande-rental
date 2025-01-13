@@ -1,33 +1,173 @@
 {
-    "ourservices": "Naše služby",
-    "cars": {
-      "renaultMascottSingle": {
-        "name": "Renault Mascott 150.65",
-        "description": "Těžké nákladní vozidlo ideální pro přepravu těžkých materiálů a průmyslové využití.\n\nVhodné pro 3 osoby.",
-        "specs": {
-          "vehicleType": "Nákladní automobil – nosič kontejneru",
-          "seatingCapacity": "2 – 3",
-          "payload": "1142 kg",
-          "totalLength": "6404 mm (ložná plocha kontejneru 3240 mm)",
-          "totalWidth": "1974 mm (ložná plocha kontejneru 1920 mm)",
-          "totalHeight": "2623 mm (ložná plocha kontejneru 420 mm)",
-          "operatingWeight": "2358 kg",
-          "grossWeight": "3500 kg",
-          "towingCapacity": "Nebrzděného 750 kg / brzděného 2800 kg",
-          "fuel": "nafta",
-          "airConditioning": "ANO",
-          "airbags": "ANO",
-          "note": "Velikost ložné plochy závisí na typu kontejneru"
+  "ourservices": "Naše služby",
+  "cars": {
+    "renaultMascottSingle": {
+      "name": "Renault Mascott 150.65",
+      "description": "Těžké nákladní vozidlo ideální pro přepravu těžkých materiálů a průmyslové využití.\n\nVhodné pro 3 osoby.",
+      "specs": {
+        "vehicleType": {
+          "label": "Typ vozidla",
+          "value": "Nákladní automobil – nosič kontejneru"
         },
-        "priceRanges": {
-          "shortTerm": "1 – 4 hodiny",
-          "daily": "1 – 15 dní / 1 den",
-          "mediumTerm": "15 – 30 dní / 1 den",
-          "longTerm": "Dlouhodobý pronájem nad 30 dní (max. 10 000 km)",
-          "weekend": "Víkend (Pá 14:00 až Po 9:00)",
-          "extraMileage": "Nad 600 km za 24 hodin"
+        "seatingCapacity": {
+          "label": "Posádka",
+          "value": "2 – 3"
+        },
+        "payload": {
+          "label": "Nosnost",
+          "value": "1142 kg"
+        },
+        "totalLength": {
+          "label": "Celková délka",
+          "value": "6404 mm (plošina kontejneru 3240 mm)"
+        },
+        "totalWidth": {
+          "label": "Celková šířka",
+          "value": "1974 mm (plošina kontejneru 1920 mm)"
+        },
+        "totalHeight": {
+          "label": "Celková výška",
+          "value": "2623 mm (plošina kontejneru 420 mm)"
+        },
+        "operatingWeight": {
+          "label": "Provozní hmotnost",
+          "value": "2358 kg"
+        },
+        "grossWeight": {
+          "label": "Celková hmotnost",
+          "value": "3500 kg"
+        },
+        "towingCapacity": {
+          "label": "Tažná kapacita",
+          "value": "Bez brzd 750 kg / s brzdami 2800 kg"
+        },
+        "fuel": {
+          "label": "Palivo",
+          "value": "nafta"
+        },
+        "airConditioning": {
+          "label": "Klimatizace",
+          "value": "ANO"
+        },
+        "airbags": {
+          "label": "Airbagy",
+          "value": "ANO"
+        },
+        "note": {
+          "label": "Poznámka",
+          "value": "Velikost ložné plochy závisí na typu kontejneru"
+        }
+      },
+      "priceRanges": {
+        "shortTerm": {
+          "label": "Krátkodobý pronájem",
+          "value": "1 – 4 hodiny"
+        },
+        "daily": {
+          "label": "Denní pronájem",
+          "value": "1 – 15 dní / 1 den"
+        },
+        "mediumTerm": {
+          "label": "Střednědobý pronájem",
+          "value": "15 – 30 dní / 1 den"
+        },
+        "longTerm": {
+          "label": "Dlouhodobý pronájem",
+          "value": "Dlouhodobý pronájem nad 30 dní (max. 10 000 km)"
+        },
+        "weekend": {
+          "label": "Víkend",
+          "value": "Víkend (Pá 14:00 do Po 09:00)"
+        },
+        "extraMileage": {
+          "label": "Dodatečný nájezd",
+          "value": "Více než 600 km za 24 hodin"
+        }
+      }
+    },
+    "renaultMascottDouble": {
+      "name": "Renault Mascott 150.65 Double",
+      "description": "Těžké nákladní vozidlo ideální pro přepravu těžkých materiálů a průmyslové využití.\n\nVhodné pro 6 osob.",
+      "specs": {
+        "vehicleType": {
+          "label": "Typ vozidla",
+          "value": "Nákladní automobil – nosič kontejneru"
+        },
+        "seatingCapacity": {
+          "label": "Posádka",
+          "value": "6"
+        },
+        "payload": {
+          "label": "Nosnost",
+          "value": "1142 kg"
+        },
+        "totalLength": {
+          "label": "Celková délka",
+          "value": "6404 mm (plošina kontejneru 3240 mm)"
+        },
+        "totalWidth": {
+          "label": "Celková šířka",
+          "value": "1974 mm (plošina kontejneru 1920 mm)"
+        },
+        "totalHeight": {
+          "label": "Celková výška",
+          "value": "2623 mm (plošina kontejneru 420 mm)"
+        },
+        "operatingWeight": {
+          "label": "Provozní hmotnost",
+          "value": "2358 kg"
+        },
+        "grossWeight": {
+          "label": "Celková hmotnost",
+          "value": "3500 kg"
+        },
+        "towingCapacity": {
+          "label": "Tažná kapacita",
+          "value": "Bez brzd 750 kg / s brzdami 2800 kg"
+        },
+        "fuel": {
+          "label": "Palivo",
+          "value": "nafta"
+        },
+        "airConditioning": {
+          "label": "Klimatizace",
+          "value": "ANO"
+        },
+        "airbags": {
+          "label": "Airbagy",
+          "value": "ANO"
+        },
+        "note": {
+          "label": "Poznámka",
+          "value": "Velikost ložné plochy závisí na typu kontejneru"
+        }
+      },
+      "priceRanges": {
+        "shortTerm": {
+          "label": "Krátkodobý pronájem",
+          "value": "1 – 4 hodiny"
+        },
+        "daily": {
+          "label": "Denní pronájem",
+          "value": "1 – 15 dní / 1 den"
+        },
+        "mediumTerm": {
+          "label": "Střednědobý pronájem",
+          "value": "15 – 30 dní / 1 den"
+        },
+        "longTerm": {
+          "label": "Dlouhodobý pronájem",
+          "value": "Dlouhodobý pronájem nad 30 dní (max. 10 000 km)"
+        },
+        "weekend": {
+          "label": "Víkend",
+          "value": "Víkend (Pá 14:00 do Po 09:00)"
+        },
+        "extraMileage": {
+          "label": "Dodatečný nájezd",
+          "value": "Více než 600 km za 24 hodin"
         }
       }
     }
   }
-  
+}
