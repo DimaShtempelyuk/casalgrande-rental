@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { FaChevronDown, FaChevronUp, FaTruck, FaUserFriends, FaWeightHanging } from 'react-icons/fa';
 import { useSpring, animated } from 'react-spring';
 import useMeasure from 'react-use-measure';
+import { useTranslation } from 'react-i18next';
 
 const CompactDescription = ({ car }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { t } = useTranslation(); // Use the translation hook
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
   // useMeasure to get the height of the full description
@@ -27,14 +29,14 @@ const CompactDescription = ({ car }) => {
 
   return (
     <DescriptionContainer>
-      <Title>{car.name}</Title>
+      <Title>{t(car.name)}</Title>
       <SpecsList>
         {car.specs.slice(0, 3).map((spec, index) => (
           <SpecItem key={index}>
             <IconContainer>{icons[index]}</IconContainer>
             <SpecContent>
-              <SpecTitle>{spec.title}:</SpecTitle>
-              <SpecValue>{spec.value}</SpecValue>
+              <SpecTitle>{t(spec.title)}:</SpecTitle>
+              <SpecValue>{t(spec.value)}</SpecValue>
             </SpecContent>
           </SpecItem>
         ))}
@@ -43,13 +45,13 @@ const CompactDescription = ({ car }) => {
       {/* Animated section for full description with table layout */}
       <AnimatedFullDescription style={expandAnimation}>
         <div ref={ref}>
-          <DescriptionText>{car.description}</DescriptionText>
+          <DescriptionText>{t(car.description)}</DescriptionText>
           <SpecsTable>
             <tbody>
               {car.specs.slice(3).map((spec, index) => (
                 <TableRow key={index}>
-                  <TableCellTitle>{spec.title}</TableCellTitle>
-                  <TableCellValue>{spec.value}</TableCellValue>
+                  <TableCellTitle>{t(spec.title)}</TableCellTitle>
+                  <TableCellValue>{t(spec.value)}</TableCellValue>
                 </TableRow>
               ))}
             </tbody>

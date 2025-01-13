@@ -9,7 +9,13 @@ const HomePage = () => {
         <Title>Vítejte v Casalgrande</Title>
         <CardContainer>
           {cars.map((car) => (
-            <CarCard key={car.id} id={car.id} name={car.name} images={car.images} description={car.description} />
+            <CarCard
+            key={car.id}
+            id={car.id}
+            name={car.name} // Translation key
+            images={car.images}
+            description={car.description} // Translation key
+          />
           ))}
         </CardContainer>
       </Container>
