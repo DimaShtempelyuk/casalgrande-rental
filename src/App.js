@@ -8,8 +8,10 @@ import Footer from './components/Footer';
 import styled from 'styled-components';
 import * as Sentry from '@sentry/react';
 
+import { useTranslation } from 'react-i18next';
+
 function App() {
-  
+  const { t } = useTranslation();
   return (
     <Sentry.ErrorBoundary
       fallback={<p>An error occurred. Please try again later.</p>}
@@ -23,8 +25,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/car/:id" element={<CarDetailPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            {/* Add a route for the services page */}
-            <Route path="/services" element={<div>Our Services Page (To be implemented)</div>} />
+            <Route path="/services" element={<div>{t('ourservices')} </div>} />
           </Routes>
         </Content>
         <Footer />
