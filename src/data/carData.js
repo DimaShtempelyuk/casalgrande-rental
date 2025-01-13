@@ -43,12 +43,12 @@ export const cars = [
   
   {
     id: 2,
-    name: 'cars.renaultMascottDouble.name', // Still a key for translation
+    name: 'cars.renaultMascottDouble.name', 
     images: [
       Renault2_3,
       Renault2_4,
     ],
-    description: 'cars.renaultMascottDouble.description', // Still a key for translation
+    description: 'cars.renaultMascottDouble.description', 
     specs: [
       { name: 'vehicleType' }, // Only the key is needed
       { name: 'seatingCapacity' },

@@ -2,8 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
-const PriceTable = ({ priceRanges }) => {
+const PriceTable = ({ carId, priceRanges }) => {
   const { t } = useTranslation();
+
+  // Lookup map for translation namespaces
+  const namespaceMap = {
+    1: 'renaultMascottSingle',
+    2: 'renaultMascottDouble',
+    // Add more mappings for new cars
+  };
+
+  const namespace = namespaceMap[carId] || 'unknownCar';
 
   return (
     <TableWrapper>
@@ -16,37 +25,32 @@ const PriceTable = ({ priceRanges }) => {
           <React.Fragment key={index}>
             <div
               className={`cell ${
-                t(`cars.renaultMascottSingle.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
+                t(`cars.${namespace}.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
               }`}
             >
-              <strong>{t(`cars.renaultMascottSingle.priceRanges.${price.name}.label`)}</strong>
+              <strong>{t(`cars.${namespace}.priceRanges.${price.name}.label`)}</strong>
               <br />
-              {t(`cars.renaultMascottSingle.priceRanges.${price.name}.value`)}
+              {t(`cars.${namespace}.priceRanges.${price.name}.value`)}
             </div>
             <div
               className={`cell ${
-                t(`cars.renaultMascottSingle.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
+                t(`cars.${namespace}.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
               }`}
             >
-              <strong style={{  fontWeight: 'bold' }}>
-                {price.withoutTax}
-              </strong>
+              <strong style={{ fontWeight: 'bold' }}>{price.withoutTax}</strong>
             </div>
             <div
               className={`cell ${
-                t(`cars.renaultMascottSingle.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
+                t(`cars.${namespace}.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
               }`}
             >
-              <strong style={{  fontWeight: 'bold' }}>
-                {price.withTax}
-              </strong>
+              <strong style={{ fontWeight: 'bold' }}>{price.withTax}</strong>
             </div>
           </React.Fragment>
         ))}
       </StyledTable>
     </TableWrapper>
   );
-  
 };
 
 // Styled components for the table

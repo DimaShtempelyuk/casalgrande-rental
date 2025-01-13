@@ -7,13 +7,11 @@ import { useTranslation } from 'react-i18next';
 
 const CompactDescription = ({ car }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { t } = useTranslation(); // Use the translation hook
+  const { t } = useTranslation();
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
-  // useMeasure to get the height of the full description
   const [ref, { height: viewHeight }] = useMeasure();
 
-  // Animation for the expand/collapse
   const expandAnimation = useSpring({
     height: isExpanded ? viewHeight : 0,
     opacity: isExpanded ? 1 : 0,
@@ -24,8 +22,16 @@ const CompactDescription = ({ car }) => {
   const icons = [
     <YellowIcon as={FaTruck} />,
     <YellowIcon as={FaUserFriends} />,
-    <YellowIcon as={FaWeightHanging} />
+    <YellowIcon as={FaWeightHanging} />,
   ];
+
+  const namespaceMap = {
+    1: 'renaultMascottSingle',
+    2: 'renaultMascottDouble',
+    // Add more car mappings as needed
+  };
+
+  const namespace = namespaceMap[car.id] || 'unknownCar';
 
   return (
     <DescriptionContainer>
@@ -35,14 +41,13 @@ const CompactDescription = ({ car }) => {
           <SpecItem key={index}>
             <IconContainer>{icons[index]}</IconContainer>
             <SpecContent>
-              <SpecTitle>{t(`cars.renaultMascottSingle.specs.${spec.name}.label`)}:</SpecTitle>
-              <SpecValue>{t(`cars.renaultMascottSingle.specs.${spec.name}.value`)}</SpecValue>
+              <SpecTitle>{t(`cars.${namespace}.specs.${spec.name}.label`)}:</SpecTitle>
+              <SpecValue>{t(`cars.${namespace}.specs.${spec.name}.value`)}</SpecValue>
             </SpecContent>
           </SpecItem>
         ))}
       </SpecsList>
 
-      {/* Animated section for full description with table layout */}
       <AnimatedFullDescription style={expandAnimation}>
         <div ref={ref}>
           <DescriptionText>{t(car.description)}</DescriptionText>
@@ -50,8 +55,8 @@ const CompactDescription = ({ car }) => {
             <tbody>
               {car.specs.slice(3).map((spec, index) => (
                 <TableRow key={index}>
-                  <TableCellTitle>{t(`cars.renaultMascottSingle.specs.${spec.name}.label`)}</TableCellTitle>
-                  <TableCellValue>{t(`cars.renaultMascottSingle.specs.${spec.name}.value`)}</TableCellValue>
+                  <TableCellTitle>{t(`cars.${namespace}.specs.${spec.name}.label`)}</TableCellTitle>
+                  <TableCellValue>{t(`cars.${namespace}.specs.${spec.name}.value`)}</TableCellValue>
                 </TableRow>
               ))}
             </tbody>
