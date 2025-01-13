@@ -3,14 +3,15 @@
   "rentalDuration": "Rental Duration",
   "priceWithoutTax": "Price Without Tax",
   "priceWithTax": "Price With Tax",
+  "deposit": "Deposit",
   "cars": {
     "renaultMascottSingle": {
       "name": "Renault Mascott 150.65",
-      "description": "Heavy-duty truck ideal for transporting heavy materials and industrial use.\n\nSuitable for 3 persons.",
+      "description": "A heavy-duty truck ideal for transporting heavy materials and industrial use.\n\nSuitable for 3 people.",
       "specs": {
         "vehicleType": {
           "label": "Vehicle Type",
-          "value": "Truck – container carrier"
+          "value": "Truck – Container Carrier"
         },
         "seatingCapacity": {
           "label": "Seating Capacity",
@@ -42,11 +43,11 @@
         },
         "towingCapacity": {
           "label": "Towing Capacity",
-          "value": "Unbraked 750 kg / braked 2800 kg"
+          "value": "Without brakes 750 kg / with brakes 2800 kg"
         },
         "fuel": {
           "label": "Fuel",
-          "value": "diesel"
+          "value": "Diesel"
         },
         "airConditioning": {
           "label": "Air Conditioning",
@@ -58,33 +59,117 @@
         },
         "note": {
           "label": "Note",
-          "value": "Loading area size depends on container type"
+          "value": "The size of the loading area depends on the container type"
         }
       },
       "priceRanges": {
         "shortTerm": {
-          "label": "Short Term",
+          "label": "Short-Term Rental",
           "value": "1 – 4 hours"
         },
         "daily": {
-          "label": "Daily",
+          "label": "Daily Rental",
           "value": "1 – 15 days / 1 day"
         },
         "mediumTerm": {
-          "label": "Medium Term",
+          "label": "Medium-Term Rental",
           "value": "15 – 30 days / 1 day"
         },
         "longTerm": {
-          "label": "Long Term",
+          "label": "Long-Term Rental",
           "value": "Long-term rental over 30 days (max. 10,000 km)"
         },
         "weekend": {
           "label": "Weekend",
-          "value": "Weekend (Fri 2 PM to Mon 9 AM)"
+          "value": "Weekend (Fri 14:00 to Mon 09:00)"
         },
         "extraMileage": {
           "label": "Extra Mileage",
-          "value": "Over 600 km per 24 hours"
+          "value": "More than 600 km in 24 hours"
+        }
+      }
+    },
+    "renaultMascottDouble": {
+      "name": "Renault Mascott 150.65 Double",
+      "description": "A heavy-duty truck ideal for transporting heavy materials and industrial use.\n\nSuitable for 6 people.",
+      "specs": {
+        "vehicleType": {
+          "label": "Vehicle Type",
+          "value": "Truck – Container Carrier"
+        },
+        "seatingCapacity": {
+          "label": "Seating Capacity",
+          "value": "6"
+        },
+        "payload": {
+          "label": "Payload",
+          "value": "1142 kg"
+        },
+        "totalLength": {
+          "label": "Total Length",
+          "value": "6404 mm (container platform 3240 mm)"
+        },
+        "totalWidth": {
+          "label": "Total Width",
+          "value": "1974 mm (container platform 1920 mm)"
+        },
+        "totalHeight": {
+          "label": "Total Height",
+          "value": "2623 mm (container platform 420 mm)"
+        },
+        "operatingWeight": {
+          "label": "Operating Weight",
+          "value": "2358 kg"
+        },
+        "grossWeight": {
+          "label": "Gross Weight",
+          "value": "3500 kg"
+        },
+        "towingCapacity": {
+          "label": "Towing Capacity",
+          "value": "Without brakes 750 kg / with brakes 2800 kg"
+        },
+        "fuel": {
+          "label": "Fuel",
+          "value": "Diesel"
+        },
+        "airConditioning": {
+          "label": "Air Conditioning",
+          "value": "YES"
+        },
+        "airbags": {
+          "label": "Airbags",
+          "value": "YES"
+        },
+        "note": {
+          "label": "Note",
+          "value": "The size of the loading area depends on the container type"
+        }
+      },
+      "priceRanges": {
+        "shortTerm": {
+          "label": "Short-Term Rental",
+          "value": "1 – 4 hours"
+        },
+        "daily": {
+          "label": "Daily Rental",
+          "value": "1 – 15 days / 1 day"
+        },
+        "mediumTerm": {
+          "label": "Medium-Term Rental",
+          "value": "15 – 30 days / 1 day"
+        },
+        "longTerm": {
+          "label": "Long-Term Rental",
+          "value": "Long-term rental over 30 days (max. 10,000 km)"
+        },
+        "weekend": {
+          "label": "Weekend",
+          "value": "Weekend (Fri 14:00 to Mon 09:00)"
+        },
+        "extraMileage": {
+          "label": "Extra Mileage",
+          "value": "More than 600 km in 24 hours"
         }
       }
     }

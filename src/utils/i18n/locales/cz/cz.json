@@ -1,5 +1,9 @@
 {
   "ourservices": "Naše služby",
+  "rentalDuration": "Doba pronájmu",
+  "priceWithoutTax": "Cena bez daní",
+  "priceWithTax": "Cena s dani",
+  "deposit": "Záloha",
   "cars": {
     "renaultMascottSingle": {
       "name": "Renault Mascott 150.65",
