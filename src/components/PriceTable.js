@@ -23,27 +23,15 @@ const PriceTable = ({ carId, priceRanges }) => {
         <div className="header">{t('priceWithTax')}</div>
         {priceRanges.map((price, index) => (
           <React.Fragment key={index}>
-            <div
-              className={`cell ${
-                t(`cars.${namespace}.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
-              }`}
-            >
+            <div className={`cell ${price.isHot ? 'highlight' : ''}`}>
               <strong>{t(`cars.${namespace}.priceRanges.${price.name}.label`)}</strong>
               <br />
               {t(`cars.${namespace}.priceRanges.${price.name}.value`)}
             </div>
-            <div
-              className={`cell ${
-                t(`cars.${namespace}.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
-              }`}
-            >
+            <div className={`cell ${price.isHot ? 'highlight' : ''}`}>
               <strong style={{ fontWeight: 'bold' }}>{price.withoutTax}</strong>
             </div>
-            <div
-              className={`cell ${
-                t(`cars.${namespace}.priceRanges.${price.name}.label`).includes('15 – 30 dní') ? 'highlight' : ''
-              }`}
-            >
+            <div className={`cell ${price.isHot ? 'highlight fire-cell' : ''}`}>
               <strong style={{ fontWeight: 'bold' }}>{price.withTax}</strong>
             </div>
           </React.Fragment>
@@ -51,6 +39,7 @@ const PriceTable = ({ carId, priceRanges }) => {
       </StyledTable>
     </TableWrapper>
   );
+  
 };
 
 // Styled components for the table
@@ -101,10 +90,19 @@ const StyledTable = styled.div`
   }
 
   .highlight {
-    background-color: rgba(255, 204, 0, 0.15); /* Soft yellow background for highlighting */
-    border: 2px solid #ffcc00;
+    background-color: rgba(255, 140, 0, 0.15); /* Adjusted to a more orange tone */
+    border: 2px solid rgb(255, 171, 68);
     font-weight: bold;
   }
+    position: relative;
+
+    &::after {
+      content: '🔥';
+      position: absolute;
+      top:30%;
+      left: 29%;
+      font-size: 2em; /* Larger fire emoji */
+    }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -114,5 +112,7 @@ const StyledTable = styled.div`
     }
   }
 `;
+
+
 
 export default PriceTable;

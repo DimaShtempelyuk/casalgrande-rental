@@ -34,7 +34,7 @@ export const cars = [
     priceRanges: [
       { name: 'shortTerm', withoutTax: '1 200,00 Kč', withTax: '1 452,00 Kč' },
       { name: 'daily', withoutTax: '2 890,00 Kč', withTax: '3 497,00 Kč' },
-      { name: 'mediumTerm', withoutTax: '2 360,00 Kč', withTax: '2 856,00 Kč' },
+      { name: 'mediumTerm', withoutTax: '2 360,00 Kč', withTax: '2 856,00 Kč',isHot: true },
       { name: 'longTerm', withoutTax: '42 600,00 Kč', withTax: '51 546,00 Kč', isLargePrice: true },
       { name: 'weekend', withoutTax: '4 900,00 Kč', withTax: '5 929,00 Kč' },
       { name: 'extraMileage', withoutTax: '2,50 Kč/km', withTax: '3,00 Kč/km' },
@@ -67,7 +67,7 @@ export const cars = [
     priceRanges: [
       { name: 'shortTerm', withoutTax: '1 200,00 Kč', withTax: '1 452,00 Kč' },
       { name: 'daily', withoutTax: '2 890,00 Kč', withTax: '3 497,00 Kč' },
-      { name: 'mediumTerm', withoutTax: '2 360,00 Kč', withTax: '2 856,00 Kč' },
+      { name: 'mediumTerm', withoutTax: '2 360,00 Kč', withTax: '2 856,00 Kč', isHot: true },
       { name: 'longTerm', withoutTax: '42 600,00 Kč', withTax: '51 546,00 Kč', isLargePrice: true },
       { name: 'weekend', withoutTax: '4 900,00 Kč', withTax: '5 929,00 Kč' },
       { name: 'extraMileage', withoutTax: '2,50 Kč/km', withTax: '3,00 Kč/km' },
