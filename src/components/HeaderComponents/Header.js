@@ -5,7 +5,6 @@ import { slide as BurgerMenu } from 'react-burger-menu';
 import LogoSection from './HeaderSubComponents/LogoSection';
 import NavLinks from './HeaderSubComponents/Navigation';
 import IconsContainer from './HeaderSubComponents/IconsContainer';
-import LanguageDropdown from './HeaderSubComponents/LanguageDropdown';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
