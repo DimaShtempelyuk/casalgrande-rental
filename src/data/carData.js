@@ -4,42 +4,42 @@ import RenaultMascott3_2 from '../assets/images/RenaultMascott3/RenaMasc3_2.jpg'
 import RenaultMascott3_3 from '../assets/images/RenaultMascott3/RenaMasc3_3.jpg'
 import Renault2_3 from '../assets/images/Renault2/Ren_2_3.jpg'
 import Renault2_4 from '../assets/images/Renault2/Ren_2_4.jpg'
+import i18n from '../utils/i18n/i18n'
 
 export const cars = [
   {
     id: 1,
-    name: 'Renault Mascott 150.65',
+    name: i18n.t('cars.renaultMascottSingle.name'),
     images: [
       RenaultMascott3_1,
       RenaultMascott3_2,
       RenaultMascott3_3,
     ],
-    description: 'Těžké nákladní vozidlo ideální pro přepravu těžkých materiálů a průmyslové využití. \n\n Vhodné pro 3 osoby',
+    description: i18n.t('cars.renaultMascottSingle.description'),
     specs: [
-      { title: 'Druh vozidla', value: 'Nákladní automobil – nosič kontejneru' },
-      { title: 'Počet míst', value: '2 – 3' },
-      { title: 'Užitečná hmotnost', value: '1142 kg' },
-      { title: 'Celková délka vozidla', value: '6404 mm (ložná plocha kontejneru 3240 mm)' },
-      { title: 'Celková šířka vozidla', value: '1974 mm (ložná plocha kontejneru 1920 mm)' },
-      { title: 'Celková výška vozidla', value: '2623 mm (ložná plocha kontejneru 420 mm)' },
-      { title: 'Provozní hmotnost', value: '2358 kg' },
-      { title: 'Celková hmotnost', value: '3500 kg' },
-      { title: 'Tažné zařízení', value: 'Nebrzděného 750 kg / brzděného 2800 kg' },
-      { title: 'Palivo', value: 'nafta' },
-      { title: 'Klimatizace', value: 'ANO' },
-      { title: 'Vzduchové vaky', value: 'ANO' },
-      { title: 'Poznámka', value: 'Velikost ložné plochy dle typu kontejneru' },
+      { title: i18n.t('cars.renaultMascottSingle.specs.vehicleType'), value: i18n.t('cars.renaultMascottSingle.specs.vehicleType') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.seatingCapacity'), value: i18n.t('cars.renaultMascottSingle.specs.seatingCapacity') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.payload'), value: i18n.t('cars.renaultMascottSingle.specs.payload') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.totalLength'), value: i18n.t('cars.renaultMascottSingle.specs.totalLength') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.totalWidth'), value: i18n.t('cars.renaultMascottSingle.specs.totalWidth') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.totalHeight'), value: i18n.t('cars.renaultMascottSingle.specs.totalHeight') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.operatingWeight'), value: i18n.t('cars.renaultMascottSingle.specs.operatingWeight') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.grossWeight'), value: i18n.t('cars.renaultMascottSingle.specs.grossWeight') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.towingCapacity'), value: i18n.t('cars.renaultMascottSingle.specs.towingCapacity') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.fuel'), value: i18n.t('cars.renaultMascottSingle.specs.fuel') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.airConditioning'), value: i18n.t('cars.renaultMascottSingle.specs.airConditioning') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.airbags'), value: i18n.t('cars.renaultMascottSingle.specs.airbags') },
+      { title: i18n.t('cars.renaultMascottSingle.specs.note'), value: i18n.t('cars.renaultMascottSingle.specs.note') },
     ],
     priceRanges: [
-      { description: '1 – 4 hodiny', withoutTax: '1 200,00 Kč', withTax: '1 452,00 Kč' },
-      { description: '1 – 15 dní / 1 den', withoutTax: '2 890,00 Kč', withTax: '3 497,00 Kč' },
-      { description: '15 – 30 dní / 1 den', withoutTax: '2 360,00 Kč', withTax: '2 856,00 Kč' },
-      { description: 'Dlouhodobý pronájem nad 30 dní (max. 10 000 km)', withoutTax: '42 600,00 Kč', withTax: '51 546,00 Kč', isLargePrice: true },
-      { description: 'Víkend (Pá 14 hod až Po 9 hod)', withoutTax: '4 900,00 Kč', withTax: '5 929,00 Kč' },
-      { description: 'Při ujetí nad 600 km za 24 hod', withoutTax: '2,50 Kč/km', withTax: '3,00 Kč/km' },
+      { description: i18n.t('cars.renaultMascottSingle.priceRanges.shortTerm'), withoutTax: '1 200,00 Kč', withTax: '1 452,00 Kč' },
+      { description: i18n.t('cars.renaultMascottSingle.priceRanges.daily'), withoutTax: '2 890,00 Kč', withTax: '3 497,00 Kč' },
+      { description: i18n.t('cars.renaultMascottSingle.priceRanges.mediumTerm'), withoutTax: '2 360,00 Kč', withTax: '2 856,00 Kč' },
+      { description: i18n.t('cars.renaultMascottSingle.priceRanges.longTerm'), withoutTax: '42 600,00 Kč', withTax: '51 546,00 Kč', isLargePrice: true },
+      { description: i18n.t('cars.renaultMascottSingle.priceRanges.weekend'), withoutTax: '4 900,00 Kč', withTax: '5 929,00 Kč' },
+      { description: i18n.t('cars.renaultMascottSingle.priceRanges.extraMileage'), withoutTax: '2,50 Kč/km', withTax: '3,00 Kč/km' },
     ],
-  }
-  ,
+  },
   {
     id: 2,
     name: 'Renault Mascott 150.65 (dvojkabina)',

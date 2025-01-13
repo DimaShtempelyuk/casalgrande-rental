@@ -1,3 +1,33 @@
 {
-    "ourservices": "Naše servisy"
-}
+    "ourservices": "Naše služby",
+    "cars": {
+      "renaultMascottSingle": {
+        "name": "Renault Mascott 150.65",
+        "description": "Těžké nákladní vozidlo ideální pro přepravu těžkých materiálů a průmyslové využití.\n\nVhodné pro 3 osoby.",
+        "specs": {
+          "vehicleType": "Nákladní automobil – nosič kontejneru",
+          "seatingCapacity": "2 – 3",
+          "payload": "1142 kg",
+          "totalLength": "6404 mm (ložná plocha kontejneru 3240 mm)",
+          "totalWidth": "1974 mm (ložná plocha kontejneru 1920 mm)",
+          "totalHeight": "2623 mm (ložná plocha kontejneru 420 mm)",
+          "operatingWeight": "2358 kg",
+          "grossWeight": "3500 kg",
+          "towingCapacity": "Nebrzděného 750 kg / brzděného 2800 kg",
+          "fuel": "nafta",
+          "airConditioning": "ANO",
+          "airbags": "ANO",
+          "note": "Velikost ložné plochy závisí na typu kontejneru"
+        },
+        "priceRanges": {
+          "shortTerm": "1 – 4 hodiny",
+          "daily": "1 – 15 dní / 1 den",
+          "mediumTerm": "15 – 30 dní / 1 den",
+          "longTerm": "Dlouhodobý pronájem nad 30 dní (max. 10 000 km)",
+          "weekend": "Víkend (Pá 14:00 až Po 9:00)",
+          "extraMileage": "Nad 600 km za 24 hodin"
+        }
+      }
+    }
+  }
+  
