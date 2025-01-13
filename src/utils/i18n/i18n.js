@@ -1,10 +1,11 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 
 import enLang from "./locales/en/en.json"
 import czLang from "./locales/cz/cz.json"
-import uaLang from "./locales/cz/cz.json"
-import deLang from "./locales/cz/cz.json"
+import uaLang from "./locales/ua/ua.json"
+import deLang from "./locales/de/de.json"
 
 // the translations
 // (tip move them in a JSON file and import them,
@@ -25,6 +26,7 @@ const resources = {
 };
 
 i18n
+  .use(I18nextBrowserLanguageDetector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
