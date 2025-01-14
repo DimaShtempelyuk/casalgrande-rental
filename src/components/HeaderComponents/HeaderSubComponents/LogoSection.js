@@ -16,7 +16,8 @@ const LogoContainer = styled.div`
   gap: 10px;
 
   @media (max-width: 768px) {
-    margin-left: -50px; /* Shift the container left by -50px for mobile */
+    margin-left: -200px;
+    margin-top: 20px;
   }
 `;
 

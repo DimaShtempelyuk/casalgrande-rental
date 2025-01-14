@@ -87,11 +87,12 @@ const BurgerMenuButton = styled.div`
 `;
 
 const PulsingPhoneNumber = styled.a`
-  font-size: 1.8em;
+  position:absolute;
+  right: 15%;
+  font-size:2em;
   color: #ffcc00;
   text-decoration: none;
   font-weight: bold;
-  text-align: center;
   animation: pulse 1.5s infinite;
 
   &:hover {
@@ -105,8 +106,14 @@ const PulsingPhoneNumber = styled.a`
   }
 
   @media (max-width: 768px) {
-    font-size: 1em;
+    font-size: 16px;
+    right: 7%;
   }
+  @media (max-width: 1620px){
+    font-size:1.6em;
+  }
+  @media (max-width: 1444px){
+    font-size:1.3em;}
 `;
 
 const DesktopPhoneNumber = styled(PulsingPhoneNumber)`

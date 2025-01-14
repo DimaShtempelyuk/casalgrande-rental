@@ -18,11 +18,12 @@ const NavLinks = ({ isMobile }) => {
 };
 
 const NavLinksContainer = styled.nav`
+margin-right: 15%;
   display: flex;
   gap: 3vw;
   justify-content: center;
   align-items: center;
-  width: 58%;
+  width: 50%;
 `;
 
 // Link component with underline hover animation using react-spring

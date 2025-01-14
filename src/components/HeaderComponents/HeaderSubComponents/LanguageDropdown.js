@@ -3,9 +3,10 @@ import styled, { css } from 'styled-components';
 import { FaCaretDown } from 'react-icons/fa';
 import i18n from '../../../utils/i18n/i18n.js';
 
-const LanguageDropdown = ({ isBurgerMenu }) => {
+const LanguageDropdown = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('i18nextLng')?.toUpperCase() || 'CZ');
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Initial mobile detection
 
   const languages = {
     CZ: 'https://flagcdn.com/w160/cz.png',
@@ -21,6 +22,19 @@ const LanguageDropdown = ({ isBurgerMenu }) => {
     setIsOpen(false);
   };
 
+  // Update `isMobile` based on the window size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     const savedLanguage = localStorage.getItem('i18nextLng');
     if (savedLanguage && savedLanguage.toUpperCase() !== selectedLanguage) {
@@ -29,8 +43,8 @@ const LanguageDropdown = ({ isBurgerMenu }) => {
   }, []);
 
   return (
-    <DropdownContainer isBurgerMenu={isBurgerMenu}>
-      <SelectedLanguage isBurgerMenu={isBurgerMenu} onClick={() => setIsOpen((prev) => !prev)}>
+    <DropdownContainer isMobile={isMobile}>
+      <SelectedLanguage isMobile={isMobile} onClick={() => setIsOpen((prev) => !prev)}>
         <Flag src={languages[selectedLanguage]} alt={selectedLanguage} />
         {selectedLanguage}
         <FaCaretDown />
@@ -60,13 +74,11 @@ const LanguageDropdown = ({ isBurgerMenu }) => {
 };
 
 // Styled components with grid layout for quadrants
-const DropdownContainer = styled.div.attrs((props) => ({
-  isBurgerMenu: undefined, // Prevent `isBurgerMenu` from being passed to the DOM
-}))`
+const DropdownContainer = styled.div`
   position: relative;
   cursor: pointer;
-  ${({ isBurgerMenu }) =>
-    isBurgerMenu &&
+  ${({ isMobile }) =>
+    isMobile &&
     css`
       width: 100%;
       text-align: center;
@@ -76,14 +88,14 @@ const DropdownContainer = styled.div.attrs((props) => ({
 const SelectedLanguage = styled.div`
   display: flex;
   align-items: center;
-  justify-content: ${({ isBurgerMenu }) => (isBurgerMenu ? 'center' : 'flex-start')};
+  justify-content: ${({ isMobile }) => (isMobile ? 'center' : 'flex-start')};
   gap: 10px;
-  background: ${({ isBurgerMenu }) => (isBurgerMenu ? '#f8f8f8' : '#333')};
-  color: ${({ isBurgerMenu }) => (isBurgerMenu ? '#000' : '#fff')};
+  background: ${({ isMobile }) => (isMobile ? '#f8f8f8' : '#333')};
+  color: ${({ isMobile }) => (isMobile ? '#000' : '#fff')};
   font-weight: bold;
   padding: 15px 20px;
   border-radius: 5px;
-  border: ${({ isBurgerMenu }) => (isBurgerMenu ? '2px solid #ddd' : 'none')};
+  border: ${({ isMobile }) => (isMobile ? '2px solid #ddd' : 'none')};
 `;
 
 const GridMenu = styled.div`
@@ -91,18 +103,26 @@ const GridMenu = styled.div`
   grid-template-areas:
     'topLeft topRight'
     'bottomLeft bottomRight';
-  grid-gap: 10px; /* Increased gap for better spacing */
+  grid-gap: 10px;
   background: #fff;
-  border-radius: 8px; /* Slightly larger rounding */
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 10px; /* Added padding for better spacing inside */
+  padding: 10px;
   position: absolute;
-  top: 110%; /* Adjusted to add more space below the dropdown */
+  top: 110%;
   left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
+  transform: translateX(-50%);
   z-index: 1000;
-  width: 240px; /* Increased width */
-  height: 240px; /* Increased height */
+  width: 240px;
+  height: 240px;
+
+  @media (min-width: 769px) {
+    width: 180px; /* Smaller width for larger screens */
+    height: 180px; /* Smaller height for larger screens */
+    grid-gap: 5px; /* Reduced gap */
+    background: #333; /* Darker background for contrast */
+    color: #fff; /* Lighter text for contrast */
+  }
 `;
 
 const GridItem = styled.div`
@@ -111,9 +131,9 @@ const GridItem = styled.div`
   align-items: center;
   justify-content: center;
   background: #f9f9f9;
-  border-radius: 8px; /* Slightly larger rounding */
+  border-radius: 8px;
   font-weight: bold;
-  font-size: 1.4em; /* Increased font size for better readability */
+  font-size: 1.4em;
   cursor: pointer;
   grid-area: ${({ area }) => area};
   width: 100%;
@@ -122,11 +142,25 @@ const GridItem = styled.div`
   &:hover {
     background-color: #e6e6e6;
   }
+
+  @media (min-width: 769px) {
+    background: #444; /* Darker tile background for contrast */
+    font-size: 1.2em; /* Smaller font size for larger screens */
+    color: #fff; /* White text for contrast */
+    &:hover {
+      background-color: #555; /* Slightly lighter background on hover */
+    }
+  }
 `;
 
 const Flag = styled.img`
-  width: 60px; /* Increased flag size */
+  width: 60px;
   height: 40px;
+
+  @media (min-width: 769px) {
+    width: 40px; /* Smaller flag size for larger screens */
+    height: 30px;
+  }
 `;
 
 
