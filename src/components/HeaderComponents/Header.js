@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
-import { slide as BurgerMenu } from 'react-burger-menu';
 import LogoSection from './HeaderSubComponents/LogoSection';
 import NavLinks from './HeaderSubComponents/Navigation';
 import IconsContainer from './HeaderSubComponents/IconsContainer';
+import BurgerMenuComponent from './HeaderSubComponents/BurgerMenuComponent';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,19 +20,27 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <HeaderContainer>
-      {(viewportWidth < 1280) && (
+      {viewportWidth < 1280 && (
         <BurgerMenuButton onClick={handleMenuToggle}>
           <FaBars size={30} />
         </BurgerMenuButton>
       )}
-      
+
+      <BurgerMenuComponent
+        isOpen={isOpen}
+        onClose={closeMenu}
+        onStateChange={(state) => setIsOpen(state.isOpen)}
+      />
+
       <LogoSection isMobile={viewportWidth < 768} showName={viewportWidth >= 768} />
       
-      {viewportWidth >= 1280 && <NavLinks />} {/* Centered links for desktop */}
+      {viewportWidth >= 1280 && <NavLinks />}
 
-      {(viewportWidth < 1280) && (
+      {viewportWidth < 1280 && (
         <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
       )}
 
@@ -96,31 +104,5 @@ const DesktopPhoneNumber = styled(PulsingPhoneNumber)`
   margin-left: auto;
   padding-right: 1dvw;
 `;
-
-const menuStyles = {
-  bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.7)',
-    top: '10%',
-  },
-  bmMenuWrap: {
-    top: '10%',
-    left: '0px',
-    height: '100%',
-  },
-  bmMenu: {
-    background: '#fff',
-    width: '75%',
-  },
-  bmItemList: {
-    color: '#000',
-    padding: '0.8em',
-  },
-  bmItem: {
-    display: 'inline-block',
-    textDecoration: 'none',
-    fontSize: '1.5em',
-    color: '#000',
-  },
-};
 
 export default Header;
