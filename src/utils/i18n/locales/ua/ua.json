@@ -1,8 +1,31 @@
 {
+  "form": {
+    "companyOrName": "Назва компанії / ім'я та прізвище",
+    "ico": "IČO",
+    "dateOfBirth": "Дата народження",
+    "rentalDate": "Дата оренди",
+    "returnDate": "Дата повернення",
+    "email": "Електронна пошта",
+    "phone": "Телефон",
+    "travelAbroad": "Поїздка за кордон",
+    "select": "Вибрати",
+    "yes": "Так",
+    "no": "Ні",
+    "message": "Ваше повідомлення",
+    "consent": "Я даю згоду на надання та обробку персональних даних",
+    "submit": "НАДІСЛАТИ ЗАПИТ"
+  },
+  "menu": {
+  "ourcars": "Наші автомобілі",
+  "ourservices": "Наші послуги",
+  "contactus": "Зв'яжіться з нами"
+  },
+  "askkforcar": "Запитайте про цей автомобіль вже сьогодні!",
   "ourservices": "Наші послуги",
   "rentalDuration": "Тривалість оренди",
   "priceWithoutTax": "Ціна без податків",
   "priceWithTax": "Ціна з податками",
+  "welcome": "Ласкаво просимо до Casalgrande!",
   "deposit": "Застава",
   "cars": {
     "renaultMascottSingle": {

@@ -2,11 +2,13 @@ import React from 'react';
 import CarCard from '../components/CarCard';
 import styled from 'styled-components';
 import { cars } from '../data/carData';
+import { useTranslation } from 'react-i18next';
 
 const HomePage = () => {
+    const { t } = useTranslation();
     return (
       <Container>
-        <Title>Vítejte v Casalgrande</Title>
+        <Title>{t('welcome')}</Title>
         <CardContainer>
           {cars.map((car) => (
             <CarCard

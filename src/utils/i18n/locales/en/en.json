@@ -1,4 +1,27 @@
 {
+  "form": {
+    "companyOrName": "Company Name / First and Last Name",
+    "ico": "IČO",
+    "dateOfBirth": "Date of Birth",
+    "rentalDate": "Rental Date",
+    "returnDate": "Return Date",
+    "email": "E-mail",
+    "phone": "Phone",
+    "travelAbroad": "Travel Abroad",
+    "select": "Select",
+    "yes": "Yes",
+    "no": "No",
+    "message": "Your Message",
+    "consent": "I agree to the provision and processing of personal data",
+    "submit": "SEND REQUEST"
+  },
+  "menu": {
+  "ourcars": "Our Cars",
+  "ourservices": "Our Services",
+  "contactus": "Contact Us"
+  },
+  "askkforcar": "Inquire about this car today!",
+  "welcome": "Welcome to Casalgrande!",
   "ourservices": "Our Services",
   "rentalDuration": "Rental Duration",
   "priceWithoutTax": "Price Without Tax",

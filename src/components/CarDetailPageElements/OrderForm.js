@@ -5,8 +5,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import emailjs from 'emailjs-com';
 import Swal from 'sweetalert2';
 import { FaCalendarAlt } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
+
+  
 
 const OrderFormComponent = ({ carName }) => {
+  const { t } = useTranslation();
   const formRef = useRef();
   const [rentalDate, setRentalDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
@@ -54,7 +58,7 @@ const OrderFormComponent = ({ carName }) => {
         'service_iggsweb', // Replace with your EmailJS service ID
         'template_eah3lbr', // Replace with your EmailJS template ID
         formData,
-        'HuUqQRhtUZI0Fj6-O' // Replace with your EmailJS public key
+        'HuUqQRhtUZI0Fj6-O' 
       )
       .then(
         () => {
@@ -80,20 +84,20 @@ const OrderFormComponent = ({ carName }) => {
     <OrderForm ref={formRef} onSubmit={sendEmail}>
       <Input type="hidden" name="car_name" value={carName} />
 
-      <Label htmlFor="user_name">Název firmy / jméno a příjmení *</Label>
+      <Label htmlFor="user_name"> { t("form.companyOrName")} *</Label>
       <Input type="text" name="user_name" id="user_name" required />
       <SegmentedControl>
         <SegmentOption
           isActive={isIcoSelected}
           onClick={() => handleToggle(true)}
         >
-          IČO
+          { t("form.ico")}
         </SegmentOption>
         <SegmentOption
           isActive={!isIcoSelected}
           onClick={() => handleToggle(false)}
         >
-          Datum narození
+          { t("form.dateOfBirth")}
         </SegmentOption>
       </SegmentedControl>
 
@@ -126,7 +130,7 @@ const OrderFormComponent = ({ carName }) => {
         </DateContainer>
       )}
 
-      <Label htmlFor="rental_date">Datum zapůjčení *</Label>
+      <Label htmlFor="rental_date">{ t("form.rentalDate")} *</Label>
       <DateContainer>
         <DatePicker
           selected={rentalDate}
@@ -140,7 +144,7 @@ const OrderFormComponent = ({ carName }) => {
         <CalendarIcon />
       </DateContainer>
 
-      <Label htmlFor="return_date">Datum vrácení *</Label>
+      <Label htmlFor="return_date">{ t("form.returnDate")}*</Label>
       <DateContainer>
         <DatePicker
           selected={returnDate}
@@ -154,30 +158,30 @@ const OrderFormComponent = ({ carName }) => {
         <CalendarIcon />
       </DateContainer>
 
-      <Label htmlFor="user_email">E-mail *</Label>
+      <Label htmlFor="user_email">{ t("form.email")}*</Label>
       <Input type="email" name="user_email" id="user_email" required />
 
-      <Label htmlFor="user_phone">Telefon</Label>
+      <Label htmlFor="user_phone">{ t("form.phone")}</Label>
       <Input type="tel" name="user_phone" id="user_phone" />
 
-      <Label htmlFor="abroad_trip">Cesta do zahraničí *</Label>
+      <Label htmlFor="abroad_trip">{ t("form.travelAbroad")}*</Label>
       <Select name="abroad_trip" id="abroad_trip" required>
-        <option value="">Vyberte</option>
-        <option value="yes">Ano</option>
-        <option value="no">Ne</option>
+        <option value="">{ t("form.select")}</option>
+        <option value="yes">{ t("form.yes")}</option>
+        <option value="no">{ t("form.no")}</option>
       </Select>
 
-      <Label htmlFor="message">Vaše zpráva</Label>
+      <Label htmlFor="message">{ t("form.message")}</Label>
       <TextArea name="message" id="message" />
 
       <CheckboxContainer>
         <Checkbox type="checkbox" required />
         <CheckboxLabel>
-          * Uděluji souhlas s poskytnutím a zpracováním osobních údajů
+        { t("form.consent")}*
         </CheckboxLabel>
       </CheckboxContainer>
 
-      <Button type="submit">ODESLAT POPTÁVKU</Button>
+      <Button type="submit">{ t("form.submit")}</Button>
     </OrderForm>
   );
 };

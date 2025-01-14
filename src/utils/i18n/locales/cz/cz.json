@@ -1,4 +1,28 @@
 {
+  
+  "menu": {
+    "ourcars": "Naše vozy",
+    "ourservices": "Naše služby",
+    "contactus": "Kontaktuj nás"
+  },
+  "askkforcar": "Poptejte toto auto už dneska!",
+  "form": {
+    "companyOrName": "Název firmy / jméno a příjmení",
+    "ico": "IČO",
+    "dateOfBirth": "Datum narození",
+    "rentalDate": "Datum zapůjčení",
+    "returnDate": "Datum vrácení",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "travelAbroad": "Cesta do zahraničí",
+    "select": "Vyberte",
+    "yes": "Ano",
+    "no": "Ne",
+    "message": "Vaše zpráva",
+    "consent": "Uděluji souhlas s poskytnutím a zpracováním osobních údajů",
+    "submit": "ODESLAT POPTÁVKU"
+  },
+  "welcome": "Vítejte v Casalgrande",
   "ourservices": "Naše služby",
   "rentalDuration": "Doba pronájmu",
   "priceWithoutTax": "Cena bez daní",

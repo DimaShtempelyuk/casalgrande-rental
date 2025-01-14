@@ -1,4 +1,27 @@
 {
+  "form": {
+    "companyOrName": "Name der Firma/ Vor- und Nachname",
+    "ico": "IČO",
+    "dateOfBirth": "Geburtsdatum",
+    "rentalDate": "Datum der Ausleihe",
+    "returnDate": "Rückgabedatum",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "travelAbroad": "Reise ins Ausland",
+    "select": "Auswählen",
+    "yes": "Ja",
+    "no": "Nein",
+    "message": "Ihre Nachricht",
+    "consent": "Ich stimme der Bereitstellung und Verarbeitung personenbezogener Daten zu",
+    "submit": "ANFRAGE SENDEN"
+  },
+  "menu": {
+  "ourcars": "Unsere Fahrzeuge",
+  "ourservices": "Unsere Dienstleistungen",
+  "contactus": "Kontaktiere uns"
+  },
+  "askkforcar": "Fragen Sie noch heute nach diesem Auto!",
+  "welcome": "Willkommen in Casalgrande!",
   "ourservices": "Unsere Dienstleistungen",
   "rentalDuration": "Mietdauer",
   "priceWithoutTax": "Preis ohne Steuern",

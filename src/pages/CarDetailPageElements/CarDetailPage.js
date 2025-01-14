@@ -10,6 +10,8 @@ import CompactDescription from './CarDetailElements/CompactDescription';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 
+  
+
 const CarDetailPage = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
@@ -37,7 +39,7 @@ const CarDetailPage = () => {
         <AdditionalInfo>
           <PriceTable carId={car.id} priceRanges={car.priceRanges} deposit="15 000 Kč" />
           <br />
-          <h1>Poptejte toto auto už dneska!</h1>
+          <h1>{t('askkforcar')}</h1>
           <OrderForm carName={car.name} />
         </AdditionalInfo>
       </ContentContainer>
