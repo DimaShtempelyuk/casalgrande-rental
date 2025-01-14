@@ -10,7 +10,9 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
-  const handleMenuToggle = () => {
+  // Toggle menu only when the burger menu icon is clicked
+  const handleMenuToggle = (e) => {
+    e.stopPropagation(); // Prevent triggering on header clicks
     if (viewportWidth < 1280) setIsOpen(!isOpen);
   };
 
@@ -24,32 +26,32 @@ const Header = () => {
 
   return (
     <HeaderContainer>
+      {/* Show burger menu button only for mobile resolutions */}
       {viewportWidth < 1280 && (
         <BurgerMenuButton onClick={handleMenuToggle}>
           <FaBars size={30} />
         </BurgerMenuButton>
       )}
 
-      <BurgerMenuComponent
-        isOpen={isOpen}
-        onClose={closeMenu}
-        onStateChange={(state) => setIsOpen(state.isOpen)}
-      />
+      {/* Pass isOpen state to the burger menu component */}
+      {viewportWidth < 1280 && (
+        <BurgerMenuComponent
+          isOpen={isOpen}
+          onClose={closeMenu}
+          onStateChange={(state) => setIsOpen(state.isOpen)}
+        />
+      )}
 
+      {/* Other header sections */}
       <LogoSection isMobile={viewportWidth < 768} showName={viewportWidth >= 768} />
-      
       {viewportWidth >= 1280 && <NavLinks />}
-
       {viewportWidth < 1280 && (
         <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
       )}
-
       {viewportWidth >= 1280 && (
         <DesktopPhoneNumber href="tel:+420704057272">+420 704 057 272</DesktopPhoneNumber>
       )}
-
       <IconsContainer viewportWidth={viewportWidth} />
-
     </HeaderContainer>
   );
 };
@@ -74,7 +76,7 @@ const BurgerMenuButton = styled.div`
   padding-right: 10px;
 
   @media (min-width: 1280px) {
-    display: none;
+    display: none; /* Hide burger menu button for desktop */
   }
 `;
 
