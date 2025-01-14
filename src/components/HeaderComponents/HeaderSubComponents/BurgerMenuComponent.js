@@ -19,28 +19,38 @@ const BurgerMenuComponent = ({ isOpen, onClose, onStateChange }) => {
       <StyledLink to="/services" onClick={onClose}>{t('menu.ourservices')}</StyledLink>
       <StyledLink to="/contact" onClick={onClose}>{t('menu.contactus')}</StyledLink>
       <DropdownWrapper>
-        <LanguageDropdown />
+        <LanguageDropdown isBurgerMenu={true} />
       </DropdownWrapper>
     </BurgerMenu>
   );
 };
 
 const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  color: #000;
-  font-size: 1.5em;
-  margin: 1em 0;
-  display: block;
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 2% 0;
+  padding: 15px;
+  border-radius: 8px;
+  background: linear-gradient(45deg,rgb(255, 139, 43),rgb(255, 251, 8));
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
 
-  &:hover {
-    color: #ffcc00;
-  }
 `;
+
 
 const DropdownWrapper = styled.div`
   margin-top: 2em;
+  border-radius: 8px;
+  background: #f8f9fa;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 `;
+
 
 const menuStyles = {
   bmOverlay: {
@@ -53,7 +63,7 @@ const menuStyles = {
   },
   bmMenu: {
     background: '#fff',
-    width: '75%',
+    width: '100%',
   },
   bmItemList: {
     color: '#000',
