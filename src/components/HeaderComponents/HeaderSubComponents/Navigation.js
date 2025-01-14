@@ -2,15 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
+import { useTranslation } from 'react-i18next';
 
 // Main NavLinks component
-const NavLinks = ({ isMobile }) => (
-  <NavLinksContainer>
-    <AnimatedMenuLink to="/">Naše vozy</AnimatedMenuLink>
-    <AnimatedMenuLink to="/services">Naše služby</AnimatedMenuLink>
-    <AnimatedMenuLink to="/contact">Kontaktuj nás</AnimatedMenuLink>
-  </NavLinksContainer>
-);
+const NavLinks = ({ isMobile }) => {
+  const { t } = useTranslation(); 
+
+  return (
+    <NavLinksContainer>
+      <AnimatedMenuLink to="/">{t('menu.ourcars')}</AnimatedMenuLink>
+      <AnimatedMenuLink to="/services">{t('menu.ourservices')}</AnimatedMenuLink>
+      <AnimatedMenuLink to="/contact">{t('menu.contactus')}</AnimatedMenuLink>
+    </NavLinksContainer>
+  );
+};
 
 // Container for navigation links, centered on the page
 const NavLinksContainer = styled.nav`

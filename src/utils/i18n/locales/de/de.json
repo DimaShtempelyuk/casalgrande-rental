@@ -1,0 +1,200 @@
+{
+  "form": {
+    "companyOrName": "Name der Firma/ Vor- und Nachname",
+    "ico": "IČO",
+    "dateOfBirth": "Geburtsdatum",
+    "rentalDate": "Datum der Ausleihe",
+    "returnDate": "Rückgabedatum",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "travelAbroad": "Reise ins Ausland",
+    "select": "Auswählen",
+    "yes": "Ja",
+    "no": "Nein",
+    "message": "Ihre Nachricht",
+    "consent": "Ich stimme der Bereitstellung und Verarbeitung personenbezogener Daten zu",
+    "submit": "ANFRAGE SENDEN"
+  },
+  "menu": {
+  "ourcars": "Unsere Fahrzeuge",
+  "ourservices": "Unsere Dienstleistungen",
+  "contactus": "Kontaktiere uns"
+  },
+  "askkforcar": "Fragen Sie noch heute nach diesem Auto!",
+  "welcome": "Willkommen in Casalgrande!",
+  "ourservices": "Unsere Dienstleistungen",
+  "rentalDuration": "Mietdauer",
+  "priceWithoutTax": "Preis ohne Steuern",
+  "priceWithTax": "Preis mit Steuern",
+  "deposit": "Kaution",
+  "cars": {
+    "renaultMascottSingle": {
+      "name": "Renault Mascott 150.65",
+      "description": "Schweres Nutzfahrzeug, ideal für den Transport schwerer Materialien und industrielle Nutzung.\n\nGeeignet für 3 Personen.",
+      "specs": {
+        "vehicleType": {
+          "label": "Fahrzeugtyp",
+          "value": "LKW – Containerträger"
+        },
+        "seatingCapacity": {
+          "label": "Besatzung",
+          "value": "2 – 3"
+        },
+        "payload": {
+          "label": "Nutzlast",
+          "value": "1142 kg"
+        },
+        "totalLength": {
+          "label": "Gesamtlänge",
+          "value": "6404 mm (Containerplattform 3240 mm)"
+        },
+        "totalWidth": {
+          "label": "Gesamtbreite",
+          "value": "1974 mm (Containerplattform 1920 mm)"
+        },
+        "totalHeight": {
+          "label": "Gesamthöhe",
+          "value": "2623 mm (Containerplattform 420 mm)"
+        },
+        "operatingWeight": {
+          "label": "Betriebsgewicht",
+          "value": "2358 kg"
+        },
+        "grossWeight": {
+          "label": "Gesamtgewicht",
+          "value": "3500 kg"
+        },
+        "towingCapacity": {
+          "label": "Zugkapazität",
+          "value": "Ohne Bremsen 750 kg / mit Bremsen 2800 kg"
+        },
+        "fuel": {
+          "label": "Kraftstoff",
+          "value": "Diesel"
+        },
+        "airConditioning": {
+          "label": "Klimaanlage",
+          "value": "JA"
+        },
+        "airbags": {
+          "label": "Airbags",
+          "value": "JA"
+        },
+        "note": {
+          "label": "Hinweis",
+          "value": "Die Größe der Ladefläche hängt vom Containertyp ab"
+        }
+      },
+      "priceRanges": {
+        "shortTerm": {
+          "label": "Kurzzeitmiete",
+          "value": "1 – 4 Stunden"
+        },
+        "daily": {
+          "label": "Tagesmiete",
+          "value": "1 – 15 Tage / 1 Tag"
+        },
+        "mediumTerm": {
+          "label": "Mittelfristige Miete",
+          "value": "15 – 30 Tage / 1 Tag"
+        },
+        "longTerm": {
+          "label": "Langzeitmiete",
+          "value": "Langzeitmiete über 30 Tage (max. 10.000 km)"
+        },
+        "weekend": {
+          "label": "Wochenende",
+          "value": "Wochenende (Fr 14:00 bis Mo 09:00)"
+        },
+        "extraMileage": {
+          "label": "Zusätzliche Kilometer",
+          "value": "Mehr als 600 km in 24 Stunden"
+        }
+      }
+    },
+    "renaultMascottDouble": {
+      "name": "Renault Mascott 150.65 Double",
+      "description": "Schweres Nutzfahrzeug, ideal für den Transport schwerer Materialien und industrielle Nutzung.\n\nGeeignet für 6 Personen.",
+      "specs": {
+        "vehicleType": {
+          "label": "Fahrzeugtyp",
+          "value": "LKW – Containerträger"
+        },
+        "seatingCapacity": {
+          "label": "Besatzung",
+          "value": "6"
+        },
+        "payload": {
+          "label": "Nutzlast",
+          "value": "1142 kg"
+        },
+        "totalLength": {
+          "label": "Gesamtlänge",
+          "value": "6404 mm (Containerplattform 3240 mm)"
+        },
+        "totalWidth": {
+          "label": "Gesamtbreite",
+          "value": "1974 mm (Containerplattform 1920 mm)"
+        },
+        "totalHeight": {
+          "label": "Gesamthöhe",
+          "value": "2623 mm (Containerplattform 420 mm)"
+        },
+        "operatingWeight": {
+          "label": "Betriebsgewicht",
+          "value": "2358 kg"
+        },
+        "grossWeight": {
+          "label": "Gesamtgewicht",
+          "value": "3500 kg"
+        },
+        "towingCapacity": {
+          "label": "Zugkapazität",
+          "value": "Ohne Bremsen 750 kg / mit Bremsen 2800 kg"
+        },
+        "fuel": {
+          "label": "Kraftstoff",
+          "value": "Diesel"
+        },
+        "airConditioning": {
+          "label": "Klimaanlage",
+          "value": "JA"
+        },
+        "airbags": {
+          "label": "Airbags",
+          "value": "JA"
+        },
+        "note": {
+          "label": "Hinweis",
+          "value": "Die Größe der Ladefläche hängt vom Containertyp ab"
+        }
+      },
+      "priceRanges": {
+        "shortTerm": {
+          "label": "Kurzzeitmiete",
+          "value": "1 – 4 Stunden"
+        },
+        "daily": {
+          "label": "Tagesmiete",
+          "value": "1 – 15 Tage / 1 Tag"
+        },
+        "mediumTerm": {
+          "label": "Mittelfristige Miete",
+          "value": "15 – 30 Tage / 1 Tag"
+        },
+        "longTerm": {
+          "label": "Langzeitmiete",
+          "value": "Langzeitmiete über 30 Tage (max. 10.000 km)"
+        },
+        "weekend": {
+          "label": "Wochenende",
+          "value": "Wochenende (Fr 14:00 bis Mo 09:00)"
+        },
+        "extraMileage": {
+          "label": "Zusätzliche Kilometer",
+          "value": "Mehr als 600 km in 24 Stunden"
+        }
+      }
+    }
+  }
+}

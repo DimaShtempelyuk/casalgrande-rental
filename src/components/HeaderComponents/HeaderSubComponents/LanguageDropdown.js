@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaCaretDown } from 'react-icons/fa';
+import i18n from '../../../utils/i18n/i18n.js'; // Import your i18n configuration
 
 const LanguageDropdown = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState('CZ');
+  const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('i18nextLng')?.toUpperCase() || 'CZ'); // Get saved language or default to 'CZ'
   const [isOpen, setIsOpen] = useState(false);
 
   // Static SVG URLs for flags
@@ -16,8 +17,18 @@ const LanguageDropdown = () => {
 
   const handleLanguageSelect = (lang) => {
     setSelectedLanguage(lang);
+    i18n.changeLanguage(lang.toLowerCase()); // Change i18n language dynamically
+    localStorage.setItem('i18nextLng', lang.toLowerCase()); // Persist language selection
     setIsOpen(false); // Close dropdown on selection
   };
+
+  // Effect to sync with the saved language
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('i18nextLng');
+    if (savedLanguage && savedLanguage.toUpperCase() !== selectedLanguage) {
+      setSelectedLanguage(savedLanguage.toUpperCase());
+    }
+  }, []);
 
   return (
     <DropdownContainer>

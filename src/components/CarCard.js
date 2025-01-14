@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { useTranslation } from 'react-i18next';
 
 const CarCard = ({ id, name, images, description }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleNavigate = () => {
     navigate(`/car/${id}`);
@@ -28,8 +30,8 @@ const CarCard = ({ id, name, images, description }) => {
         ))}
       </ImageCarousel>
       <CardContent onClick={handleNavigate}>
-        <Title>{name}</Title>
-        <Description>{description}</Description>
+        <Title>{t(name)}</Title>
+        <Description>{t(description)}</Description>
       </CardContent>
     </Card>
   );
@@ -92,7 +94,6 @@ const ImageCarousel = styled(Carousel)`
   .carousel .control-arrow:before {
     font-size: 2em;
     color: white;
-    
   }
 
   @media (max-width: 768px) {

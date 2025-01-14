@@ -1,30 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
-const PriceTable = ({ priceRanges }) => {
+const PriceTable = ({ carId, priceRanges }) => {
+  const { t } = useTranslation();
+
+  // Lookup map for translation namespaces
+  const namespaceMap = {
+    1: 'renaultMascottSingle',
+    2: 'renaultMascottDouble',
+    // Add more mappings for new cars
+  };
+
+  const namespace = namespaceMap[carId] || 'unknownCar';
+
   return (
     <TableWrapper>
-      <Deposit>Kauce (Deposit): 15 000 Kč</Deposit>
+      <Deposit>{t('deposit')}: 15 000 Kč</Deposit>
       <StyledTable>
-        <div className="header">Rental Duration</div>
-        <div className="header">Cena bez DPH</div>
-        <div className="header">Cena s DPH</div>
+        <div className="header">{t('rentalDuration')}</div>
+        <div className="header">{t('priceWithoutTax')}</div>
+        <div className="header">{t('priceWithTax')}</div>
         {priceRanges.map((price, index) => (
           <React.Fragment key={index}>
-            <div className={`cell ${price.description.includes('15 – 30 dní') ? 'highlight' : ''}`}>
-              {price.description}
+            <div className={`cell ${price.isHot ? 'highlight' : ''}`}>
+              <strong>{t(`cars.${namespace}.priceRanges.${price.name}.label`)}</strong>
+              <br />
+              {t(`cars.${namespace}.priceRanges.${price.name}.value`)}
             </div>
-            <div className={`cell ${price.description.includes('15 – 30 dní') ? 'highlight' : ''}`}>
-              {price.withoutTax}
+            <div className={`cell ${price.isHot ? 'highlight' : ''}`}>
+              <strong style={{ fontWeight: 'bold' }}>{price.withoutTax}</strong>
             </div>
-            <div className={`cell ${price.description.includes('15 – 30 dní') ? 'highlight' : ''}`}>
-              {price.withTax}
+            <div className={`cell ${price.isHot ? 'highlight fire-cell' : ''}`}>
+              <strong style={{ fontWeight: 'bold' }}>{price.withTax}</strong>
             </div>
           </React.Fragment>
         ))}
       </StyledTable>
     </TableWrapper>
   );
+  
 };
 
 // Styled components for the table
@@ -70,15 +85,24 @@ const StyledTable = styled.div`
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: rgba(255, 204, 0, 0.50);
+      background-color: rgba(255, 204, 0, 0.5);
     }
   }
 
   .highlight {
-    background-color: rgba(255, 204, 0, 0.15); /* Soft yellow background for highlighting */
-    border: 2px solid #ffcc00;
+    background-color: rgba(255, 140, 0, 0.15); /* Adjusted to a more orange tone */
+    border: 2px solid rgb(255, 171, 68);
     font-weight: bold;
   }
+    position: relative;
+
+    &::after {
+      content: '🔥';
+      position: absolute;
+      top:30%;
+      left: 29%;
+      font-size: 2em; /* Larger fire emoji */
+    }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -88,5 +112,7 @@ const StyledTable = styled.div`
     }
   }
 `;
+
+
 
 export default PriceTable;

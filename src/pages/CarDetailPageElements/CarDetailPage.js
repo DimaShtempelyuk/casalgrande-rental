@@ -7,9 +7,22 @@ import PriceTable from '../../components/PriceTable';
 import OrderForm from '../../components/CarDetailPageElements/OrderForm';
 import AutoImageCarousel from './CarDetailElements/AutoImageCarousel';
 import CompactDescription from './CarDetailElements/CompactDescription';
+import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
+
+  
 
 const CarDetailPage = () => {
   const { id } = useParams();
+  const { t, i18n } = useTranslation();
+  const [_, setUpdate] = useState(0); // Dummy state to force re-render
+  
+  useEffect(() => {
+    const handleLanguageChange = () => setUpdate((prev) => prev + 1);
+    i18n.on('languageChanged', handleLanguageChange);
+    return () => i18n.off('languageChanged', handleLanguageChange);
+  }, [i18n]);
+  
   const car = cars.find((car) => car.id === parseInt(id));
 
   if (!car) return <p>Car not found.</p>;
@@ -24,15 +37,16 @@ const CarDetailPage = () => {
         <CompactDescription car={car} />
 
         <AdditionalInfo>
-          <PriceTable priceRanges={car.priceRanges} deposit="15 000 Kč" />
+          <PriceTable carId={car.id} priceRanges={car.priceRanges} deposit="15 000 Kč" />
           <br />
-          <h1>Poptejte toto auto už dneska!</h1>
+          <h1>{t('askkforcar')}</h1>
           <OrderForm carName={car.name} />
         </AdditionalInfo>
       </ContentContainer>
 
     </DetailContainer>
   );
+  
 };
 
 // Styled Components

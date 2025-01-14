@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import { FaChevronDown, FaChevronUp, FaTruck, FaUserFriends, FaWeightHanging } from 'react-icons/fa';
 import { useSpring, animated } from 'react-spring';
 import useMeasure from 'react-use-measure';
+import { useTranslation } from 'react-i18next';
 
 const CompactDescription = ({ car }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { t } = useTranslation();
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
-  // useMeasure to get the height of the full description
   const [ref, { height: viewHeight }] = useMeasure();
 
-  // Animation for the expand/collapse
   const expandAnimation = useSpring({
     height: isExpanded ? viewHeight : 0,
     opacity: isExpanded ? 1 : 0,
@@ -22,34 +22,41 @@ const CompactDescription = ({ car }) => {
   const icons = [
     <YellowIcon as={FaTruck} />,
     <YellowIcon as={FaUserFriends} />,
-    <YellowIcon as={FaWeightHanging} />
+    <YellowIcon as={FaWeightHanging} />,
   ];
+
+  const namespaceMap = {
+    1: 'renaultMascottSingle',
+    2: 'renaultMascottDouble',
+    // Add more car mappings as needed
+  };
+
+  const namespace = namespaceMap[car.id] || 'unknownCar';
 
   return (
     <DescriptionContainer>
-      <Title>{car.name}</Title>
+      <Title>{t(car.name)}</Title>
       <SpecsList>
         {car.specs.slice(0, 3).map((spec, index) => (
           <SpecItem key={index}>
             <IconContainer>{icons[index]}</IconContainer>
             <SpecContent>
-              <SpecTitle>{spec.title}:</SpecTitle>
-              <SpecValue>{spec.value}</SpecValue>
+              <SpecTitle>{t(`cars.${namespace}.specs.${spec.name}.label`)}:</SpecTitle>
+              <SpecValue>{t(`cars.${namespace}.specs.${spec.name}.value`)}</SpecValue>
             </SpecContent>
           </SpecItem>
         ))}
       </SpecsList>
 
-      {/* Animated section for full description with table layout */}
       <AnimatedFullDescription style={expandAnimation}>
         <div ref={ref}>
-          <DescriptionText>{car.description}</DescriptionText>
+          <DescriptionText>{t(car.description)}</DescriptionText>
           <SpecsTable>
             <tbody>
               {car.specs.slice(3).map((spec, index) => (
                 <TableRow key={index}>
-                  <TableCellTitle>{spec.title}</TableCellTitle>
-                  <TableCellValue>{spec.value}</TableCellValue>
+                  <TableCellTitle>{t(`cars.${namespace}.specs.${spec.name}.label`)}</TableCellTitle>
+                  <TableCellValue>{t(`cars.${namespace}.specs.${spec.name}.value`)}</TableCellValue>
                 </TableRow>
               ))}
             </tbody>
