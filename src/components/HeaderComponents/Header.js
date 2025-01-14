@@ -48,7 +48,8 @@ const Header = () => {
         <DesktopPhoneNumber href="tel:+420704057272">+420 704 057 272</DesktopPhoneNumber>
       )}
 
-      <IconsContainer />
+      <IconsContainer viewportWidth={viewportWidth} />
+
     </HeaderContainer>
   );
 };
