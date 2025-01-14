@@ -23,7 +23,11 @@ const Header = () => {
   };
 
   // Close menu if clicking outside the burger menu
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = () => {
+    console.log('Menu is closing...');
+    setIsOpen(false);
+  };
+  
 
   // Prevent any header clicks from propagating unintentionally
   const handleHeaderClick = (e) => e.stopPropagation();
@@ -40,9 +44,9 @@ const Header = () => {
       {/* Burger Menu Component */}
       {viewportWidth < 1280 && (
         <BurgerMenuComponent
-          isOpen={isOpen}
-          onClose={closeMenu}
-        />
+        isOpen={isOpen} // This should reflect the state correctly
+        onClose={closeMenu}
+      />
       )}
 
       {/* Logo Section */}

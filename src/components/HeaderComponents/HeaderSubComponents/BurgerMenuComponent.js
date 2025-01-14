@@ -20,13 +20,14 @@ const BurgerMenuComponent = ({ isOpen, onClose, onStateChange }) => {
   return (
     <BurgerMenuContainer>
       <BurgerMenu
+        
         isOpen={isOpen}
         onStateChange={handleStateChange}
         styles={menuStyles}
       >
-        <StyledLink to="/" onClick={onClose}>{t('menu.ourcars')}</StyledLink>
-        <StyledLink to="/services" onClick={onClose}>{t('menu.ourservices')}</StyledLink>
-        <StyledLink to="/contact" onClick={onClose}>{t('menu.contactus')}</StyledLink>
+        <StyledLink to="/" onClick={onClose()}>{t('menu.ourcars')}</StyledLink>
+        <StyledLink to="/services" onClick={onClose()}>{t('menu.ourservices')}</StyledLink>
+        <StyledLink to="/contact" onClick={onClose()}>{t('menu.contactus')}</StyledLink>
         <DropdownWrapper>
           <LanguageDropdown isBurgerMenu={true} />
         </DropdownWrapper>
