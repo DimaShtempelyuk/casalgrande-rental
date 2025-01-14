@@ -14,6 +14,10 @@ const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 768px) {
+    margin-left: -50px; /* Shift the container left by -50px for mobile */
+  }
 `;
 
 const Logo = styled.img`

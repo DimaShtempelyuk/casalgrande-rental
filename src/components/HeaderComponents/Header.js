@@ -10,40 +10,45 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
-  // Toggle menu only when the burger menu icon is clicked
-  const handleMenuToggle = (e) => {
-    e.stopPropagation(); // Prevent triggering on header clicks
-    if (viewportWidth < 1280) setIsOpen(!isOpen);
-  };
-
   useEffect(() => {
     const handleResize = () => setViewportWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Toggle menu only for the burger icon
+  const handleMenuToggle = (e) => {
+    e.stopPropagation(); // Stop event propagation
+    if (viewportWidth < 1280) setIsOpen(!isOpen);
+  };
+
+  // Close menu if clicking outside the burger menu
   const closeMenu = () => setIsOpen(false);
 
+  // Prevent any header clicks from propagating unintentionally
+  const handleHeaderClick = (e) => e.stopPropagation();
+
   return (
-    <HeaderContainer>
-      {/* Show burger menu button only for mobile resolutions */}
+    <HeaderContainer onClick={handleHeaderClick}>
+      {/* Burger Menu Icon */}
       {viewportWidth < 1280 && (
         <BurgerMenuButton onClick={handleMenuToggle}>
-          <FaBars size={30} />
+          <FaBars size={40} />
         </BurgerMenuButton>
       )}
 
-      {/* Pass isOpen state to the burger menu component */}
+      {/* Burger Menu Component */}
       {viewportWidth < 1280 && (
         <BurgerMenuComponent
           isOpen={isOpen}
           onClose={closeMenu}
-          onStateChange={(state) => setIsOpen(state.isOpen)}
         />
       )}
 
-      {/* Other header sections */}
+      {/* Logo Section */}
       <LogoSection isMobile={viewportWidth < 768} showName={viewportWidth >= 768} />
+
+      {/* Navigation and Phone Numbers */}
       {viewportWidth >= 1280 && <NavLinks />}
       {viewportWidth < 1280 && (
         <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
@@ -56,6 +61,7 @@ const Header = () => {
   );
 };
 
+// Styled Components
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
@@ -64,11 +70,11 @@ const HeaderContainer = styled.header`
   height: 8dvh;
   background-color: #333;
   color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
 `;
+
 
 const BurgerMenuButton = styled.div`
   cursor: pointer;
@@ -76,7 +82,7 @@ const BurgerMenuButton = styled.div`
   padding-right: 10px;
 
   @media (min-width: 1280px) {
-    display: none; /* Hide burger menu button for desktop */
+    display: none; 
   }
 `;
 

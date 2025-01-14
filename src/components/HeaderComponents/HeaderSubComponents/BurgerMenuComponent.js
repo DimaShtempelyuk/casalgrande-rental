@@ -8,22 +8,39 @@ import LanguageDropdown from './LanguageDropdown';
 const BurgerMenuComponent = ({ isOpen, onClose, onStateChange }) => {
   const { t } = useTranslation();
 
+  const handleStateChange = (state) => {
+    if (!state.isOpen) {
+      onClose(); // Close the menu when it's toggled closed
+    }
+    if (onStateChange) {
+      onStateChange(state); // Pass state to parent if needed
+    }
+  };
+
   return (
-    <BurgerMenu
-      isOpen={isOpen}
-      onClose={onClose}
-      onStateChange={onStateChange}
-      styles={menuStyles}
-    >
-      <StyledLink to="/" onClick={onClose}>{t('menu.ourcars')}</StyledLink>
-      <StyledLink to="/services" onClick={onClose}>{t('menu.ourservices')}</StyledLink>
-      <StyledLink to="/contact" onClick={onClose}>{t('menu.contactus')}</StyledLink>
-      <DropdownWrapper>
-        <LanguageDropdown isBurgerMenu={true} />
-      </DropdownWrapper>
-    </BurgerMenu>
+    <BurgerMenuContainer>
+      <BurgerMenu
+        isOpen={isOpen}
+        onStateChange={handleStateChange}
+        styles={menuStyles}
+      >
+        <StyledLink to="/" onClick={onClose}>{t('menu.ourcars')}</StyledLink>
+        <StyledLink to="/services" onClick={onClose}>{t('menu.ourservices')}</StyledLink>
+        <StyledLink to="/contact" onClick={onClose}>{t('menu.contactus')}</StyledLink>
+        <DropdownWrapper>
+          <LanguageDropdown isBurgerMenu={true} />
+        </DropdownWrapper>
+      </BurgerMenu>
+    </BurgerMenuContainer>
   );
 };
+
+const BurgerMenuContainer = styled.div`
+  position: absolute;
+  width: 50px; /* Constrain the width of the burger menu button */
+  height: 100%; /* Match the height of the header */
+  z-index: 1001; /* Ensure it stays above other elements */
+`;
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -36,12 +53,15 @@ const StyledLink = styled(Link)`
   margin: 2% 0;
   padding: 15px;
   border-radius: 8px;
-  background: linear-gradient(45deg,rgb(255, 139, 43),rgb(255, 251, 8));
+  background: linear-gradient(45deg, rgb(255, 139, 43), rgb(255, 251, 8));
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
 `;
-
 
 const DropdownWrapper = styled.div`
   margin-top: 2em;
@@ -50,7 +70,6 @@ const DropdownWrapper = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 `;
-
 
 const menuStyles = {
   bmOverlay: {

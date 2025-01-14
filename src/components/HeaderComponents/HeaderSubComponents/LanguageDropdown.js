@@ -60,7 +60,9 @@ const LanguageDropdown = ({ isBurgerMenu }) => {
 };
 
 // Styled components with grid layout for quadrants
-const DropdownContainer = styled.div`
+const DropdownContainer = styled.div.attrs((props) => ({
+  isBurgerMenu: undefined, // Prevent `isBurgerMenu` from being passed to the DOM
+}))`
   position: relative;
   cursor: pointer;
   ${({ isBurgerMenu }) =>
