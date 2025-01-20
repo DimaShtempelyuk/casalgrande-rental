@@ -55,7 +55,7 @@ const DetailContainer = styled.div`
   padding: 20px;
   width: 80%;
   margin-left: 10%;
-  margin-top: 8dvh; /* Prevents content from overlapping the header */
+  margin-top: 10dvh;
   object-fit: cover;
 
   @media (max-width: 768px) {
@@ -75,7 +75,7 @@ const ImageCarouselContainer = styled.div`
   max-width: 800px;
   position: fixed;
   left: 0;
-  top: 8dvh; /* Matches the header height */
+  top: 14dvh; /* Matches the header height */
   bottom: 0;
   padding: 10px;
   overflow-y: auto;

@@ -13,16 +13,14 @@ const LogoSection = ({ isMobile }) => (
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
 
   @media (max-width: 768px) {
-    margin-left: -200px;
-    margin-top: 20px;
+    margin-left: -250px;
   }
 `;
 
 const Logo = styled.img`
-  height: 95px;
+  height: 9dvh;
   width: auto;
 `;
 

@@ -74,7 +74,8 @@ const HeaderContainer = styled.header`
   height: 8dvh;
   background-color: #333;
   color: #fff;
-  position: sticky;
+  position: fixed;
+  width:97%;
   top: 0;
   z-index: 2000;
 `;

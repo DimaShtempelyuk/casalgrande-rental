@@ -93,7 +93,7 @@ const SelectedLanguage = styled.div`
   background: ${({ isMobile }) => (isMobile ? '#f8f8f8' : '#333')};
   color: ${({ isMobile }) => (isMobile ? '#000' : '#fff')};
   font-weight: bold;
-  padding: 15px 20px;
+  padding: 15px 25px;
   border-radius: 5px;
   border: ${({ isMobile }) => (isMobile ? '2px solid #ddd' : 'none')};
 `;
@@ -110,7 +110,7 @@ const GridMenu = styled.div`
   padding: 10px;
   position: absolute;
   top: 110%;
-  left: 50%;
+  left: 41%;
   transform: translateX(-50%);
   z-index: 1000;
   width: 240px;
