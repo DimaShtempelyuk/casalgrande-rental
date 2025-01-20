@@ -40,11 +40,15 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100dvh; /* Full height of the viewport */
+  @media (min-width: 768px){
+    
+  touch-action: none; /* Disables touch gestures */
+  overflow: hidden;   /* Prevents scrolling */
+  }
 `;
 
 const Content = styled.div`
-  flex: 1; /* Grow to fill available space */
-  padding: 20px;
+  padding: 5px;
 `;
 
 export default App;

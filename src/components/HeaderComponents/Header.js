@@ -76,7 +76,7 @@ const HeaderContainer = styled.header`
   color: #fff;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 2000;
 `;
 
 

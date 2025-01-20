@@ -44,7 +44,7 @@ const ContactPage = () => {
         <h2>KONTAKT</h2>
         <h3>PROVOZOVATEL</h3>
         <p>🏠 Casagrande Furgon Rental</p>
-        <p>	Masarykova 89/43, 252 19 Rudná</p>
+        <p> Masarykova 89/43, 252 19 Rudná</p>
         <p>📞 <strong>+420 123 456 789</strong> (Po-Pá 08:00 – 16:00 / So-Ne 08:00 – 12:00)</p>
         <p>📧 info@yourcompany.com</p>
       </InfoSection>
@@ -66,17 +66,16 @@ const ContactPage = () => {
         </ContactForm>
       </FormSection>
       <MapSection>
-  <MapContainer center={[50.0354, 14.2327]} zoom={13} style={{ height: '400px', width: '100%' }}>
-    <TileLayer
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    />
-    <Marker position={[50.0354, 14.2327]}>
-      <Popup>Your Location: Masarykova 89/43, 252 19 Rudná</Popup>
-    </Marker>
-  </MapContainer>
-</MapSection>
-
+        <MapContainer center={[50.0354, 14.2327]} zoom={13} style={{ height: '400px', width: '100%' }}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          <Marker position={[50.0354, 14.2327]}>
+            <Popup>Your Location: Masarykova 89/43, 252 19 Rudná</Popup>
+          </Marker>
+        </MapContainer>
+      </MapSection>
     </Container>
   );
 };
@@ -86,6 +85,12 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 10px;
+  }
 `;
 
 const InfoSection = styled.div`
@@ -100,6 +105,11 @@ const InfoSection = styled.div`
   p {
     margin: 5px 0;
   }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    max-width: 100%;
+  }
 `;
 
 const FormSection = styled.div`
@@ -113,6 +123,11 @@ const FormSection = styled.div`
 
   p {
     margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    max-width: 100%;
   }
 `;
 
@@ -165,6 +180,12 @@ const MapSection = styled.div`
   flex: 1;
   padding: 20px;
   max-width: 600px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    max-width: 100%;
+    height: auto;
+  }
 `;
 
 export default ContactPage;

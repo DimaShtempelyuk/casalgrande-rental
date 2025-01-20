@@ -79,6 +79,12 @@ const DescriptionContainer = styled.div`
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.8s ease;
   max-width: 60dvw;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    max-width: 80vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 const Title = styled.h2`
@@ -86,12 +92,21 @@ const Title = styled.h2`
   font-weight: bold;
   color: #333;
   margin-bottom: 1.5em;
+
+  @media (max-width: 768px) {
+    font-size: 22px;
+    margin-bottom: 1em;
+  }
 `;
 
 const SpecsList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
+
+  @media (max-width: 768px) {
+    gap: 0.8em;
+  }
 `;
 
 const SpecItem = styled.div`
@@ -99,12 +114,20 @@ const SpecItem = styled.div`
   align-items: center;
   padding: 2px 0;
   font-size: 1.2em;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
 `;
 
 const IconContainer = styled.div`
   margin-right: 10px;
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    margin-right: 8px;
+  }
 `;
 
 const YellowIcon = styled.div`
@@ -113,9 +136,13 @@ const YellowIcon = styled.div`
   border: 2px solid black; /* Black border */
   border-radius: 50%; /* Circular border */
   padding: 4px; /* Padding inside border */
-`;
 
-const SpecContent = styled.div`
+  @media (max-width: 768px) {
+    font-size: 1.5em;
+    padding: 3px;
+  }
+`;
+ const SpecContent = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -132,21 +159,33 @@ const SpecValue = styled.span`
   color: #666;
   text-align: right;
 `;
-
 const AnimatedFullDescription = styled(animated.div)`
   margin-top: 1.5em;
   margin-bottom: 1.5em;
   color: #333;
   line-height: 1.6;
+
+  @media (max-width: 768px) {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 `;
 
 const DescriptionText = styled.p`
   margin-bottom: 1em;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0.8em;
+  }
 `;
 
 const SpecsTable = styled.table`
   width: 100%;
   border-collapse: collapse;
+
+  @media (max-width: 768px) {
+    font-size: 0.9em;
+  }
 `;
 
 const TableRow = styled.tr`
@@ -158,12 +197,20 @@ const TableCellTitle = styled.td`
   padding: 8px;
   color: #333;
   width: 50%;
+
+  @media (max-width: 768px) {
+    padding: 6px;
+  }
 `;
 
 const TableCellValue = styled.td`
   padding: 8px;
   color: #666;
   text-align: right;
+
+  @media (max-width: 768px) {
+    padding: 6px;
+  }
 `;
 
 const ExpandButton = styled.div`
@@ -179,6 +226,11 @@ const ExpandButton = styled.div`
   &:hover {
     color: #1a6bbf;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
 `;
+
 
 export default CompactDescription;
