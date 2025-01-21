@@ -93,7 +93,7 @@ const BurgerMenuButton = styled.div`
 
 const PulsingPhoneNumber = styled.a`
   position:absolute;
-  right: 15%;
+  right: 11%;
   font-size:2em;
   color: #ffcc00;
   text-decoration: none;

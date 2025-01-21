@@ -1,4 +1,9 @@
-{
+{ "ourservicespage": "Our Services",
+  "service": {
+    "title": "Premium Car Rental Service",
+    "description": "Enjoy top-tier vehicles and services tailored to your needs. Rent a car with us today!",
+    "videoSupportMessage": "Your browser does not support the video tag."
+  },
   "contactPage": {
     "title": "KONTAKT",
     "operator": "PROVOZOVATEL",

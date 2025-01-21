@@ -6,7 +6,8 @@ import logo from '../../../assets/images/casalgrande_logo.png';
 const LogoSection = ({ isMobile }) => (
   <LogoContainer>
     <Logo src={logo} alt="Casagrande Furgon Rental" />
-    {!isMobile && <BrandLink to="/">Casagrande Furgon Rental</BrandLink>}
+    {!isMobile && <BrandLink to="/"> Casagrande Rental</BrandLink>}
+
   </LogoContainer>
 );
 
@@ -26,6 +27,7 @@ const Logo = styled.img`
 
 const BrandLink = styled(Link)`
   font-size: 1.5em;
+  margin-left: 10px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
