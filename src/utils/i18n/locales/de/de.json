@@ -1,4 +1,36 @@
 {
+  "contactPage": {
+    "title": "Kontakt",
+    "operator": "Betreiber",
+    "address": "Casagrande Rental",
+    "street": "Masarykova 89/43, 252 19 Rudná",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "availability": "Verfügbarkeit",
+    "days": {
+      "mon": "Mo",
+      "tue": "Di",
+      "wed": "Mi",
+      "thu": "Do",
+      "fri": "Fr",
+      "sat": "Sa",
+      "sun": "So"
+    },
+    "hours": {
+      "weekday": "08:00 – 16:00",
+      "weekend": "08:00 – 12:00"
+    },
+    "form": {
+      "title": "Haben Sie eine Frage?",
+      "description": "Wir beantworten gerne Ihre Fragen.",
+      "namePlaceholder": "Vor- und Nachname*",
+      "emailPlaceholder": "E-Mail*",
+      "phonePlaceholder": "Telefon*",
+      "messagePlaceholder": "Nachricht*",
+      "checkboxLabel": "Ich stimme der Bereitstellung und Verarbeitung personenbezogener Daten zu",
+      "submitButton": "Senden"
+    }
+  },
   "form": {
     "companyOrName": "Name der Firma/ Vor- und Nachname",
     "ico": "IČO",

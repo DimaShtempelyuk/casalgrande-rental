@@ -15,6 +15,38 @@
     "consent": "I agree to the provision and processing of personal data",
     "submit": "SEND REQUEST"
   },
+ "contactPage": {
+    "title": "Contact",
+    "operator": "Operator",
+    "address": "Casagrande Rental",
+    "street": "Masarykova 89/43, 252 19 Rudná",
+    "phone": "Phone",
+    "email": "Email",
+    "availability": "Availability",
+    "days": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    },
+    "hours": {
+      "weekday": "08:00 – 16:00",
+      "weekend": "08:00 – 12:00"
+    },
+    "form": {
+      "title": "Have a Question?",
+      "description": "We are happy to answer your questions.",
+      "namePlaceholder": "First and Last Name*",
+      "emailPlaceholder": "Email*",
+      "phonePlaceholder": "Phone*",
+      "messagePlaceholder": "Message*",
+      "checkboxLabel": "I agree to the provision and processing of personal data",
+      "submitButton": "Submit"
+    }
+  },
   "menu": {
   "ourcars": "Our Trucks",
   "ourservices": "Our Services",

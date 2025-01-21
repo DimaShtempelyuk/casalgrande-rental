@@ -1,4 +1,36 @@
 {
+  "contactPage": {
+    "title": "Контакт",
+    "operator": "Оператор",
+    "address": "Casagrande Rental",
+    "street": "Masarykova 89/43, 252 19 Rudná",
+    "phone": "Телефон",
+    "email": "Електронна пошта",
+    "availability": "Доступність",
+    "days": {
+      "mon": "Пон",
+      "tue": "Вів",
+      "wed": "Сер",
+      "thu": "Чет",
+      "fri": "П'ят",
+      "sat": "Суб",
+      "sun": "Нед"
+    },
+    "hours": {
+      "weekday": "08:00 – 16:00",
+      "weekend": "08:00 – 12:00"
+    },
+    "form": {
+      "title": "Питання?",
+      "description": "Ми з радістю відповімо на ваші запитання.",
+      "namePlaceholder": "Ім'я та прізвище*",
+      "emailPlaceholder": "Електронна пошта*",
+      "phonePlaceholder": "Телефон*",
+      "messagePlaceholder": "Повідомлення*",
+      "checkboxLabel": "Я погоджуюсь на надання та обробку персональних даних",
+      "submitButton": "Надіслати"
+    }
+  },
   "form": {
     "companyOrName": "Назва компанії / ім'я та прізвище",
     "ico": "IČO",

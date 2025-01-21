@@ -1,5 +1,36 @@
 {
-  
+  "contactPage": {
+    "title": "KONTAKT",
+    "operator": "PROVOZOVATEL",
+    "address": "Casagrande Rental",
+    "street": "Masarykova 89/43, 252 19 Rudná",
+    "phone": "📞",
+    "email": "📧",
+    "availability": "Dostupnost",
+    "days": {
+      "mon": "Po",
+      "tue": "Út",
+      "wed": "St",
+      "thu": "Čt",
+      "fri": "Pá",
+      "sat": "So",
+      "sun": "Ne"
+    },
+    "hours": {
+      "weekday": "08:00 – 16:00",
+      "weekend": "08:00 – 12:00"
+    },
+    "form": {
+      "title": "MÁTE DOTAZ?",
+      "description": "Rádi zodpovíme Vaše dotazy.",
+      "namePlaceholder": "Jméno a příjmení*",
+      "emailPlaceholder": "Email*",
+      "phonePlaceholder": "Telefon*",
+      "messagePlaceholder": "Zpráva*",
+      "checkboxLabel": "Uděluji souhlas s poskytnutím a zpracováním osobních údajů",
+      "submitButton": "Odeslat"
+    }
+  },
   "menu": {
     "ourcars": "Naše vozy",
     "ourservices": "Naše služby",
