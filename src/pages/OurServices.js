@@ -20,31 +20,26 @@ const OurServices = () => {
       {/* Content Section */}
       <ContentWrapper>
         <DetailsSection>
-          <Description>
-            <h2>Co Vám můžeme nabídnout:</h2>
-            <ul>
-              <li>Výkopy základů pro rodinné domy, garáže, ploty a další stavby.</li>
-              <li>Terénní úpravy – zarovnání a příprava pozemků.</li>
-              <li>Výkopy pro inženýrské sítě – vodovodní, kanalizační, plynové a elektrické přípojky.</li>
-              <li>Odstranění zeminy a odvoz stavebního odpadu.</li>
-              <li>Úprava zahrad a výkopy pro bazény či jezírka.</li>
-            </ul>
+        <Description>
+  <h2>{t('service.descriptionTitle1')}</h2>
+  <ul>
+    {t('service.descriptionList1', { returnObjects: true }).map((item, index) => (
+      <li key={index}>{item}</li>
+    ))}
+  </ul>
 
-            <h2>Proč si vybrat nás?</h2>
-            <ul>
-              <li>Moderní technika a profesionální přístup.</li>
-              <li>Zkušený tým s více než 30 lety praxe.</li>
-              <li>Flexibilita a rychlé dokončení zakázek.</li>
-              <li>Individuální přístup ke každému zákazníkovi.</li>
-            </ul>
+  <h2>{t('service.descriptionTitle2')}</h2>
+  <ul>
+    {t('service.descriptionList2', { returnObjects: true }).map((item, index) => (
+      <li key={index}>{item}</li>
+    ))}
+  </ul>
 
-            <p>
-              <strong>Cenu poptejte ještě dnes!</strong>
-              <br />
-              Rádi Vám zpracujeme nezávaznou nabídku na míru. Neváhejte nás kontaktovat a zjistit, jak můžeme
-              pomoci s Vaším projektem!
-            </p>
-          </Description>
+  <p>
+    <strong>{t('service.descriptionFooter')}</strong>
+  </p>
+</Description>
+
 
           {/* Pulsating Phone Number */}
           <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
@@ -63,7 +58,8 @@ const OurServices = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  height: 100dvh;
+  flex-wrap: wrap;
+  overflow: hidden; /* Prevent content overflow */
 `;
 
 const VideoSection = styled.div`
@@ -72,10 +68,13 @@ const VideoSection = styled.div`
   left: 2dvw;
   width: 46dvw;
   height: 50dvh;
-  overflow: hidden; /* Ensures the video fits the section */
 
   @media (max-width: 768px) {
-    width: 100vw; /* Full width for smaller screens */
+    margin-top: 12dvh;
+    position: static; /* Adjust for smaller screens */
+    width: 100%; 
+    height: auto; 
+    margin-bottom: 20px; /* Add spacing */
   }
 `;
 
@@ -86,17 +85,19 @@ const Video = styled.video`
 `;
 
 const ContentWrapper = styled.div`
-
-  margin-top: 10dvh;
-  margin-left: 50vw; /* Leaves space for the fixed video */
+margin-top: 12dvh;
+margin-left: 50vw; /* Leaves space for the fixed video */
   padding: 20px;
-  width: 50vw; /* Ensures the content takes up the right half */
+  width: 100%; /* Ensures the content takes up the right half */
   display: flex;
   flex-direction: column;
 
   @media (max-width: 768px) {
     margin-left: 0;
-    width: 100vw;
+    margin-top: 0;
+    width: 100%; /* Full width for smaller screens */
+    padding: 10px; /* Add padding */
+    overflow-y: auto; /* Scrollable content if necessary */
   }
 `;
 
@@ -107,6 +108,7 @@ const DetailsSection = styled.div`
 const Description = styled.div`
   border: 2px solid #ccc; /* Border for the description */
   padding: 20px;
+  position:static;
   background: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -140,6 +142,8 @@ const Description = styled.div`
 `;
 
 const PulsingPhoneNumber = styled.a`
+height:5dvh;
+width: 95%;
   display: block;
   font-size: 2.5em;
   color: #ffcc00;
@@ -171,11 +175,12 @@ const PulsingPhoneNumber = styled.a`
 `;
 
 const OrderFormWrapper = styled.div`
-  max-width: 100%;
+  width: 100%; /* Ensure it takes full available space */
   text-align: center;
-
+  box-sizing: border-box; /* Include padding in size calculations */
+  
   form {
-    width: 100%;
+    width: 100%; /* Let the form take full width of its container */
   }
 `;
 

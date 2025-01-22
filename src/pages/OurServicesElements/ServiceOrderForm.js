@@ -13,25 +13,22 @@ const ServiceOrderForm = () => {
 
     emailjs
       .sendForm(
-        'service_iggsweb', // Replace with your service ID
-        'template_eah3lbr', // Replace with your template ID
-        formRef.current,
-        'HuUqQRhtUZI0Fj6-O' // Replace with your user ID
+        'service_stox8pu', 'template_m7ytdqf', formRef.current, 'HuUqQRhtUZI0Fj6-O'
       )
       .then(
         () => {
           Swal.fire({
             icon: 'success',
-            title: 'Zpráva odeslána!',
-            text: 'Vaše zpráva byla úspěšně odeslána. Brzy Vás budeme kontaktovat!',
+            title: t('messageBox.success.title'), // Success title from translations
+            text: t('messageBox.success.text'),   // Success text from translations
             confirmButtonColor: '#3085d6',
           });
         },
         () => {
           Swal.fire({
             icon: 'error',
-            title: 'Chyba!',
-            text: 'Nepodařilo se odeslat zprávu. Kontaktujte nás na +420 704 057 272.',
+            title: t('messageBox.error.title'),   // Error title from translations
+            text: t('messageBox.error.text'),     // Error text from translations
             confirmButtonColor: '#d33',
           });
         }
@@ -43,13 +40,13 @@ const ServiceOrderForm = () => {
   return (
     <OrderForm ref={formRef} onSubmit={sendEmail}>
       <Label htmlFor="full_name">{t('form.companyOrName')} *</Label>
-      <Input type="text" name="full_name" id="full_name" required />
+      <Input type="text" name="user_name" id="user_name" required />
 
       <Label htmlFor="email">{t('form.email')} *</Label>
-      <Input type="email" name="email" id="email" required />
+      <Input type="email" name="user_email" id="user_email" required />
 
       <Label htmlFor="phone">{t('form.phone')}</Label>
-      <Input type="tel" name="phone" id="phone" />
+      <Input type="tel" name="user_phone" id="user_phone" />
 
       <Label htmlFor="message">{t('form.message')}</Label>
       <TextArea name="message" id="message" />
@@ -64,21 +61,32 @@ const OrderForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 500px;
+  
+  max-width: 95%;
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
-    padding: 10px;
+    max-width: 95%; /* Form takes up full width on smaller screens */
+    padding: 10px; /* Reduced padding for smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    gap: 10px; /* Reduce gap for extra-small screens */
+    padding: 8px; /* Further reduce padding */
   }
 `;
 
 const Label = styled.label`
   font-weight: bold;
   margin-bottom: 5px;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 0.9em; /* Slightly smaller font on smaller screens */
+  }
 `;
 
 const Input = styled.input`
@@ -86,6 +94,10 @@ const Input = styled.input`
   font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 4px;
+
+  @media (max-width: 768px) {
+    font-size: 0.9em; /* Adjust font size for inputs */
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -93,7 +105,12 @@ const TextArea = styled.textarea`
   font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 4px;
-  min-height: 100px;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    font-size: 0.9em; /* Adjust font size for textarea */
+  }
 `;
 
 const Button = styled.button`
@@ -109,6 +126,12 @@ const Button = styled.button`
   &:hover {
     background-color: #e65c00;
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.9em; /* Adjust button font size */
+    padding: 10px; /* Reduce button padding */
+  }
 `;
+
 
 export default ServiceOrderForm;

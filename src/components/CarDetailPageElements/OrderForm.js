@@ -62,16 +62,16 @@ const OrderFormComponent = ({ carName }) => {
         () => {
           Swal.fire({
             icon: 'success',
-            title: 'Poptávka odeslána!',
-            text: 'Vaše objednávka byla úspěšně odeslána. Brzy Vás budeme kontaktovat!',
+            title: t('messageBox.success.title'), // Success title from translations
+            text: t('messageBox.success.text'),   // Success text from translations
             confirmButtonColor: '#3085d6',
           });
         },
         () => {
           Swal.fire({
             icon: 'error',
-            title: 'Chyba!',
-            text: 'Nepodařilo se odeslat poptávku. Kontaktujte nás na +420 704 057 272.',
+            title: t('messageBox.error.title'),   // Error title from translations
+            text: t('messageBox.error.text'),     // Error text from translations
             confirmButtonColor: '#d33',
           });
         }
@@ -210,7 +210,7 @@ const Label = styled.label`
 const SegmentedControl = styled.div`
   display: flex;
   width: 100%;
-  grid-column: span 2;
+  grid-column: span 1;
 
   @media (max-width: 768px) {
     grid-column: span 1;
@@ -221,7 +221,6 @@ const SegmentOption = styled.div`
   flex: 1;
   padding: 6px;
   font-size: 0.91rem;
-  text-align: center;
   cursor: pointer;
   background-color: ${(props) => (props.isActive ? '#ffcc00' : '#f9f9f9')};
   border: ${(props) => (props.isActive ? '2px solid #ffcc00' : '2px solid #ddd')};
@@ -231,7 +230,7 @@ const SegmentOption = styled.div`
 `;
 
 const Input = styled.input`
-  padding: 10px;
+   padding: 10px;
   font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 4px;

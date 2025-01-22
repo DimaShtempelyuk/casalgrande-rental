@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
 import { useTranslation } from 'react-i18next';
 
 // Import Leaflet CSS
@@ -34,13 +35,21 @@ const ContactPage = () => {
     emailjs
       .sendForm('service_stox8pu', 'template_m7ytdqf', form.current, 'HuUqQRhtUZI0Fj6-O')
       .then(
-        (result) => {
-          console.log(result.text);
-          alert('Message sent successfully!');
+        () => {
+          Swal.fire({
+            icon: 'success',
+            title: t('messageBox.success.title'), // Success title from translations
+            text: t('messageBox.success.text'),   // Success text from translations
+            confirmButtonColor: '#3085d6',
+          });
         },
-        (error) => {
-          console.log(error.text);
-          alert('Failed to send message.');
+        () => {
+          Swal.fire({
+            icon: 'error',
+            title: t('messageBox.error.title'),   // Error title from translations
+            text: t('messageBox.error.text'),     // Error text from translations
+            confirmButtonColor: '#d33',
+          });
         }
       );
 

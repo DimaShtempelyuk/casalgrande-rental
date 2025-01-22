@@ -1,9 +1,34 @@
-{ "ourservicespage": "Our Services",
-  "service": {
-    "title": "Premium Car Rental Service",
-    "description": "Enjoy top-tier vehicles and services tailored to your needs. Rent a car with us today!",
-    "videoSupportMessage": "Your browser does not support the video tag."
+{ 
+  "messageBox": {
+    "success": {
+      "title": "Zpráva odeslána!",
+      "text": "Vaše zpráva byla úspěšně odeslána. Brzy Vás budeme kontaktovat!"
+    },
+    "error": {
+      "title": "Chyba!",
+      "text": "Nepodařilo se odeslat zprávu. Kontaktujte nás na +420 704 057 272."
+    }
   },
+    "service": {
+    "videoSupportMessage": "Váš prohlížeč nepodporuje video tag.",
+    "descriptionTitle1": "Co Vám můžeme nabídnout:",
+    "descriptionList1": [
+      "Výkopy základů pro rodinné domy, garáže, ploty a další stavby.",
+      "Terénní úpravy – zarovnání a příprava pozemků.",
+      "Výkopy pro inženýrské sítě – vodovodní, kanalizační, plynové a elektrické přípojky.",
+      "Odstranění zeminy a odvoz stavebního odpadu.",
+      "Úprava zahrad a výkopy pro bazény či jezírka."
+    ],
+    "descriptionTitle2": "Proč si vybrat nás?",
+    "descriptionList2": [
+      "Moderní technika a profesionální přístup.",
+      "Zkušený tým s více než 30 lety praxe.",
+      "Flexibilita a rychlé dokončení zakázek.",
+      "Individuální přístup ke každému zákazníkovi."
+    ],
+    "descriptionFooter": "Cenu poptejte ještě dnes! Rádi Vám zpracujeme nezávaznou nabídku na míru. Neváhejte nás kontaktovat a zjistit, jak můžeme pomoci s Vaším projektem!"
+  },  
+"ourservicespage": "Our Services",
   "contactPage": {
     "title": "KONTAKT",
     "operator": "PROVOZOVATEL",

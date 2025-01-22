@@ -1,4 +1,33 @@
 {
+  "messageBox": {
+    "success": {
+      "title": "Nachricht gesendet!",
+      "text": "Ihre Nachricht wurde erfolgreich gesendet. Wir werden Sie bald kontaktieren!"
+    },
+    "error": {
+      "title": "Fehler!",
+      "text": "Die Nachricht konnte nicht gesendet werden. Bitte kontaktieren Sie uns unter +420 704 057 272."
+    }
+  },
+  "service": {
+    "videoSupportMessage": "Ihr Browser unterstützt das Video-Tag nicht.",
+    "descriptionTitle1": "Was wir Ihnen anbieten können:",
+    "descriptionList1": [
+      "Ausgrabungen für Fundamente von Einfamilienhäusern, Garagen, Zäunen und anderen Gebäuden.",
+      "Geländeausgleich und -vorbereitung.",
+      "Ausgrabungen für Versorgungsnetze – Wasser, Abwasser, Gas und Stromanschlüsse.",
+      "Bodenentfernung und Bauabfallentsorgung.",
+      "Gartenanpassungen und Ausgrabungen für Schwimmbäder oder Teiche."
+    ],
+    "descriptionTitle2": "Warum sollten Sie uns wählen?",
+    "descriptionList2": [
+      "Moderne Technik und professionelle Herangehensweise.",
+      "Erfahrenes Team mit über 30 Jahren Erfahrung.",
+      "Flexibilität und schnelle Projektumsetzung.",
+      "Individueller Ansatz für jeden Kunden."
+    ],
+    "descriptionFooter": "Fordern Sie noch heute einen Kostenvoranschlag an! Wir erstellen ein unverbindliches Angebot, das auf Ihre Bedürfnisse zugeschnitten ist. Kontaktieren Sie uns, um herauszufinden, wie wir Ihnen bei Ihrem Projekt helfen können!"
+  },
   "contactPage": {
     "title": "Kontakt",
     "operator": "Betreiber",
