@@ -11,10 +11,6 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ],
-    "predeploy": [
-      "npm install --legacy-peer-deps",
-      "npm run build --legacy-peer-deps"
     ]
   }
 }
