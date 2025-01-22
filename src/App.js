@@ -7,6 +7,7 @@ import Header from './components/HeaderComponents/Header';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import * as Sentry from '@sentry/react';
+import OurServices from "./pages/OurServices"
 
 import { useTranslation } from 'react-i18next';
 
@@ -25,7 +26,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/car/:id" element={<CarDetailPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/services" element={<div>{t('ourservices')} </div>} />
+            <Route path="/services" element={<OurServices />} />
           </Routes>
         </Content>
         <Footer />
@@ -40,11 +41,15 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100dvh; /* Full height of the viewport */
+  @media (min-width: 768px){
+    
+  touch-action: none; /* Disables touch gestures */
+  overflow: hidden;   /* Prevents scrolling */
+  }
 `;
 
 const Content = styled.div`
-  flex: 1; /* Grow to fill available space */
-  padding: 20px;
+  padding: 5px;
 `;
 
 export default App;

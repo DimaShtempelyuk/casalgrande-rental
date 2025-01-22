@@ -1,4 +1,65 @@
 {
+  "messageBox": {
+    "success": {
+      "title": "Nachricht gesendet!",
+      "text": "Ihre Nachricht wurde erfolgreich gesendet. Wir werden Sie bald kontaktieren!"
+    },
+    "error": {
+      "title": "Fehler!",
+      "text": "Die Nachricht konnte nicht gesendet werden. Bitte kontaktieren Sie uns unter +420 704 057 272."
+    }
+  },
+  "service": {
+    "videoSupportMessage": "Ihr Browser unterstützt das Video-Tag nicht.",
+    "descriptionTitle1": "Was wir Ihnen anbieten können:",
+    "descriptionList1": [
+      "Ausgrabungen für Fundamente von Einfamilienhäusern, Garagen, Zäunen und anderen Gebäuden.",
+      "Geländeausgleich und -vorbereitung.",
+      "Ausgrabungen für Versorgungsnetze – Wasser, Abwasser, Gas und Stromanschlüsse.",
+      "Bodenentfernung und Bauabfallentsorgung.",
+      "Gartenanpassungen und Ausgrabungen für Schwimmbäder oder Teiche."
+    ],
+    "descriptionTitle2": "Warum sollten Sie uns wählen?",
+    "descriptionList2": [
+      "Moderne Technik und professionelle Herangehensweise.",
+      "Erfahrenes Team mit über 30 Jahren Erfahrung.",
+      "Flexibilität und schnelle Projektumsetzung.",
+      "Individueller Ansatz für jeden Kunden."
+    ],
+    "descriptionFooter": "Fordern Sie noch heute einen Kostenvoranschlag an! Wir erstellen ein unverbindliches Angebot, das auf Ihre Bedürfnisse zugeschnitten ist. Kontaktieren Sie uns, um herauszufinden, wie wir Ihnen bei Ihrem Projekt helfen können!"
+  },
+  "contactPage": {
+    "title": "Kontakt",
+    "operator": "Betreiber",
+    "address": "Casagrande Rental",
+    "street": "Masarykova 89/43, 252 19 Rudná",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "availability": "Verfügbarkeit",
+    "days": {
+      "mon": "Mo",
+      "tue": "Di",
+      "wed": "Mi",
+      "thu": "Do",
+      "fri": "Fr",
+      "sat": "Sa",
+      "sun": "So"
+    },
+    "hours": {
+      "weekday": "08:00 – 16:00",
+      "weekend": "08:00 – 12:00"
+    },
+    "form": {
+      "title": "Haben Sie eine Frage?",
+      "description": "Wir beantworten gerne Ihre Fragen.",
+      "namePlaceholder": "Vor- und Nachname*",
+      "emailPlaceholder": "E-Mail*",
+      "phonePlaceholder": "Telefon*",
+      "messagePlaceholder": "Nachricht*",
+      "checkboxLabel": "Ich stimme der Bereitstellung und Verarbeitung personenbezogener Daten zu",
+      "submitButton": "Senden"
+    }
+  },
   "form": {
     "companyOrName": "Name der Firma/ Vor- und Nachname",
     "ico": "IČO",
@@ -100,11 +161,11 @@
         },
         "longTerm": {
           "label": "Langzeitmiete",
-          "value": "Langzeitmiete über 30 Tage (max. 10.000 km)"
+          "value": "über 30 Tage (max. 10.000 km)"
         },
         "weekend": {
           "label": "Wochenende",
-          "value": "Wochenende (Fr 14:00 bis Mo 09:00)"
+          "value": "(Fr 14:00 bis Mo 09:00)"
         },
         "extraMileage": {
           "label": "Zusätzliche Kilometer",
@@ -184,11 +245,11 @@
         },
         "longTerm": {
           "label": "Langzeitmiete",
-          "value": "Langzeitmiete über 30 Tage (max. 10.000 km)"
+          "value": "über 30 Tage (max. 10.000 km)"
         },
         "weekend": {
           "label": "Wochenende",
-          "value": "Wochenende (Fr 14:00 bis Mo 09:00)"
+          "value": "(Fr 14:00 bis Mo 09:00)"
         },
         "extraMileage": {
           "label": "Zusätzliche Kilometer",

@@ -7,8 +7,6 @@ import Swal from 'sweetalert2';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
-  
-
 const OrderFormComponent = ({ carName }) => {
   const { t } = useTranslation();
   const formRef = useRef();
@@ -42,7 +40,7 @@ const OrderFormComponent = ({ carName }) => {
       : 'N/A';
 
     const formData = {
-      car_name: carName,
+      car_name: t(carName),
       user_name: e.target.user_name.value,
       user_email: e.target.user_email.value,
       user_phone: e.target.user_phone.value,
@@ -55,25 +53,25 @@ const OrderFormComponent = ({ carName }) => {
 
     emailjs
       .send(
-        'service_iggsweb', // Replace with your EmailJS service ID
-        'template_eah3lbr', // Replace with your EmailJS template ID
+        process.env.REACT_APP_CASALGRANDE_EMAIL_JS_CAR_SERVICE_KEY,
+        process.env.REACT_APP_CASALGRANDE_EMAIL_JS_CAR_TEMPLATE_KEY,
         formData,
-        'HuUqQRhtUZI0Fj6-O' 
+        process.env.REACT_APP_CASALGRANDE_EMAIL_JS_PUBLIC_KEY
       )
       .then(
         () => {
           Swal.fire({
             icon: 'success',
-            title: 'Poptávka odeslána!',
-            text: 'Vaše objednávka byla úspěšně odeslána. Brzy Vás budeme kontaktovat!',
+            title: t('messageBox.success.title'), // Success title from translations
+            text: t('messageBox.success.text'),   // Success text from translations
             confirmButtonColor: '#3085d6',
           });
         },
         () => {
           Swal.fire({
             icon: 'error',
-            title: 'Chyba!',
-            text: 'Nepodařilo se odeslat poptávku. Kontaktujte nás na +420 704 057 272.',
+            title: t('messageBox.error.title'),   // Error title from translations
+            text: t('messageBox.error.text'),     // Error text from translations
             confirmButtonColor: '#d33',
           });
         }
@@ -84,20 +82,20 @@ const OrderFormComponent = ({ carName }) => {
     <OrderForm ref={formRef} onSubmit={sendEmail}>
       <Input type="hidden" name="car_name" value={carName} />
 
-      <Label htmlFor="user_name"> { t("form.companyOrName")} *</Label>
-      <Input type="text" name="user_name" id="user_name" required />
+      <Label htmlFor="user_name" > {t('form.companyOrName')} *</Label>
+      <Input type="text" name="user_name" id="user_name" placeholder="např. Jozef Sprostý" required />
       <SegmentedControl>
         <SegmentOption
           isActive={isIcoSelected}
           onClick={() => handleToggle(true)}
         >
-          { t("form.ico")}
+          {t('form.ico')}
         </SegmentOption>
         <SegmentOption
           isActive={!isIcoSelected}
           onClick={() => handleToggle(false)}
         >
-          { t("form.dateOfBirth")}
+          {t('form.dateOfBirth')}
         </SegmentOption>
       </SegmentedControl>
 
@@ -122,15 +120,14 @@ const OrderFormComponent = ({ carName }) => {
             customInput={<CustomInput />}
             showYearDropdown
             scrollableYearDropdown
-            yearDropdownItemNumber={100} // Shows 100 years in dropdown
-            maxDate={new Date()} // Today's date
+            yearDropdownItemNumber={100}
+            maxDate={new Date()}
           />
-
           <CalendarIcon />
         </DateContainer>
       )}
 
-      <Label htmlFor="rental_date">{ t("form.rentalDate")} *</Label>
+      <Label htmlFor="rental_date">{t('form.rentalDate')} *</Label>
       <DateContainer>
         <DatePicker
           selected={rentalDate}
@@ -144,7 +141,7 @@ const OrderFormComponent = ({ carName }) => {
         <CalendarIcon />
       </DateContainer>
 
-      <Label htmlFor="return_date">{ t("form.returnDate")}*</Label>
+      <Label htmlFor="return_date">{t('form.returnDate')}*</Label>
       <DateContainer>
         <DatePicker
           selected={returnDate}
@@ -158,30 +155,30 @@ const OrderFormComponent = ({ carName }) => {
         <CalendarIcon />
       </DateContainer>
 
-      <Label htmlFor="user_email">{ t("form.email")}*</Label>
-      <Input type="email" name="user_email" id="user_email" required />
+      <Label htmlFor="user_email">{t('form.email')}*</Label>
+      <Input type="email" name="user_email" id="user_email" placeholder="např. zarohem@gmail.com" required />
 
-      <Label htmlFor="user_phone">{ t("form.phone")}</Label>
-      <Input type="tel" name="user_phone" id="user_phone" />
+      <Label htmlFor="user_phone">{t('form.phone')}</Label>
+      <Input type="tel" name="user_phone" id="user_phone" placeholder="+420 *** *** ***"/>
 
-      <Label htmlFor="abroad_trip">{ t("form.travelAbroad")}*</Label>
+      <Label htmlFor="abroad_trip">{t('form.travelAbroad')}*</Label>
       <Select name="abroad_trip" id="abroad_trip" required>
-        <option value="">{ t("form.select")}</option>
-        <option value="yes">{ t("form.yes")}</option>
-        <option value="no">{ t("form.no")}</option>
+        <option value="">{t('form.select')}</option>
+        <option value="yes">{t('form.yes')}</option>
+        <option value="no">{t('form.no')}</option>
       </Select>
 
-      <Label htmlFor="message">{ t("form.message")}</Label>
-      <TextArea name="message" id="message" />
+      <Label htmlFor="message">{t('form.message')}</Label>
+      <TextArea name="message" id="message" placeholder="*"/>
 
       <CheckboxContainer>
         <Checkbox type="checkbox" required />
         <CheckboxLabel>
-        { t("form.consent")}*
+          {t('form.consent')}*
         </CheckboxLabel>
       </CheckboxContainer>
 
-      <Button type="submit">{ t("form.submit")}</Button>
+      <Button type="submit">{t('form.submit')}</Button>
     </OrderForm>
   );
 };
@@ -200,7 +197,8 @@ const OrderForm = styled.form`
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    min-width: 300px;
+    min-width: 88%;
+    margin-left: -10px;
   }
 `;
 
@@ -212,7 +210,11 @@ const Label = styled.label`
 const SegmentedControl = styled.div`
   display: flex;
   width: 100%;
-  grid-column: 2 4;
+  grid-column: span 1;
+
+  @media (max-width: 768px) {
+    grid-column: span 1;
+  }
 `;
 
 const SegmentOption = styled.div`
@@ -225,12 +227,11 @@ const SegmentOption = styled.div`
   border: ${(props) => (props.isActive ? '2px solid #ffcc00' : '2px solid #ddd')};
   color: ${(props) => (props.isActive ? '#333' : '#888')};
   font-weight: ${(props) => (props.isActive ? 'bold' : 'normal')};
-  border-radius: ${(props, index) =>
-    props.isActive && index === 0 ? '8px 0 0 8px' : props.isActive && index === 1 ? '0 8px 8px 0' : '8px'};
+  border-radius: ${(props) => (props.isActive ? '8px' : '8px')};
 `;
 
 const Input = styled.input`
-  padding: 10px;
+   padding: 10px;
   font-size: 1em;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -276,6 +277,10 @@ const TextArea = styled.textarea`
   border: 1px solid #ccc;
   border-radius: 4px;
   min-height: 100px;
+
+  @media (max-width: 768px) {
+    grid-column: span 1;
+  }
 `;
 
 const CheckboxContainer = styled.div`
@@ -283,6 +288,10 @@ const CheckboxContainer = styled.div`
   align-items: center;
   margin-top: 10px;
   grid-column: span 2;
+
+  @media (max-width: 768px) {
+    grid-column: span 1;
+  }
 `;
 
 const Checkbox = styled.input`
@@ -305,6 +314,10 @@ const Button = styled.button`
 
   &:hover {
     background-color: #e65c00;
+  }
+
+  @media (max-width: 768px) {
+    grid-column: span 1;
   }
 `;
 

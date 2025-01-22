@@ -1,4 +1,33 @@
 {
+  "messageBox": {
+    "success": {
+      "title": "Message Sent!",
+      "text": "Your message has been successfully sent. We will contact you soon!"
+    },
+    "error": {
+      "title": "Error!",
+      "text": "Failed to send the message. Please contact us at +420 704 057 272."
+    }
+  },
+  "service": {
+    "videoSupportMessage": "Your browser does not support the video tag.",
+    "descriptionTitle1": "What we can offer you:",
+    "descriptionList1": [
+      "Excavations of foundations for family houses, garages, fences, and other buildings.",
+      "Land leveling and preparation.",
+      "Excavations for utility networks – water, sewage, gas, and electrical connections.",
+      "Soil removal and construction waste disposal.",
+      "Garden adjustments and excavations for pools or ponds."
+    ],
+    "descriptionTitle2": "Why choose us?",
+    "descriptionList2": [
+      "Modern equipment and professional approach.",
+      "Experienced team with over 30 years of experience.",
+      "Flexibility and quick project completion.",
+      "Individual approach to each customer."
+    ],
+    "descriptionFooter": "Request a price today! We will prepare a non-binding offer tailored to your needs. Don't hesitate to contact us to find out how we can help with your project!"
+  },
   "form": {
     "companyOrName": "Company Name / First and Last Name",
     "ico": "IČO",
@@ -15,12 +44,44 @@
     "consent": "I agree to the provision and processing of personal data",
     "submit": "SEND REQUEST"
   },
+ "contactPage": {
+    "title": "Contact",
+    "operator": "Operator",
+    "address": "Casagrande Rental",
+    "street": "Masarykova 89/43, 252 19 Rudná",
+    "phone": "Phone",
+    "email": "Email",
+    "availability": "Availability",
+    "days": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    },
+    "hours": {
+      "weekday": "08:00 – 16:00",
+      "weekend": "08:00 – 12:00"
+    },
+    "form": {
+      "title": "Have a Question?",
+      "description": "We are happy to answer your questions.",
+      "namePlaceholder": "First and Last Name*",
+      "emailPlaceholder": "Email*",
+      "phonePlaceholder": "Phone*",
+      "messagePlaceholder": "Message*",
+      "checkboxLabel": "I agree to the provision and processing of personal data",
+      "submitButton": "Submit"
+    }
+  },
   "menu": {
-  "ourcars": "Our Cars",
+  "ourcars": "Our Trucks",
   "ourservices": "Our Services",
   "contactus": "Contact Us"
   },
-  "askkforcar": "Inquire about this car today!",
+  "askkforcar": "Inquire about this truck today!",
   "welcome": "Welcome to Casalgrande!",
   "ourservices": "Our Services",
   "rentalDuration": "Rental Duration",
@@ -100,11 +161,11 @@
         },
         "longTerm": {
           "label": "Long-Term Rental",
-          "value": "Long-term rental over 30 days (max. 10,000 km)"
+          "value": "over 30 days (max. 10,000 km)"
         },
         "weekend": {
           "label": "Weekend",
-          "value": "Weekend (Fri 14:00 to Mon 09:00)"
+          "value": "(Fri 14:00 to Mon 09:00)"
         },
         "extraMileage": {
           "label": "Extra Mileage",
@@ -184,11 +245,11 @@
         },
         "longTerm": {
           "label": "Long-Term Rental",
-          "value": "Long-term rental over 30 days (max. 10,000 km)"
+          "value": "over 30 days (max. 10,000 km)"
         },
         "weekend": {
           "label": "Weekend",
-          "value": "Weekend (Fri 14:00 to Mon 09:00)"
+          "value": "(Fri 14:00 to Mon 09:00)"
         },
         "extraMileage": {
           "label": "Extra Mileage",

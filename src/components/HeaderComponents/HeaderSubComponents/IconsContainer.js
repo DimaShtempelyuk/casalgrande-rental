@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { FaInstagram } from 'react-icons/fa';
 import { motion, useAnimation } from 'framer-motion';
-import LanguageDropdown from './LanguageDropdown.js';
+import LanguageDropdown from './LanguageDropdown';
 
 const IconsContainer = ({ viewportWidth }) => {
   const controls = useAnimation();
 
   useEffect(() => {
-    // Start the wiggle animation
     controls.start({
       rotate: [0, 8, -7, 10, -6, 0],
       transition: {
@@ -21,7 +20,6 @@ const IconsContainer = ({ viewportWidth }) => {
   }, [controls]);
 
   const handleMouseEnter = () => {
-    // On hover, perform a 360° rotation and scale up
     controls.start({
       rotate: 360,
       scale: 1.2,
@@ -30,13 +28,11 @@ const IconsContainer = ({ viewportWidth }) => {
   };
 
   const handleMouseLeave = () => {
-    // After hover, reset to initial state and resume wiggle
     controls.start({
       rotate: 0,
       scale: 1,
       transition: { duration: 1.2, ease: 'easeOut' },
     }).then(() => {
-      // Resume wiggle animation
       controls.start({
         rotate: [0, 8, -7, 10, -6, 0],
         transition: {
@@ -51,7 +47,8 @@ const IconsContainer = ({ viewportWidth }) => {
 
   return (
     <Container>
-      <LanguageDropdown />
+      {/* Render LanguageDropdown only if viewport width is greater than 768px */}
+      {viewportWidth >= 768 && <LanguageDropdown />}
       <StickyInstagram
         href="https://www.instagram.com/casalgranderental/"
         target="_blank"

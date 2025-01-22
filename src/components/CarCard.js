@@ -39,6 +39,7 @@ const CarCard = ({ id, name, images, description }) => {
 
 // Styled components
 const Card = styled.div`
+  
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;

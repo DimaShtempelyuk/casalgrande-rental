@@ -1,5 +1,66 @@
-{
-  
+{ 
+  "messageBox": {
+    "success": {
+      "title": "Zpráva odeslána!",
+      "text": "Vaše zpráva byla úspěšně odeslána. Brzy Vás budeme kontaktovat!"
+    },
+    "error": {
+      "title": "Chyba!",
+      "text": "Nepodařilo se odeslat zprávu. Kontaktujte nás na +420 704 057 272."
+    }
+  },
+    "service": {
+    "videoSupportMessage": "Váš prohlížeč nepodporuje video tag.",
+    "descriptionTitle1": "Co Vám můžeme nabídnout:",
+    "descriptionList1": [
+      "Výkopy základů pro rodinné domy, garáže, ploty a další stavby.",
+      "Terénní úpravy – zarovnání a příprava pozemků.",
+      "Výkopy pro inženýrské sítě – vodovodní, kanalizační, plynové a elektrické přípojky.",
+      "Odstranění zeminy a odvoz stavebního odpadu.",
+      "Úprava zahrad a výkopy pro bazény či jezírka."
+    ],
+    "descriptionTitle2": "Proč si vybrat nás?",
+    "descriptionList2": [
+      "Moderní technika a profesionální přístup.",
+      "Zkušený tým s více než 30 lety praxe.",
+      "Flexibilita a rychlé dokončení zakázek.",
+      "Individuální přístup ke každému zákazníkovi."
+    ],
+    "descriptionFooter": "Cenu poptejte ještě dnes! Rádi Vám zpracujeme nezávaznou nabídku na míru. Neváhejte nás kontaktovat a zjistit, jak můžeme pomoci s Vaším projektem!"
+  },  
+"ourservicespage": "Our Services",
+  "contactPage": {
+    "title": "KONTAKT",
+    "operator": "PROVOZOVATEL",
+    "address": "Casagrande Rental",
+    "street": "Masarykova 89/43, 252 19 Rudná",
+    "phone": "",
+    "email": "",
+    "availability": "Dostupnost",
+    "days": {
+      "mon": "Po",
+      "tue": "Út",
+      "wed": "St",
+      "thu": "Čt",
+      "fri": "Pá",
+      "sat": "So",
+      "sun": "Ne"
+    },
+    "hours": {
+      "weekday": "08:00 – 16:00",
+      "weekend": "08:00 – 12:00"
+    },
+    "form": {
+      "title": "MÁTE DOTAZ?",
+      "description": "Rádi zodpovíme Vaše dotazy.",
+      "namePlaceholder": "Jméno a příjmení*",
+      "emailPlaceholder": "Email*",
+      "phonePlaceholder": "Telefon*",
+      "messagePlaceholder": "Zpráva*",
+      "checkboxLabel": "Uděluji souhlas s poskytnutím a zpracováním osobních údajů",
+      "submitButton": "Odeslat"
+    }
+  },
   "menu": {
     "ourcars": "Naše vozy",
     "ourservices": "Naše služby",
@@ -101,11 +162,11 @@
         },
         "longTerm": {
           "label": "Dlouhodobý pronájem",
-          "value": "Dlouhodobý pronájem nad 30 dní (max. 10 000 km)"
+          "value": "nad 30 dní (max. 10 000 km)"
         },
         "weekend": {
           "label": "Víkend",
-          "value": "Víkend (Pá 14:00 do Po 09:00)"
+          "value": "(Pá 14:00 do Po 09:00)"
         },
         "extraMileage": {
           "label": "Dodatečný nájezd",
@@ -185,11 +246,11 @@
         },
         "longTerm": {
           "label": "Dlouhodobý pronájem",
-          "value": "Dlouhodobý pronájem nad 30 dní (max. 10 000 km)"
+          "value": "nad 30 dní (max. 10 000 km)"
         },
         "weekend": {
           "label": "Víkend",
-          "value": "Víkend (Pá 14:00 do Po 09:00)"
+          "value": "(Pá 14:00 do Po 09:00)"
         },
         "extraMileage": {
           "label": "Dodatečný nájezd",

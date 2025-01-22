@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useSpring, animated } from 'react-spring';
 import { useTranslation } from 'react-i18next';
+import { useSpring, animated } from '@react-spring/web';
 
 // Main NavLinks component
 const NavLinks = ({ isMobile }) => {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
 
   return (
     <NavLinksContainer>
@@ -17,50 +17,50 @@ const NavLinks = ({ isMobile }) => {
   );
 };
 
-// Container for navigation links, centered on the page
 const NavLinksContainer = styled.nav`
+  margin-right: 9%;
   display: flex;
   gap: 3vw;
   justify-content: center;
   align-items: center;
-  width: 58%;
+  width: 50%;
 `;
 
 // Link component with underline hover animation using react-spring
 const AnimatedMenuLink = ({ to, children }) => {
-  const [style, animate] = useSpring(() => ({
-    transform: 'scale(1)',
-  }));
+  const [style, animate] = useSpring(() => ({ transform: 'scale(1)' }));
 
   return (
-    <StyledLink
-      to={to}
-      as={animated.div}
-      style={style}
+    <AnimatedContainer
       onMouseEnter={() => animate({ transform: 'scale(1.1)' })}
       onMouseLeave={() => animate({ transform: 'scale(1)' })}
+      style={style}
     >
-      {children}
-      <Underline className="underline" />
-    </StyledLink>
+      <StyledNavLink to={to}>{children}</StyledNavLink>
+      <Underline />
+    </AnimatedContainer>
   );
 };
 
-// Styled link with underline effect
-const StyledLink = styled(animated(Link))`
+const AnimatedContainer = styled(animated.div)`
+  position: relative;
+`;
+
+const StyledNavLink = styled(Link)`
   font-size: 1.5em;
   color: #ffcc00;
   text-decoration: none;
-  position: relative;
   font-weight: bold;
-  cursor: pointer;
+
+  &:visited {
+    color: #ffcc00 !important;
+  }
 
   &:hover .underline {
     width: 100%;
   }
 `;
 
-// Underline component with dual-sided animation to center
 const Underline = styled.span`
   position: absolute;
   bottom: -4px;
@@ -70,7 +70,7 @@ const Underline = styled.span`
   background-color: #ffcc00;
   transition: width 0.4s ease, left 0.4s ease;
 
-  ${StyledLink}:hover & {
+  ${AnimatedContainer}:hover & {
     width: 100%;
     left: 0;
   }

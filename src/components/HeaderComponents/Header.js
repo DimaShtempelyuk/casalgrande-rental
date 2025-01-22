@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
-import { slide as BurgerMenu } from 'react-burger-menu';
 import LogoSection from './HeaderSubComponents/LogoSection';
 import NavLinks from './HeaderSubComponents/Navigation';
 import IconsContainer from './HeaderSubComponents/IconsContainer';
+import BurgerMenuComponent from './HeaderSubComponents/BurgerMenuComponent';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-
-  const handleMenuToggle = () => {
-    if (viewportWidth < 1280) setIsOpen(!isOpen);
-  };
 
   useEffect(() => {
     const handleResize = () => setViewportWidth(window.innerWidth);
@@ -20,31 +16,56 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Toggle menu only for the burger icon
+  const handleMenuToggle = (e) => {
+    e.stopPropagation(); // Stop event propagation
+    if (viewportWidth < 1280) setIsOpen(!isOpen);
+  };
+
+  // Close menu if clicking outside the burger menu
+  const closeMenu = () => {
+    console.log('Menu is closing...');
+    setIsOpen(false);
+  };
+  
+
+  // Prevent any header clicks from propagating unintentionally
+  const handleHeaderClick = (e) => e.stopPropagation();
+
   return (
-    <HeaderContainer>
-      {(viewportWidth < 1280) && (
+    <HeaderContainer onClick={handleHeaderClick}>
+      {/* Burger Menu Icon */}
+      {viewportWidth < 1280 && (
         <BurgerMenuButton onClick={handleMenuToggle}>
-          <FaBars size={30} />
+          <FaBars size={40} />
         </BurgerMenuButton>
       )}
-      
-      <LogoSection isMobile={viewportWidth < 768} showName={viewportWidth >= 768} />
-      
-      {viewportWidth >= 1280 && <NavLinks />} {/* Centered links for desktop */}
 
-      {(viewportWidth < 1280) && (
-        <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
+      {/* Burger Menu Component */}
+      {viewportWidth < 1280 && (
+        <BurgerMenuComponent
+        isOpen={isOpen} // This should reflect the state correctly
+        onClose={closeMenu}
+      />
       )}
 
+      {/* Logo Section */}
+      <LogoSection isMobile={viewportWidth < 768} showName={viewportWidth >= 768} />
+
+      {/* Navigation and Phone Numbers */}
+      {viewportWidth >= 1280 && <NavLinks />}
+      {viewportWidth < 1280 && (
+        <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
+      )}
       {viewportWidth >= 1280 && (
         <DesktopPhoneNumber href="tel:+420704057272">+420 704 057 272</DesktopPhoneNumber>
       )}
-
-      <IconsContainer />
+      <IconsContainer viewportWidth={viewportWidth} />
     </HeaderContainer>
   );
 };
 
+// Styled Components
 const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
@@ -53,11 +74,12 @@ const HeaderContainer = styled.header`
   height: 8dvh;
   background-color: #333;
   color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  position: fixed;
+  width:97%;
   top: 0;
-  z-index: 1000;
+  z-index: 2000;
 `;
+
 
 const BurgerMenuButton = styled.div`
   cursor: pointer;
@@ -65,16 +87,17 @@ const BurgerMenuButton = styled.div`
   padding-right: 10px;
 
   @media (min-width: 1280px) {
-    display: none;
+    display: none; 
   }
 `;
 
 const PulsingPhoneNumber = styled.a`
-  font-size: 1.8em;
+  position:absolute;
+  right: 11%;
+  font-size:2em;
   color: #ffcc00;
   text-decoration: none;
   font-weight: bold;
-  text-align: center;
   animation: pulse 1.5s infinite;
 
   &:hover {
@@ -88,39 +111,19 @@ const PulsingPhoneNumber = styled.a`
   }
 
   @media (max-width: 768px) {
-    font-size: 1em;
+    font-size: 16px;
+    right: 12%;
   }
+  @media (max-width: 1620px){
+    font-size:1.6em;
+  }
+  @media (max-width: 1444px){
+    font-size:1.3em;}
 `;
 
 const DesktopPhoneNumber = styled(PulsingPhoneNumber)`
   margin-left: auto;
   padding-right: 1dvw;
 `;
-
-const menuStyles = {
-  bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.7)',
-    top: '10%',
-  },
-  bmMenuWrap: {
-    top: '10%',
-    left: '0px',
-    height: '100%',
-  },
-  bmMenu: {
-    background: '#fff',
-    width: '75%',
-  },
-  bmItemList: {
-    color: '#000',
-    padding: '0.8em',
-  },
-  bmItem: {
-    display: 'inline-block',
-    textDecoration: 'none',
-    fontSize: '1.5em',
-    color: '#000',
-  },
-};
 
 export default Header;

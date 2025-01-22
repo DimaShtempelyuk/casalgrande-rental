@@ -6,7 +6,7 @@ const Footer = () => {
     <FooterContainer>
       <FooterText>&copy; 2024 Casagrande Furgon Rental. All Rights Reserved.</FooterText>
       <FooterText>
-        Contact us: <FooterLink href="mailto:info@vehiclerental.com">info@casagranderental.com</FooterLink>
+        Contact us: <FooterLink href="mailto:info@vehiclerental.com">rental@casalgrande.cz</FooterLink>
       </FooterText>
     </FooterContainer>
   );

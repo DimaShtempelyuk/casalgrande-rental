@@ -6,23 +6,28 @@ import logo from '../../../assets/images/casalgrande_logo.png';
 const LogoSection = ({ isMobile }) => (
   <LogoContainer>
     <Logo src={logo} alt="Casagrande Furgon Rental" />
-    {!isMobile && <BrandLink to="/">Casagrande Furgon Rental</BrandLink>}
+    {!isMobile && <BrandLink to="/"> Casagrande Rental</BrandLink>}
+
   </LogoContainer>
 );
 
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+
+  @media (max-width: 768px) {
+    margin-left: -250px;
+  }
 `;
 
 const Logo = styled.img`
-  height: 95px;
+  height: 9dvh;
   width: auto;
 `;
 
 const BrandLink = styled(Link)`
   font-size: 1.5em;
+  margin-left: 10px;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
