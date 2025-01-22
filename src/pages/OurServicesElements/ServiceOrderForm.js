@@ -40,16 +40,16 @@ const ServiceOrderForm = () => {
   return (
     <OrderForm ref={formRef} onSubmit={sendEmail}>
       <Label htmlFor="full_name">{t('form.companyOrName')} *</Label>
-      <Input type="text" name="user_name" id="user_name" required />
+      <Input type="text" name="user_name" id="user_name" placeholder="např. Jozef Sprostý" required />
 
       <Label htmlFor="email">{t('form.email')} *</Label>
-      <Input type="email" name="user_email" id="user_email" required />
+      <Input type="email" name="user_email" id="user_email" placeholder="např. zarohem@gmail.com" required />
 
       <Label htmlFor="phone">{t('form.phone')}</Label>
-      <Input type="tel" name="user_phone" id="user_phone" />
+      <Input type="tel" name="user_phone" id="user_phone" placeholder="+420 *** *** ***"/>
 
       <Label htmlFor="message">{t('form.message')}</Label>
-      <TextArea name="message" id="message" />
+      <TextArea name="message" id="message" placeholder="*"/>
 
       <Button type="submit">{t('form.submit')}</Button>
     </OrderForm>

@@ -61,9 +61,9 @@ const ContactPage = () => {
       <InfoSection>
         <h2>{t("contactPage.title")}</h2>
         <h3>{t("contactPage.operator")}</h3>
-        <p>🏠 {t("contactPage.address")}</p>
+        <h3>🏠 {t("contactPage.address")}</h3>
         <p>{t("contactPage.street")}</p>
-        <p>📞 <strong>{t("contactPage.phone")}: +420 704 057 272</strong></p>
+        <p>📞<strong>{t("contactPage.phone")}: +420 704 057 272</strong></p>
         <p>📧 {t("contactPage.email")}: rental@casalgrande.cz</p>
         <h3>{t("contactPage.availability")}</h3>
         <StyledTable>
@@ -186,7 +186,6 @@ const InfoSection = styled.div`
   p {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between icon and text */
 }
 
 p strong {

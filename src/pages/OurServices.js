@@ -64,7 +64,7 @@ const Container = styled.div`
 
 const VideoSection = styled.div`
   position: fixed;
-  top: 16dvh;
+  top: 19dvh;
   left: 2dvw;
   width: 46dvw;
   height: 50dvh;
@@ -81,11 +81,12 @@ const VideoSection = styled.div`
 const Video = styled.video`
   height: 100%;
   width: 100%;
+  border-radius: 10px;
   object-fit: cover; /* Ensures the video fills the container proportionally */
 `;
 
 const ContentWrapper = styled.div`
-margin-top: 12dvh;
+margin-top: 16dvh;
 margin-left: 50vw; /* Leaves space for the fixed video */
   padding: 20px;
   width: 100%; /* Ensures the content takes up the right half */

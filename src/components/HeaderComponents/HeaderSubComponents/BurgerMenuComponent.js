@@ -1,33 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { slide as BurgerMenu } from 'react-burger-menu';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageDropdown from './LanguageDropdown';
 
-const BurgerMenuComponent = ({ isOpen, onClose, onStateChange }) => {
+const BurgerMenuComponent = ({ initialIsOpen, onStateChange }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [menuIsOpen, setMenuIsOpen] = useState(initialIsOpen);
+
+  const handleLinkClick = (path) => {
+    navigate(path); // Navigate to the clicked route
+    setMenuIsOpen(false); // Explicitly close the burger menu
+  };
 
   const handleStateChange = (state) => {
-    if (!state.isOpen) {
-      onClose(); // Close the menu when it's toggled closed
-    }
+    setMenuIsOpen(state.isOpen); // Sync the state with the burger menu
     if (onStateChange) {
-      onStateChange(state); // Pass state to parent if needed
+      onStateChange(state); // Notify parent about state change if needed
     }
   };
 
   return (
     <BurgerMenuContainer>
       <BurgerMenu
-        
-        isOpen={isOpen}
+        isOpen={menuIsOpen}
         onStateChange={handleStateChange}
         styles={menuStyles}
       >
-        <StyledLink to="/" onClick={onClose()}>{t('menu.ourcars')}</StyledLink>
-        <StyledLink to="/services" onClick={onClose()}>{t('menu.ourservices')}</StyledLink>
-        <StyledLink to="/contact" onClick={onClose()}>{t('menu.contactus')}</StyledLink>
+        <StyledLink as="div" onClick={() => handleLinkClick('/')}>
+          {t('menu.ourcars')}
+        </StyledLink>
+        <StyledLink as="div" onClick={() => handleLinkClick('/services')}>
+          {t('menu.ourservices')}
+        </StyledLink>
+        <StyledLink as="div" onClick={() => handleLinkClick('/contact')}>
+          {t('menu.contactus')}
+        </StyledLink>
         <DropdownWrapper>
           <LanguageDropdown isBurgerMenu={true} />
         </DropdownWrapper>
@@ -38,12 +48,12 @@ const BurgerMenuComponent = ({ isOpen, onClose, onStateChange }) => {
 
 const BurgerMenuContainer = styled.div`
   position: absolute;
-  width: 50px; /* Constrain the width of the burger menu button */
-  height: 100%; /* Match the height of the header */
-  z-index: 1001; /* Ensure it stays above other elements */
+  width: 50px;
+  height: 100%;
+  z-index: 1001;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

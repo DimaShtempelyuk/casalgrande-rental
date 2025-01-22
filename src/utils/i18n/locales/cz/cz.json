@@ -34,8 +34,8 @@
     "operator": "PROVOZOVATEL",
     "address": "Casagrande Rental",
     "street": "Masarykova 89/43, 252 19 Rudná",
-    "phone": "📞",
-    "email": "📧",
+    "phone": "",
+    "email": "",
     "availability": "Dostupnost",
     "days": {
       "mon": "Po",

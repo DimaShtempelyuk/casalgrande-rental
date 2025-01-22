@@ -28,6 +28,7 @@ const HomePage = () => {
 const Container = styled.div`
   padding: 20px;
   text-align: center;
+  margin-top: 9dvh;
 
   @media (max-width: 768px) {
     padding: 10px;
