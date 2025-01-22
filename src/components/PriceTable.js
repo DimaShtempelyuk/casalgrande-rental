@@ -5,30 +5,37 @@ import { useTranslation } from 'react-i18next';
 const PriceTable = ({ carId, priceRanges }) => {
   const { t } = useTranslation();
 
-  // Lookup map for translation namespaces
+  // Translation namespace lookup map
   const namespaceMap = {
     1: 'renaultMascottSingle',
     2: 'renaultMascottDouble',
     // Add more mappings for new cars
   };
-  
+
   const namespace = namespaceMap[carId] || 'unknownCar'; // Resolve namespace dynamically
-  
+
+  // Map priceRanges to categorized ranges based on their names
   const categorizedPriceRanges = [
     {
-      label: t(`cars.${namespace}.priceRanges.shortTerm.label`), // Use dynamic key resolution
-      ranges: priceRanges.slice(0, 1), // Short-term range (e.g., 1–4 hours)
+      key: 'shortTerm',
+      label: t(`cars.${namespace}.priceRanges.shortTerm.label`),
+      value: t(`cars.${namespace}.priceRanges.shortTerm.value`),
+      ranges: priceRanges.filter((price) => price.name === 'shortTerm'),
     },
     {
-      label: t(`cars.${namespace}.priceRanges.mediumTerm.label`), // Mid-term range (e.g., 1–15 days)
-      ranges: priceRanges.slice(1, 3),
+      key: 'mediumTerm',
+      label: t(`cars.${namespace}.priceRanges.mediumTerm.label`),
+      value: t(`cars.${namespace}.priceRanges.mediumTerm.value`),
+      ranges: priceRanges.filter((price) => price.name === 'mediumTerm'),
     },
     {
-      label: t(`cars.${namespace}.priceRanges.longTerm.label`), // Long-term range (e.g., 30+ days)
-      ranges: priceRanges.slice(3),
+      key: 'longTerm',
+      label: t(`cars.${namespace}.priceRanges.longTerm.label`),
+      value: t(`cars.${namespace}.priceRanges.longTerm.value`),
+      ranges: priceRanges.filter((price) => price.name === 'longTerm'),
     },
   ];
-  
+
   return (
     <>
       <TableWrapper>
@@ -56,31 +63,36 @@ const PriceTable = ({ carId, priceRanges }) => {
       </TableWrapper>
 
       <MobilePriceTable>
-  {categorizedPriceRanges.map((category, index) => (
-    <div key={index} className={`mobile-row ${category.ranges.some((r) => r.isHot) ? 'highlight' : ''}`}>
-      <div className="mobile-header">
-        {category.label}
-        {category.ranges.some((r) => r.isHot) && <span className="fire-icon">🔥</span>}
-      </div>
-      <div className="mobile-data">
-        {category.ranges.slice(0, 1).map((price, idx) => ( // Limit to 1 price per category
-          <div key={idx} className="price-row">
-            <span>{t('priceWithoutTax')}</span>
-            <span className="price-value">{price.withoutTax}</span>
+        {categorizedPriceRanges.map((category) => (
+          <div
+            key={category.key}
+            className={`mobile-row ${
+              category.ranges.some((r) => r.isHot) ? 'highlight' : ''
+            }`}
+          >
+            <div className="mobile-header">
+              {category.label} ({category.value})
+              {category.ranges.some((r) => r.isHot) && (
+                <span className="fire-icon">🔥</span>
+              )}
+            </div>
+            <div className="mobile-data">
+              {category.ranges.map((price, idx) => (
+                <div key={idx} className="price-row">
+                  <span>{t('priceWithoutTax')}</span>
+                  <span className="price-value">{price.withoutTax}</span>
+                </div>
+              ))}
+              {category.ranges.map((price, idx) => (
+                <div key={idx} className="price-row">
+                  <span>{t('priceWithTax')}</span>
+                  <span className="price-value">{price.withTax}</span>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
-        {category.ranges.slice(0, 1).map((price, idx) => (
-          <div key={idx} className="price-row">
-            <span>{t('priceWithTax')}</span>
-            <span className="price-value">{price.withTax}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  ))}
-</MobilePriceTable>
-
-
+      </MobilePriceTable>
     </>
   );
 };

@@ -39,12 +39,14 @@ const CarCard = ({ id, name, images, description }) => {
 
 // Styled components
 const Card = styled.div`
+  
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   max-width: 750px;
   text-align: center;
   margin: 20px;
+  margin-top: 10dvh;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 

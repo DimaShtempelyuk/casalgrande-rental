@@ -161,11 +161,11 @@
         },
         "longTerm": {
           "label": "Langzeitmiete",
-          "value": "Langzeitmiete über 30 Tage (max. 10.000 km)"
+          "value": "über 30 Tage (max. 10.000 km)"
         },
         "weekend": {
           "label": "Wochenende",
-          "value": "Wochenende (Fr 14:00 bis Mo 09:00)"
+          "value": "(Fr 14:00 bis Mo 09:00)"
         },
         "extraMileage": {
           "label": "Zusätzliche Kilometer",
@@ -245,11 +245,11 @@
         },
         "longTerm": {
           "label": "Langzeitmiete",
-          "value": "Langzeitmiete über 30 Tage (max. 10.000 km)"
+          "value": "über 30 Tage (max. 10.000 km)"
         },
         "weekend": {
           "label": "Wochenende",
-          "value": "Wochenende (Fr 14:00 bis Mo 09:00)"
+          "value": "(Fr 14:00 bis Mo 09:00)"
         },
         "extraMileage": {
           "label": "Zusätzliche Kilometer",

@@ -162,11 +162,11 @@
         },
         "longTerm": {
           "label": "Dlouhodobý pronájem",
-          "value": "Dlouhodobý pronájem nad 30 dní (max. 10 000 km)"
+          "value": "nad 30 dní (max. 10 000 km)"
         },
         "weekend": {
           "label": "Víkend",
-          "value": "Víkend (Pá 14:00 do Po 09:00)"
+          "value": "(Pá 14:00 do Po 09:00)"
         },
         "extraMileage": {
           "label": "Dodatečný nájezd",
@@ -246,11 +246,11 @@
         },
         "longTerm": {
           "label": "Dlouhodobý pronájem",
-          "value": "Dlouhodobý pronájem nad 30 dní (max. 10 000 km)"
+          "value": "nad 30 dní (max. 10 000 km)"
         },
         "weekend": {
           "label": "Víkend",
-          "value": "Víkend (Pá 14:00 do Po 09:00)"
+          "value": "(Pá 14:00 do Po 09:00)"
         },
         "extraMileage": {
           "label": "Dodatečný nájezd",

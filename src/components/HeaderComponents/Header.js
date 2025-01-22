@@ -112,7 +112,7 @@ const PulsingPhoneNumber = styled.a`
 
   @media (max-width: 768px) {
     font-size: 16px;
-    right: 7%;
+    right: 12%;
   }
   @media (max-width: 1620px){
     font-size:1.6em;
