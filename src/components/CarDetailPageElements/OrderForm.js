@@ -82,8 +82,8 @@ const OrderFormComponent = ({ carName }) => {
     <OrderForm ref={formRef} onSubmit={sendEmail}>
       <Input type="hidden" name="car_name" value={carName} />
 
-      <Label htmlFor="user_name"> {t('form.companyOrName')} *</Label>
-      <Input type="text" name="user_name" id="user_name" required />
+      <Label htmlFor="user_name" > {t('form.companyOrName')} *</Label>
+      <Input type="text" name="user_name" id="user_name" placeholder="např. Jozef Sprostý" required />
       <SegmentedControl>
         <SegmentOption
           isActive={isIcoSelected}
@@ -156,10 +156,10 @@ const OrderFormComponent = ({ carName }) => {
       </DateContainer>
 
       <Label htmlFor="user_email">{t('form.email')}*</Label>
-      <Input type="email" name="user_email" id="user_email" required />
+      <Input type="email" name="user_email" id="user_email" placeholder="např. zarohem@gmail.com" required />
 
       <Label htmlFor="user_phone">{t('form.phone')}</Label>
-      <Input type="tel" name="user_phone" id="user_phone" />
+      <Input type="tel" name="user_phone" id="user_phone" placeholder="+420 *** *** ***"/>
 
       <Label htmlFor="abroad_trip">{t('form.travelAbroad')}*</Label>
       <Select name="abroad_trip" id="abroad_trip" required>
@@ -169,7 +169,7 @@ const OrderFormComponent = ({ carName }) => {
       </Select>
 
       <Label htmlFor="message">{t('form.message')}</Label>
-      <TextArea name="message" id="message" />
+      <TextArea name="message" id="message" placeholder="*"/>
 
       <CheckboxContainer>
         <Checkbox type="checkbox" required />
@@ -221,6 +221,7 @@ const SegmentOption = styled.div`
   flex: 1;
   padding: 6px;
   font-size: 0.91rem;
+  text-align: center;
   cursor: pointer;
   background-color: ${(props) => (props.isActive ? '#ffcc00' : '#f9f9f9')};
   border: ${(props) => (props.isActive ? '2px solid #ffcc00' : '2px solid #ddd')};

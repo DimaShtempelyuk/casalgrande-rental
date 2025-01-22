@@ -80,6 +80,9 @@ const DescriptionContainer = styled.div`
   transition: all 0.8s ease;
   max-width: 60dvw;
 
+  /* Allow space for expanded content */
+  overflow: visible;
+
   @media (max-width: 768px) {
     padding: 15px;
     max-width: 80vw;
@@ -162,12 +165,16 @@ const SpecValue = styled.span`
 const AnimatedFullDescription = styled(animated.div)`
   margin-top: 1.5em;
   margin-bottom: 1.5em;
+  padding: 10px; /* Add padding for better spacing */
   color: #333;
   line-height: 1.6;
+  overflow: visible; /* Ensure content is not clipped */
+  word-wrap: break-word; /* Handle long words */
 
   @media (max-width: 768px) {
     margin-top: 1em;
     margin-bottom: 1em;
+    padding: 8px; /* Adjust padding for smaller screens */
   }
 `;
 

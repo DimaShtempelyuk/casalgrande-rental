@@ -63,6 +63,7 @@ const PriceTable = ({ carId, priceRanges }) => {
       </TableWrapper>
 
       <MobilePriceTable>
+      <Deposit>{t('deposit')}: 15 000 Kč</Deposit>
         {categorizedPriceRanges.map((category) => (
           <div
             key={category.key}
@@ -71,7 +72,7 @@ const PriceTable = ({ carId, priceRanges }) => {
             }`}
           >
             <div className="mobile-header">
-              {category.label} ({category.value})
+              {category.label} <br />({category.value})
               {category.ranges.some((r) => r.isHot) && (
                 <span className="fire-icon">🔥</span>
               )}
@@ -119,7 +120,7 @@ const Deposit = styled.div`
   text-align: center;
 
   @media (max-width: 768px) {
-    display: none; /* Hide desktop deposit info on mobile */
+    margin-top: 2dvh;
   }
 `;
 
@@ -142,19 +143,30 @@ const StyledTable = styled.div`
   }
 
   .cell {
-    padding: 10px 8px;
+    padding: 12px 10px; /* More padding for better spacing */
     border: 1px solid #ddd;
     text-align: center;
     font-weight: 500;
     transition: background-color 0.3s ease;
+    gap: 5px; /* Space between label and value */
+
+    strong {
+      font-size: 1em; /* Label size */
+      color: #333; /* Darker label color for contrast */
+    }
+
+    span {
+      font-size: 0.9em; /* Value size */
+      color: #666; /* Softer color for value */
+    }
 
     &:hover {
-      background-color: rgba(255, 204, 0, 0.5);
+      background-color: rgba(255, 204, 0, 0.3); /* More visible hover */
     }
   }
 
   .highlight {
-    background-color: rgba(255, 140, 0, 0.15); /* Adjusted to a more orange tone */
+    background-color: rgba(255, 140, 0, 0.15); /* Subtle orange highlight */
     border: 2px solid rgb(255, 171, 68);
     font-weight: bold;
   }position: relative;
@@ -165,16 +177,16 @@ const StyledTable = styled.div`
   top:30%;
   left: 29%;
   font-size: 2em; /* Larger fire emoji */
-}
+  }
 
-@media (max-width: 768px) {
-grid-template-columns: 1fr 1fr 1fr;
-
-.cell:nth-child(3n) {
-  grid-column: span 3;
-}
-}
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    .cell:nth-child(3n) {
+      grid-column: span 3;
+    }
+  }
 `;
+
 
 // Styled components for the mobile version
 const MobilePriceTable = styled.div`
@@ -183,6 +195,7 @@ const MobilePriceTable = styled.div`
   @media (max-width: 768px) {
     display: block;
     width: 95%;
+    gap : 5px;
     margin-bottom: 10px;
   }
 

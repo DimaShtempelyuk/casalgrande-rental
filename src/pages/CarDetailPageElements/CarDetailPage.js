@@ -92,7 +92,7 @@ const ImageCarouselContainer = styled.div`
   @media (max-width: 768px) {
     position: relative;
     margin-left: 0;
-    top: 0;
+    top: 2dvh;
     height: auto;
     padding: 0;
     width: 100%;
