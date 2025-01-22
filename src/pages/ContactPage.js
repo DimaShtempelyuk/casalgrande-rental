@@ -33,7 +33,7 @@ const ContactPage = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm(process.env.CASALGRANDE_EMAIL_JS_BASIC_SERVICE_KEY, process.env.CASALGRANDE_EMAIL_JS_BASIC_TEMPLATE_KEY, form.current, process.env.CASALGRANDE_EMAIL_JS_PUBLIC_KEY)
+      .sendForm(process.env.REACT_APP_CASALGRANDE_EMAIL_JS_BASIC_SERVICE_KEY, process.env.REACT_APP_CASALGRANDE_EMAIL_JS_BASIC_TEMPLATE_KEY, form.current, process.env.REACT_APP_CASALGRANDE_EMAIL_JS_PUBLIC_KEY)
       .then(
         () => {
           Swal.fire({

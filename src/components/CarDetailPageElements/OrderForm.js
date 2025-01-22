@@ -40,7 +40,7 @@ const OrderFormComponent = ({ carName }) => {
       : 'N/A';
 
     const formData = {
-      car_name: carName,
+      car_name: t(carName),
       user_name: e.target.user_name.value,
       user_email: e.target.user_email.value,
       user_phone: e.target.user_phone.value,
@@ -53,10 +53,10 @@ const OrderFormComponent = ({ carName }) => {
 
     emailjs
       .send(
-        process.env.CASALGRANDE_EMAIL_JS_CAR_SERVICE_KEY,
-        process.env.CASALGRANDE_EMAIL_JS_CAR_TEMPLATE_KEY,
+        process.env.REACT_APP_CASALGRANDE_EMAIL_JS_CAR_SERVICE_KEY,
+        process.env.REACT_APP_CASALGRANDE_EMAIL_JS_CAR_TEMPLATE_KEY,
         formData,
-        process.env.CASALGRANDE_EMAIL_JS_PUBLIC_KEY
+        process.env.REACT_APP_CASALGRANDE_EMAIL_JS_PUBLIC_KEY
       )
       .then(
         () => {

@@ -10,33 +10,42 @@ const ServiceOrderForm = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+  
+    console.log("Service Key:", process.env.REACT_APP_CASALGRANDE_EMAIL_JS_BASIC_SERVICE_KEY);
+    console.log("Template Key:", process.env.REACT_APP_CASALGRANDE_EMAIL_JS_BASIC_TEMPLATE_KEY);
+    console.log("Public Key:", process.env.REACT_APP_CASALGRANDE_EMAIL_JS_PUBLIC_KEY);
+    console.log("Form Ref:", formRef.current);
+  
     emailjs
       .sendForm(
-        process.env.CASALGRANDE_EMAIL_JS_BASIC_SERVICE_KEY, process.env.CASALGRANDE_EMAIL_JS_BASIC_TEMPLATE_KEY, formRef.current, process.env.CASALGRANDE_EMAIL_JS_PUBLIC_KEY
+        process.env.REACT_APP_CASALGRANDE_EMAIL_JS_BASIC_SERVICE_KEY || "default_service_key",
+        process.env.REACT_APP_CASALGRANDE_EMAIL_JS_BASIC_TEMPLATE_KEY || "default_template_key",
+        formRef.current,
+        process.env.REACT_APP_CASALGRANDE_EMAIL_JS_PUBLIC_KEY || "default_public_key"
       )
       .then(
         () => {
           Swal.fire({
             icon: 'success',
-            title: t('messageBox.success.title'), // Success title from translations
-            text: t('messageBox.success.text'),   // Success text from translations
+            title: t('messageBox.success.title'),
+            text: t('messageBox.success.text'),
             confirmButtonColor: '#3085d6',
           });
         },
-        () => {
+        (error) => {
+          console.error("EmailJS Error:", error);
           Swal.fire({
             icon: 'error',
-            title: t('messageBox.error.title'),   // Error title from translations
-            text: t('messageBox.error.text'),     // Error text from translations
+            title: t('messageBox.error.title'),
+            text: t('messageBox.error.text'),
             confirmButtonColor: '#d33',
           });
         }
       );
-
+  
     e.target.reset();
   };
-
+  
   return (
     <OrderForm ref={formRef} onSubmit={sendEmail}>
       <Label htmlFor="full_name">{t('form.companyOrName')} *</Label>

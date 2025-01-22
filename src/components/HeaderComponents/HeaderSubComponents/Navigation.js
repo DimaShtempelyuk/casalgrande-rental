@@ -18,7 +18,7 @@ const NavLinks = ({ isMobile }) => {
 };
 
 const NavLinksContainer = styled.nav`
-margin-right: 15%;
+  margin-right: 9%;
   display: flex;
   gap: 3vw;
   justify-content: center;
