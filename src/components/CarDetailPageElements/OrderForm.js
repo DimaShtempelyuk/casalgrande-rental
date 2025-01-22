@@ -53,10 +53,10 @@ const OrderFormComponent = ({ carName }) => {
 
     emailjs
       .send(
-        'service_iggsweb',
-        'template_eah3lbr',
+        process.env.CASALGRANDE_EMAIL_JS_CAR_SERVICE_KEY,
+        process.env.CASALGRANDE_EMAIL_JS_CAR_TEMPLATE_KEY,
         formData,
-        'HuUqQRhtUZI0Fj6-O'
+        process.env.CASALGRANDE_EMAIL_JS_PUBLIC_KEY
       )
       .then(
         () => {

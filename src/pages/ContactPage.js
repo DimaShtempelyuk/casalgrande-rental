@@ -33,7 +33,7 @@ const ContactPage = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_stox8pu', 'template_m7ytdqf', form.current, 'HuUqQRhtUZI0Fj6-O')
+      .sendForm(process.env.CASALGRANDE_EMAIL_JS_BASIC_SERVICE_KEY, process.env.CASALGRANDE_EMAIL_JS_BASIC_TEMPLATE_KEY, form.current, process.env.CASALGRANDE_EMAIL_JS_PUBLIC_KEY)
       .then(
         () => {
           Swal.fire({

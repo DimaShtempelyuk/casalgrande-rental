@@ -13,7 +13,7 @@ const ServiceOrderForm = () => {
 
     emailjs
       .sendForm(
-        'service_stox8pu', 'template_m7ytdqf', formRef.current, 'HuUqQRhtUZI0Fj6-O'
+        process.env.CASALGRANDE_EMAIL_JS_BASIC_SERVICE_KEY, process.env.CASALGRANDE_EMAIL_JS_BASIC_TEMPLATE_KEY, formRef.current, process.env.CASALGRANDE_EMAIL_JS_PUBLIC_KEY
       )
       .then(
         () => {
