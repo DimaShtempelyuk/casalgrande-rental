@@ -6,7 +6,6 @@ import ContactPage from './pages/ContactPage';
 import Header from './components/HeaderComponents/Header';
 import Footer from './components/Footer';
 import styled from 'styled-components';
-import * as Sentry from '@sentry/react';
 import OurServices from "./pages/OurServices"
 
 import { useTranslation } from 'react-i18next';
@@ -14,10 +13,6 @@ import { useTranslation } from 'react-i18next';
 function App() {
   const { t } = useTranslation();
   return (
-    <Sentry.ErrorBoundary
-      fallback={<p>An error occurred. Please try again later.</p>}
-      showDialog={false} // Ensures no dialog is shown to users
-    >
     <Router>
       <MainContainer>
         <Header />
@@ -32,7 +27,6 @@ function App() {
         <Footer />
       </MainContainer>
     </Router>
-    </Sentry.ErrorBoundary>
   );
 }
 
