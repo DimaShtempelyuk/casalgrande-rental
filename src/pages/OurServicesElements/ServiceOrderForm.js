@@ -10,11 +10,7 @@ const ServiceOrderForm = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-  
-    console.log("Service Key:", process.env.REACT_APP_CASALGRANDE_EMAIL_JS_BASIC_SERVICE_KEY);
-    console.log("Template Key:", process.env.REACT_APP_CASALGRANDE_EMAIL_JS_BASIC_TEMPLATE_KEY);
-    console.log("Public Key:", process.env.REACT_APP_CASALGRANDE_EMAIL_JS_PUBLIC_KEY);
-    console.log("Form Ref:", formRef.current);
+
   
     emailjs
       .sendForm(
