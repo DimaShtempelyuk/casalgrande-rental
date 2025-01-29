@@ -4,7 +4,18 @@ import { FaCaretDown } from 'react-icons/fa';
 import i18n from '../../../utils/i18n/i18n.js';
 
 const LanguageDropdown = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(localStorage.getItem('i18nextLng')?.toUpperCase() || 'CZ');
+  const [selectedLanguage, setSelectedLanguage] = useState(() => {
+    // 1) Check localStorage, uppercase it if found
+    const storedLang = localStorage.getItem('i18nextLng');
+    if (storedLang) return storedLang.toUpperCase();
+  
+    // 2) Otherwise, fall back to i18n's current language (uppercase),
+    //    or if none is set, then default to 'CZ'.
+    if (i18n.language) return i18n.language.toUpperCase();
+  
+    return 'CZ';
+  });
+  
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Initial mobile detection
 

@@ -28,7 +28,7 @@ i18n
   .use(initReactI18next) // Passes i18n instance to react-i18next
   .init({
     resources,
-    fallbackLng: ["en", "cz"], // Specify multiple fallbacks if needed
+    fallbackLng: ["cz", "en"], // Specify multiple fallbacks if needed
     detection: {
       order: ["querystring", "cookie", "localStorage", "navigator", "htmlTag", "path", "subdomain"],
       caches: ["localStorage", "cookie"], // Cache user language selection
