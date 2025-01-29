@@ -4,7 +4,6 @@ import RenaultMascott3_2 from '../assets/images/RenaultMascott3/RenaMasc3_2.jpg'
 import RenaultMascott3_3 from '../assets/images/RenaultMascott3/RenaMasc3_3.jpg'
 import Renault2_3 from '../assets/images/Renault2/Ren_2_3.jpg'
 import Renault2_4 from '../assets/images/Renault2/Ren_2_4.jpg'
-import i18n from '../utils/i18n/i18n'
 
 export const cars = [
   {
@@ -50,7 +49,7 @@ export const cars = [
     ],
     description: 'cars.renaultMascottDouble.description', 
     specs: [
-      { name: 'vehicleType' }, // Only the key is needed
+      { name: 'vehicleType' }, 
       { name: 'seatingCapacity' },
       { name: 'payload' },
       { name: 'totalLength' },

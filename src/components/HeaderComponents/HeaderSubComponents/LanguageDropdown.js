@@ -40,7 +40,7 @@ const LanguageDropdown = () => {
     if (savedLanguage && savedLanguage.toUpperCase() !== selectedLanguage) {
       setSelectedLanguage(savedLanguage.toUpperCase());
     }
-  }, []);
+  }, [selectedLanguage]);
 
   return (
     <DropdownContainer isMobile={isMobile}>
