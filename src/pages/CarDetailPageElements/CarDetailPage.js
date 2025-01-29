@@ -8,13 +8,14 @@ import OrderForm from '../../components/CarDetailPageElements/OrderForm';
 import AutoImageCarousel from './CarDetailElements/AutoImageCarousel';
 import CompactDescription from './CarDetailElements/CompactDescription';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
   
 
 const CarDetailPage = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
+  const [, setUpdate] = useState(0); // Dummy state to force re-render
   
   useEffect(() => {
     const handleLanguageChange = () => setUpdate((prev) => prev + 1);

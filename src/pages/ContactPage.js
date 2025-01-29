@@ -1,4 +1,4 @@
-import React, { useRef,useEffect} from 'react';
+import React, { useRef,useEffect,useState } from 'react';
 import styled from 'styled-components';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -22,6 +22,7 @@ const ContactPage = () => {
     
 
   const form = useRef();
+  const [, setUpdate] = useState(0); // Dummy state to force re-render
   const { t, i18n } = useTranslation();
   useEffect(() => {
     const handleLanguageChange = () => setUpdate((prev) => prev + 1);
