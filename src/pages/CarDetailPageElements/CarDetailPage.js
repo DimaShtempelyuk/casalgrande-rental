@@ -64,7 +64,6 @@ const DetailContainer = styled.div`
     margin-left: 0;
     padding: 10px;
     margin-top: 8dvh; /* Consistent spacing for smaller screens */
-    touch-action: none;
     overflow: hidden;
   }
 `;
