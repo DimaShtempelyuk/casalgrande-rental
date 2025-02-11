@@ -3,21 +3,26 @@ import styled, { css } from 'styled-components';
 import { FaCaretDown } from 'react-icons/fa';
 import i18n from '../../../utils/i18n/i18n.js';
 
+const normalizeLang = (lang) => {
+  if (!lang) return 'CZ';                  // fallback if nothing
+  return lang.split('-')[0].toUpperCase(); // e.g. "en-GB" -> "EN"
+};
+
 const LanguageDropdown = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(() => {
-    // 1) Check localStorage, uppercase it if found
-    const storedLang = localStorage.getItem('i18nextLng');
-    if (storedLang) return storedLang.toUpperCase();
+  const storedLang = localStorage.getItem('i18nextLng');  
+  const initialLang = normalizeLang(storedLang || i18n.language);
   
-    // 2) Otherwise, fall back to i18n's current language (uppercase),
-    //    or if none is set, then default to 'CZ'.
-    if (i18n.language) return i18n.language.toUpperCase();
-  
-    return 'CZ';
-  });
-  
+  // If i18n had never set anything, we default to 'CZ'
+  useEffect(() => {
+    if (!storedLang && !i18n.language) {
+      i18n.changeLanguage('cz');  // force i18n to Czech from the start
+      localStorage.setItem('i18nextLng', 'cz');
+    }
+  }, [storedLang]);
+
+  const [selectedLanguage, setSelectedLanguage] = useState(initialLang);
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Initial mobile detection
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const languages = {
     CZ: 'https://flagcdn.com/w160/cz.png',
@@ -33,23 +38,22 @@ const LanguageDropdown = () => {
     setIsOpen(false);
   };
 
-  // Update `isMobile` based on the window size
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
     window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // In case user directly changes i18n somewhere else, keep them in sync:
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('i18nextLng');
-    if (savedLanguage && savedLanguage.toUpperCase() !== selectedLanguage) {
-      setSelectedLanguage(savedLanguage.toUpperCase());
+    const savedLang = localStorage.getItem('i18nextLng');
+    if (savedLang) {
+      const normalized = normalizeLang(savedLang);
+      if (normalized !== selectedLanguage) {
+        setSelectedLanguage(normalized);
+      }
     }
   }, [selectedLanguage]);
 
@@ -60,6 +64,7 @@ const LanguageDropdown = () => {
         {selectedLanguage}
         <FaCaretDown />
       </SelectedLanguage>
+
       {isOpen && (
         <GridMenu>
           <GridItem area="topLeft" onClick={() => handleLanguageSelect('CZ')}>
