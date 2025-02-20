@@ -53,14 +53,33 @@ const DetailContainer = styled.div`
   display: flex;
   align-items: flex-start;
   padding: 20px;
-  width: 80%;
+  max-width: 80dvw;
   margin-left: 10%;
   margin-top: 10dvh;
   object-fit: cover;
-
-  @media (max-width: 768px) {
+  @media (max-width: 1650px) {
+    margin-left: 5%;
+    max-width: 90dvw;
+  }
+  @media (max-width: 1520px) {
+    margin-left: 0px;
+    max-width: 100dvw;
+  }
+  @media (max-width: 1400px) {
+    margin-left: -5%;
+    max-width: 100dvw;
+  }
+  @media (max-width: 1280px) {
+    margin-left: -10%;
+    max-width: 120dvw;
+  }
+  @media (max-width: 1223px) {
+    margin-left: -15%;
+    max-width: 120dvw;
+  }
+  @media (max-width: 1105px) {
     flex-direction: column;
-    width: 95%;
+    width: auto;
     margin-left: 0;
     padding: 10px;
     margin-top: 8dvh; /* Consistent spacing for smaller screens */
@@ -71,7 +90,7 @@ const DetailContainer = styled.div`
 
 const ImageCarouselContainer = styled.div`
   flex: 1;
-  max-width: 800px;
+  max-width: 42dvw;
   position: fixed;
   left: 0;
   top: 14dvh; /* Matches the header height */
@@ -88,7 +107,14 @@ const ImageCarouselContainer = styled.div`
     object-fit: cover;
   }
 
-  @media (max-width: 768px) {
+  
+  @media (max-width: 1650px) {
+    margin-left: 10%;
+    .carousel .slide img {
+      height: 80%;
+    }
+  }
+  @media (max-width: 1105px) {
     position: relative;
     margin-left: 0;
     top: 2dvh;
@@ -98,7 +124,26 @@ const ImageCarouselContainer = styled.div`
     max-width: 100%;
 
     .carousel .slide img {
+      object-fit: cover;
+      height: 50dvh;
+      max-width: 100%;
+      min-width: 80dvw;
+    }
+  }
+  @media (max-width: 500px) {
+    position: relative;
+    margin-left: 0;
+    top: 2dvh;
+    height: auto;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+
+    .carousel .slide img {
+      object-fit: cover;
       height: 30dvh;
+      max-width: 100%;
+      min-width: 80dvw;
     }
   }
 `;
@@ -110,7 +155,7 @@ const ContentContainer = styled.div`
   padding: 20px;
   width: 100%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     margin-left: 0;
     padding: 10px;
   }
@@ -119,7 +164,7 @@ const ContentContainer = styled.div`
 const AdditionalInfo = styled.div`
   margin-top: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     margin-top: 10px;
   }
 `;

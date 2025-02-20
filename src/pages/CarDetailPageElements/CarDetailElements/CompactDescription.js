@@ -83,9 +83,9 @@ const DescriptionContainer = styled.div`
   /* Allow space for expanded content */
   overflow: visible;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     padding: 15px;
-    max-width: 80vw;
+    max-width: 80dvw;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 `;
@@ -96,7 +96,7 @@ const Title = styled.h2`
   color: #333;
   margin-bottom: 1.5em;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     font-size: 22px;
     margin-bottom: 1em;
   }
@@ -107,7 +107,7 @@ const SpecsList = styled.div`
   flex-direction: column;
   gap: 1em;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     gap: 0.8em;
   }
 `;
@@ -118,7 +118,7 @@ const SpecItem = styled.div`
   padding: 2px 0;
   font-size: 1.2em;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     font-size: 1em;
   }
 `;
@@ -128,7 +128,7 @@ const IconContainer = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     margin-right: 8px;
   }
 `;
@@ -140,7 +140,7 @@ const YellowIcon = styled.div`
   border-radius: 50%; /* Circular border */
   padding: 4px; /* Padding inside border */
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     font-size: 1.5em;
     padding: 3px;
   }
@@ -171,7 +171,7 @@ const AnimatedFullDescription = styled(animated.div)`
   overflow: visible; /* Ensure content is not clipped */
   word-wrap: break-word; /* Handle long words */
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     margin-top: 1em;
     margin-bottom: 1em;
     padding: 8px; /* Adjust padding for smaller screens */
@@ -181,7 +181,7 @@ const AnimatedFullDescription = styled(animated.div)`
 const DescriptionText = styled.p`
   margin-bottom: 1em;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     margin-bottom: 0.8em;
   }
 `;
@@ -190,7 +190,7 @@ const SpecsTable = styled.table`
   width: 100%;
   border-collapse: collapse;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     font-size: 0.9em;
   }
 `;
@@ -205,7 +205,7 @@ const TableCellTitle = styled.td`
   color: #333;
   width: 50%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     padding: 6px;
   }
 `;
@@ -215,7 +215,7 @@ const TableCellValue = styled.td`
   color: #666;
   text-align: right;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     padding: 6px;
   }
 `;
@@ -234,7 +234,7 @@ const ExpandButton = styled.div`
     color: #1a6bbf;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1105px) {
     font-size: 1em;
   }
 `;

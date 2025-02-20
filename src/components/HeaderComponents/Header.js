@@ -19,7 +19,7 @@ const Header = () => {
   // Toggle menu only for the burger icon
   const handleMenuToggle = (e) => {
     e.stopPropagation(); // Stop event propagation
-    if (viewportWidth < 1280) setIsOpen(!isOpen);
+    if (viewportWidth < 1323) setIsOpen(!isOpen);
   };
 
   // Close menu if clicking outside the burger menu
@@ -35,14 +35,14 @@ const Header = () => {
   return (
     <HeaderContainer onClick={handleHeaderClick}>
       {/* Burger Menu Icon */}
-      {viewportWidth < 1280 && (
+      {viewportWidth < 1323 && (
         <BurgerMenuButton onClick={handleMenuToggle}>
           <FaBars size={40} />
         </BurgerMenuButton>
       )}
 
       {/* Burger Menu Component */}
-      {viewportWidth < 1280 && (
+      {viewportWidth < 1323 && (
         <BurgerMenuComponent
         isOpen={isOpen} // This should reflect the state correctly
         onClose={closeMenu}
@@ -53,11 +53,11 @@ const Header = () => {
       <LogoSection isMobile={viewportWidth < 768} showName={viewportWidth >= 768} />
 
       {/* Navigation and Phone Numbers */}
-      {viewportWidth >= 1280 && <NavLinks />}
-      {viewportWidth < 1280 && (
+      {viewportWidth >= 1323 && <NavLinks />}
+      {viewportWidth < 1323 && (
         <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
       )}
-      {viewportWidth >= 1280 && (
+      {viewportWidth >= 1323 && (
         <DesktopPhoneNumber href="tel:+420704057272">+420 704 057 272</DesktopPhoneNumber>
       )}
       <IconsContainer viewportWidth={viewportWidth} />
@@ -86,7 +86,7 @@ const BurgerMenuButton = styled.div`
   z-index: 1001;
   padding-right: 10px;
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1323px) {
     display: none; 
   }
 `;
@@ -109,17 +109,28 @@ const PulsingPhoneNumber = styled.a`
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
   }
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-    right: 12%;
-  }
+  
   @media (max-width: 1620px){
+    margin-right: 2%;
     font-size:1.6em;
   }
-  @media (max-width: 1444px){
-    font-size:1.3em;}
+  
+  @media (max-width: 1318px){
+      font-size:1.3em;
+      margin-right: 8%;
+    }
+    @media (max-width: 891px) {
+      font-size:1.3em;
+    margin-right: 16%;
+  }
+  @media (max-width: 768px) {
+    font-size:1.3em;
+    margin-right: -2%;
+  }
+  
+  
 `;
+
 
 const DesktopPhoneNumber = styled(PulsingPhoneNumber)`
   margin-left: auto;

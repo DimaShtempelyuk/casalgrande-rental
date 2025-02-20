@@ -103,6 +103,9 @@ const PriceTable = ({ carId, priceRanges }) => {
 const TableWrapper = styled.div`
   width: 100%;
   margin-bottom: 20px;
+  @media (max-width: 1105px) {
+    width: 98%;
+  }
 
   @media (max-width: 768px) {
     display: none; /* Hide the desktop table on mobile devices */

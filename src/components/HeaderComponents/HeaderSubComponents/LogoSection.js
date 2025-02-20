@@ -15,8 +15,20 @@ const LogoContainer = styled.div`
   display: flex;
   align-items: center;
 
+  @media (max-width: 1321px) {
+    margin-left: -50dvw;
+  }
+  @media (max-width: 1025px) {
+    margin-left: -40dvw;
+  }
+  @media (max-width: 841px) {
+    margin-left: -30dvw;
+  }
   @media (max-width: 768px) {
-    margin-left: -250px;
+    margin-left: -75dvw;
+  }
+  @media (max-width: 531px) {
+    margin-left: -60dvw;
   }
 `;
 
