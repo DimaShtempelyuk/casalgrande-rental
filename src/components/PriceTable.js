@@ -17,10 +17,10 @@ const PriceTable = ({ carId, priceRanges }) => {
   // Map priceRanges to categorized ranges based on their names
   const categorizedPriceRanges = [
     {
-      key: 'shortTerm',
-      label: t(`cars.${namespace}.priceRanges.shortTerm.label`),
-      value: t(`cars.${namespace}.priceRanges.shortTerm.value`),
-      ranges: priceRanges.filter((price) => price.name === 'shortTerm'),
+      key: 'daily',
+      label: t(`cars.${namespace}.priceRanges.daily.label`),
+      value: t(`cars.${namespace}.priceRanges.daily.value`),
+      ranges: priceRanges.filter((price) => price.name === 'daily'),
     },
     {
       key: 'mediumTerm',
@@ -63,7 +63,7 @@ const PriceTable = ({ carId, priceRanges }) => {
       </TableWrapper>
 
       <MobilePriceTable>
-      <Deposit>{t('deposit')}: 15 000 Kč</Deposit>
+      <Deposit>{t('deposit')}: 30 000 Kč</Deposit>
         {categorizedPriceRanges.map((category) => (
           <div
             key={category.key}
