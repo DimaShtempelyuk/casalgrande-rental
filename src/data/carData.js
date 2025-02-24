@@ -18,12 +18,12 @@ export const cars = [
     specs: [
       { name: 'vehicleType' }, // Only the key is needed
       { name: 'seatingCapacity' },
+      { name: 'grossWeight' },
       { name: 'payload' },
       { name: 'totalLength' },
       { name: 'totalWidth' },
       { name: 'totalHeight' },
       { name: 'operatingWeight' },
-      { name: 'grossWeight' },
       { name: 'towingCapacity' },
       { name: 'fuel' },
       { name: 'airConditioning' },
