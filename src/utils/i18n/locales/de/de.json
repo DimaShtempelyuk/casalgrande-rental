@@ -123,7 +123,7 @@
         },
         "grossWeight": {
           "label": "Gesamtgewicht",
-          "value": "3500 kg"
+          "value": "6,5t -> reduziert auf 3,5t für Führerschein B"
         },
         "towingCapacity": {
           "label": "Zugkapazität",
@@ -207,7 +207,7 @@
         },
         "grossWeight": {
           "label": "Gesamtgewicht",
-          "value": "3500 kg"
+          "value": "6,5t -> reduziert auf 3,5t für Führerschein B"
         },
         "towingCapacity": {
           "label": "Zugkapazität",

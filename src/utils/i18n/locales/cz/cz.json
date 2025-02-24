@@ -92,7 +92,7 @@
   "cars": {
     "renaultMascottSingle": {
       "name": "Renault Mascott 150.65",
-      "description": "Úžitkové vozidlo ideální pro přepravu materiálů\n\nVhodné pro 3 osoby.",
+      "description": "Úžitkové nákladní vozidlo ideální pro přepravu materiálů\n\nVhodné pro 3 osoby.",
       "specs": {
         "vehicleType": {
           "label": "Typ vozidla",
@@ -124,7 +124,7 @@
         },
         "grossWeight": {
           "label": "Celková hmotnost",
-          "value": "3500 kg"
+          "value": "6.5t -> sníženo na 3,5t pro řídičský průkaz B"
         },
         "towingCapacity": {
           "label": "Tažná kapacita",
@@ -176,7 +176,7 @@
     },
     "renaultMascottDouble": {
       "name": "Renault Mascott 150.65 Double",
-      "description": "Úžitkové vozidlo ideální pro přepravu materiálů\n\nVhodné pro 6 osob.",
+      "description": "Úžitkové nákladní vozidlo ideální pro přepravu materiálů\n\nVhodné pro 6 osob.",
       "specs": {
         "vehicleType": {
           "label": "Typ vozidla",
@@ -208,7 +208,7 @@
         },
         "grossWeight": {
           "label": "Celková hmotnost",
-          "value": "3500 kg"
+          "value": "6.5t -> sníženo na 3,5t pro řídičský průkaz B"
         },
         "towingCapacity": {
           "label": "Tažná kapacita",
