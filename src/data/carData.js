@@ -50,12 +50,12 @@ export const cars = [
     specs: [
       { name: 'vehicleType' }, 
       { name: 'seatingCapacity' },
+      { name: 'grossWeight' },
       { name: 'payload' },
       { name: 'totalLength' },
       { name: 'totalWidth' },
       { name: 'totalHeight' },
       { name: 'operatingWeight' },
-      { name: 'grossWeight' },
       { name: 'towingCapacity' },
       { name: 'fuel' },
       { name: 'airConditioning' },
@@ -66,6 +66,70 @@ export const cars = [
       { name: 'shortTerm', withoutTax: '1 200,00 Kč', withTax: '1 452,00 Kč' },
       { name: 'daily', withoutTax: '2 890,00 Kč', withTax: '3 497,00 Kč' },
       { name: 'mediumTerm', withoutTax: '2 360,00 Kč', withTax: '2 856,00 Kč', isHot: true },
+      { name: 'longTerm', withoutTax: '42 600,00 Kč', withTax: '51 546,00 Kč', isLargePrice: true },
+      { name: 'weekend', withoutTax: '4 900,00 Kč', withTax: '5 929,00 Kč' },
+      { name: 'extraMileage', withoutTax: '2,50 Kč/km', withTax: '3,00 Kč/km' },
+    ],
+  },
+  {
+    id: 3,
+    name: 'cars.renaultMascottThird.name', // Still a key for translation
+    images: [
+      RenaultMascott3_1,
+      RenaultMascott3_2,
+      RenaultMascott3_3,
+    ],
+    description: 'cars.renaultMascottThird.description', // Still a key for translation
+    specs: [
+      { name: 'vehicleType' }, // Only the key is needed
+      { name: 'seatingCapacity' },
+      { name: 'grossWeight' },
+      { name: 'payload' },
+      { name: 'totalLength' },
+      { name: 'totalWidth' },
+      { name: 'totalHeight' },
+      { name: 'operatingWeight' },
+      { name: 'towingCapacity' },
+      { name: 'fuel' },
+      { name: 'airConditioning' },
+      { name: 'airbags' },
+      { name: 'note' },
+    ],
+    priceRanges: [
+      { name: 'daily', withoutTax: '2 890,00 Kč', withTax: '3 497,00 Kč' },
+      { name: 'mediumTerm', withoutTax: '2 360,00 Kč', withTax: '2 856,00 Kč',isHot: true },
+      { name: 'longTerm', withoutTax: '42 600,00 Kč', withTax: '51 546,00 Kč', isLargePrice: true },
+      { name: 'weekend', withoutTax: '4 900,00 Kč', withTax: '5 929,00 Kč' },
+      { name: 'extraMileage', withoutTax: '2,50 Kč/km', withTax: '3,00 Kč/km' },
+    ],
+  },
+  {
+    id: 4,
+    name: 'cars.renaultMascottForth.name', // Still a key for translation
+    images: [
+      RenaultMascott3_1,
+      RenaultMascott3_2,
+      RenaultMascott3_3,
+    ],
+    description: 'cars.renaultMascottForth.description', // Still a key for translation
+    specs: [
+      { name: 'vehicleType' }, // Only the key is needed
+      { name: 'seatingCapacity' },
+      { name: 'grossWeight' },
+      { name: 'payload' },
+      { name: 'totalLength' },
+      { name: 'totalWidth' },
+      { name: 'totalHeight' },
+      { name: 'operatingWeight' },
+      { name: 'towingCapacity' },
+      { name: 'fuel' },
+      { name: 'airConditioning' },
+      { name: 'airbags' },
+      { name: 'note' },
+    ],
+    priceRanges: [
+      { name: 'daily', withoutTax: '2 890,00 Kč', withTax: '3 497,00 Kč' },
+      { name: 'mediumTerm', withoutTax: '2 360,00 Kč', withTax: '2 856,00 Kč',isHot: true },
       { name: 'longTerm', withoutTax: '42 600,00 Kč', withTax: '51 546,00 Kč', isLargePrice: true },
       { name: 'weekend', withoutTax: '4 900,00 Kč', withTax: '5 929,00 Kč' },
       { name: 'extraMileage', withoutTax: '2,50 Kč/km', withTax: '3,00 Kč/km' },

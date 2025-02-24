@@ -257,6 +257,174 @@
           "value": "Více než 600 km za 24 hodin"
         }
       }
+    },
+    "renaultMascottThird": {
+      "name": "Renault Mascott 150.65 (Kelímek)",
+      "description": "Úžitkové nákladní vozidlo ideální pro přepravu materiálů\n\nVhodné pro 3 osoby.",
+      "specs": {
+        "vehicleType": {
+          "label": "Typ vozidla",
+          "value": "Nákladní automobil – nosič kontejneru"
+        },
+        "seatingCapacity": {
+          "label": "Posádka",
+          "value": "2 – 3"
+        },
+        "payload": {
+          "label": "Nosnost",
+          "value": "1142 kg"
+        },
+        "totalLength": {
+          "label": "Celková délka",
+          "value": "6404 mm (plošina kontejneru 3240 mm)"
+        },
+        "totalWidth": {
+          "label": "Celková šířka",
+          "value": "1974 mm (plošina kontejneru 1920 mm)"
+        },
+        "totalHeight": {
+          "label": "Celková výška",
+          "value": "2623 mm (plošina kontejneru 420 mm)"
+        },
+        "operatingWeight": {
+          "label": "Provozní hmotnost",
+          "value": "2358 kg"
+        },
+        "grossWeight": {
+          "label": "Celková hmotnost",
+          "value": "6.5t -> sníženo na 3,5t pro řídičský průkaz B"
+        },
+        "towingCapacity": {
+          "label": "Tažná kapacita",
+          "value": "Bez brzd 750 kg / s brzdami 2800 kg"
+        },
+        "fuel": {
+          "label": "Palivo",
+          "value": "nafta"
+        },
+        "airConditioning": {
+          "label": "Klimatizace",
+          "value": "ANO"
+        },
+        "airbags": {
+          "label": "Airbagy",
+          "value": "ANO"
+        },
+        "note": {
+          "label": "Poznámka",
+          "value": "Velikost ložné plochy závisí na typu kontejneru"
+        }
+      },
+      "priceRanges": {
+        "shortTerm": {
+          "label": "Krátkodobý pronájem",
+          "value": "1 – 4 hodiny"
+        },
+        "daily": {
+          "label": "Denní pronájem",
+          "value": "1 – 15 dní / 1 den"
+        },
+        "mediumTerm": {
+          "label": "Střednědobý pronájem",
+          "value": "15 – 30 dní / 1 den"
+        },
+        "longTerm": {
+          "label": "Dlouhodobý pronájem",
+          "value": "nad 30 dní (max. 10 000 km)"
+        },
+        "weekend": {
+          "label": "Víkend",
+          "value": "(Pá 14:00 do Po 09:00)"
+        },
+        "extraMileage": {
+          "label": "Dodatečný nájezd",
+          "value": "Více než 600 km za 24 hodin"
+        }
+      }
+    },
+    "renaultMascottForth": {
+      "name": "Renault Mascott 150.65 (Rex)",
+      "description": "Úžitkové nákladní vozidlo ideální pro přepravu materiálů\n\nVhodné pro 3 osoby.",
+      "specs": {
+        "vehicleType": {
+          "label": "Typ vozidla",
+          "value": "Nákladní automobil – nosič kontejneru"
+        },
+        "seatingCapacity": {
+          "label": "Posádka",
+          "value": "2 – 3"
+        },
+        "payload": {
+          "label": "Nosnost",
+          "value": "1142 kg"
+        },
+        "totalLength": {
+          "label": "Celková délka",
+          "value": "6404 mm (plošina kontejneru 3240 mm)"
+        },
+        "totalWidth": {
+          "label": "Celková šířka",
+          "value": "1974 mm (plošina kontejneru 1920 mm)"
+        },
+        "totalHeight": {
+          "label": "Celková výška",
+          "value": "2623 mm (plošina kontejneru 420 mm)"
+        },
+        "operatingWeight": {
+          "label": "Provozní hmotnost",
+          "value": "2358 kg"
+        },
+        "grossWeight": {
+          "label": "Celková hmotnost",
+          "value": "6.5t -> sníženo na 3,5t pro řídičský průkaz B"
+        },
+        "towingCapacity": {
+          "label": "Tažná kapacita",
+          "value": "Bez brzd 750 kg / s brzdami 2800 kg"
+        },
+        "fuel": {
+          "label": "Palivo",
+          "value": "nafta"
+        },
+        "airConditioning": {
+          "label": "Klimatizace",
+          "value": "ANO"
+        },
+        "airbags": {
+          "label": "Airbagy",
+          "value": "ANO"
+        },
+        "note": {
+          "label": "Poznámka",
+          "value": "Velikost ložné plochy závisí na typu kontejneru"
+        }
+      },
+      "priceRanges": {
+        "shortTerm": {
+          "label": "Krátkodobý pronájem",
+          "value": "1 – 4 hodiny"
+        },
+        "daily": {
+          "label": "Denní pronájem",
+          "value": "1 – 15 dní / 1 den"
+        },
+        "mediumTerm": {
+          "label": "Střednědobý pronájem",
+          "value": "15 – 30 dní / 1 den"
+        },
+        "longTerm": {
+          "label": "Dlouhodobý pronájem",
+          "value": "nad 30 dní (max. 10 000 km)"
+        },
+        "weekend": {
+          "label": "Víkend",
+          "value": "(Pá 14:00 do Po 09:00)"
+        },
+        "extraMileage": {
+          "label": "Dodatečný nájezd",
+          "value": "Více než 600 km za 24 hodin"
+        }
+      }
     }
   }
 }
