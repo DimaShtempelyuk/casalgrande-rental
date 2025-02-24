@@ -63,7 +63,7 @@ const ContactPage = () => {
         <h3>{t("contactPage.operator")}</h3>
         <h3>🏠 {t("contactPage.address")}</h3>
         <p>{t("contactPage.street")}</p>
-        <p>📞<strong>{t("contactPage.phone")}: +420 704 057 272</strong></p>
+        <p>📞<strong>{t("contactPage.phone")}: +420 724 239 319</strong></p>
         <p>📧 {t("contactPage.email")}: rental@casalgrande.cz</p>
         <h3>{t("contactPage.availability")}</h3>
         <StyledTable>

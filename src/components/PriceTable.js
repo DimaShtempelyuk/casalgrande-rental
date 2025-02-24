@@ -39,7 +39,7 @@ const PriceTable = ({ carId, priceRanges }) => {
   return (
     <>
       <TableWrapper>
-        <Deposit>{t('deposit')}: 15 000 Kč</Deposit>
+        <Deposit>{t('deposit')}: 30 000 Kč</Deposit>
         <StyledTable>
           <div className="header">{t('rentalDuration')}</div>
           <div className="header">{t('priceWithoutTax')}</div>

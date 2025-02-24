@@ -55,10 +55,10 @@ const Header = () => {
       {/* Navigation and Phone Numbers */}
       {viewportWidth >= 1323 && <NavLinks />}
       {viewportWidth < 1323 && (
-        <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
+        <PulsingPhoneNumber href="tel:+420704057272">+420 724 239 319</PulsingPhoneNumber>
       )}
       {viewportWidth >= 1323 && (
-        <DesktopPhoneNumber href="tel:+420704057272">+420 704 057 272</DesktopPhoneNumber>
+        <DesktopPhoneNumber href="tel:+420704057272">+420 724 239 319</DesktopPhoneNumber>
       )}
       <IconsContainer viewportWidth={viewportWidth} />
     </HeaderContainer>

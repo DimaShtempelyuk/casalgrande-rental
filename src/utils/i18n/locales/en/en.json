@@ -91,7 +91,7 @@
   "cars": {
     "renaultMascottSingle": {
       "name": "Renault Mascott 150.65",
-      "description": "A heavy-duty truck ideal for transporting heavy materials and industrial use.\n\nSuitable for 3 people.",
+      "description": "Commercial vehicle ideal for transporting materials\n\nSuitable for 3 people.",
       "specs": {
         "vehicleType": {
           "label": "Vehicle Type",
@@ -123,7 +123,7 @@
         },
         "grossWeight": {
           "label": "Gross Weight",
-          "value": "3500 kg"
+          "value": "6.5t -> reduced to 3.5t for driving license B"
         },
         "towingCapacity": {
           "label": "Towing Capacity",
@@ -175,7 +175,7 @@
     },
     "renaultMascottDouble": {
       "name": "Renault Mascott 150.65 Double",
-      "description": "A heavy-duty truck ideal for transporting heavy materials and industrial use.\n\nSuitable for 6 people.",
+      "description": "Commercial vehicle ideal for transporting materials\n\nSuitable for 6 people.",
       "specs": {
         "vehicleType": {
           "label": "Vehicle Type",
@@ -207,7 +207,7 @@
         },
         "grossWeight": {
           "label": "Gross Weight",
-          "value": "3500 kg"
+          "value": "6.5t -> reduced to 3.5t for driving license B"
         },
         "towingCapacity": {
           "label": "Towing Capacity",
