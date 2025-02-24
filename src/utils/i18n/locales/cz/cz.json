@@ -92,7 +92,7 @@
   "cars": {
     "renaultMascottSingle": {
       "name": "Renault Mascott 150.65",
-      "description": "Těžké nákladní vozidlo ideální pro přepravu těžkých materiálů a průmyslové využití.\n\nVhodné pro 3 osoby.",
+      "description": "Úžitkové vozidlo ideální pro přepravu materiálů\n\nVhodné pro 3 osoby.",
       "specs": {
         "vehicleType": {
           "label": "Typ vozidla",
@@ -176,7 +176,7 @@
     },
     "renaultMascottDouble": {
       "name": "Renault Mascott 150.65 Double",
-      "description": "Těžké nákladní vozidlo ideální pro přepravu těžkých materiálů a průmyslové využití.\n\nVhodné pro 6 osob.",
+      "description": "Úžitkové vozidlo ideální pro přepravu materiálů\n\nVhodné pro 6 osob.",
       "specs": {
         "vehicleType": {
           "label": "Typ vozidla",
