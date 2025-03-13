@@ -37,7 +37,7 @@ const CarDetailPage = () => {
         <CompactDescription car={car} />
 
         <AdditionalInfo>
-          <PriceTable carId={car.id} priceRanges={car.priceRanges} deposit="15 000 Kč" />
+          <PriceTable carId={car.id} priceRanges={car.priceRanges} />
           <br />
           <h1>{t('askkforcar')}</h1>
           <OrderForm carName={car.name} />

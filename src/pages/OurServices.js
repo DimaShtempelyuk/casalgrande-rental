@@ -42,7 +42,7 @@ const OurServices = () => {
 
 
           {/* Pulsating Phone Number */}
-          <PulsingPhoneNumber href="tel:+420704057272">+420 704 057 272</PulsingPhoneNumber>
+          <PulsingPhoneNumber href="tel:+420704057272">+420 724 239 319</PulsingPhoneNumber>
 
           {/* Order Form */}
           <OrderFormWrapper>
