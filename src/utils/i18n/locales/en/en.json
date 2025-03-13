@@ -259,7 +259,7 @@
     },
     "renaultMascottThird": {
       "name": "Renault Mascott 150.65 (Kelímek)",
-      "description": "Commercial vehicle ideal for transporting materials\n\nSuitable for 6 people.",
+      "description": "Commercial vehicle ideal for transporting materials\n\nSuitable for 3 people.",
       "specs": {
         "vehicleType": {
           "label": "Vehicle Type",
@@ -342,7 +342,7 @@
       }
   },
   "renaultMascottForth": {
-      "name": "Renault Mascott 150.65 (Rex)","description": "Commercial vehicle ideal for transporting materials\n\nSuitable for 6 people.",
+      "name": "Renault Mascott 150.65 (Rex)","description": "Commercial vehicle ideal for transporting materials\n\nSuitable for 3 people.",
       "specs": {
         "vehicleType": {
           "label": "Vehicle Type",

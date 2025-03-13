@@ -258,7 +258,7 @@
       }
     },"renaultMascottThird": {
       "name": "Renault Mascott 150.65 (Kelímek)",
-      "description": "Nutzfahrzeug ideal für den Materialtransport\n\nGeeignet für 6 Personen.",
+      "description": "Nutzfahrzeug ideal für den Materialtransport\n\nGeeignet für 3 Personen.",
       "specs": {
         "vehicleType": {
           "label": "Fahrzeugtyp",
@@ -341,7 +341,7 @@
       }
     },"renaultMascottForth": {
       "name": "Renault Mascott 150.65 (Rex)",
-      "description": "Nutzfahrzeug ideal für den Materialtransport\n\nGeeignet für 6 Personen.",
+      "description": "Nutzfahrzeug ideal für den Materialtransport\n\nGeeignet für 3 Personen.",
       "specs": {
         "vehicleType": {
           "label": "Fahrzeugtyp",
