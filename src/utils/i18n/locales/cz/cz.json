@@ -377,6 +377,7 @@
         "grossWeight": {
           "label": "Celková hmotnost",
           "value": "6.5t -> sníženo na 3,5t pro řídičský průkaz B"
+
         },
         "towingCapacity": {
           "label": "Tažná kapacita",
