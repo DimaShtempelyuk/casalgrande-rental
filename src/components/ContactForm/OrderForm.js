@@ -15,6 +15,8 @@ const OrderFormComponent = ({ carName }) => {
   const [isIcoSelected, setIsIcoSelected] = useState(true);
   const [icoValue, setIcoValue] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+
 
   const handleToggle = (isIco) => {
     setIsIcoSelected(isIco);
@@ -62,20 +64,23 @@ const OrderFormComponent = ({ carName }) => {
         () => {
           Swal.fire({
             icon: 'success',
-            title: t('messageBox.success.title'), // Success title from translations
-            text: t('messageBox.success.text'),   // Success text from translations
+            title: t('messageBox.success.title'),
+            text: t('messageBox.success.text'),
             confirmButtonColor: '#3085d6',
           });
+          setErrorMessage(null); // Clear any previous error message
         },
         () => {
           Swal.fire({
             icon: 'error',
-            title: t('messageBox.error.title'),   // Error title from translations
-            text: t('messageBox.error.text'),     // Error text from translations
+            title: t('messageBox.error.title'),
+            text: t('messageBox.error.text'),
             confirmButtonColor: '#d33',
           });
+          setErrorMessage("Pokud problém přetrvává, volejte prosím: +420 724 239 319");
         }
       );
+      
   };
 
   return (
@@ -179,9 +184,23 @@ const OrderFormComponent = ({ carName }) => {
       </CheckboxContainer>
 
       <Button type="submit">{t('form.submit')}</Button>
+      {errorMessage && (
+        <ErrorContainer>
+         {errorMessage}
+        </ErrorContainer>
+)}
     </OrderForm>
   );
 };
+const ErrorContainer = styled.div`
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ffe6e6;
+  color: #cc0000;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+`;
 
 // Styled components
 const OrderForm = styled.form`
