@@ -7,6 +7,8 @@ import Header from './components/Header/Header'; // FIXED
 import Footer from './components/Footer/Footer'; // FIXED
 import styled from 'styled-components';
 import OurServices from "./pages/OurServices";
+import { ROUTES } from './routes';
+
 
 
 function App() {
@@ -16,10 +18,10 @@ function App() {
         <Header />
         <Content>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/car/:id" element={<CarDetailPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/services" element={<OurServices />} />
+            <Route path={ROUTES.home} element={<HomePage />} />
+            <Route path={ROUTES.carDetail} element={<CarDetailPage />} />
+            <Route path={ROUTES.contact} element={<ContactPage />} />
+            <Route path={ROUTES.services} element={<OurServices />} />
           </Routes>
         </Content>
         <Footer />
