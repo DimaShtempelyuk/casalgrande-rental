@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CarDetailPage from './pages/CarDetailPageElements/CarDetailPage';
 import ContactPage from './pages/ContactPage';
-import Header from './components/HeaderComponents/Header';
-import Footer from './components/Footer';
+import Header from './components/Header/Header'; // FIXED
+import Footer from './components/Footer/Footer'; // FIXED
 import styled from 'styled-components';
-import OurServices from "./pages/OurServices"
+import OurServices from "./pages/OurServices";
+
 
 function App() {
   return (

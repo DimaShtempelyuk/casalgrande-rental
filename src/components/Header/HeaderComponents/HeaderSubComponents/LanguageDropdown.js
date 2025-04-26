@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { FaCaretDown } from 'react-icons/fa';
-import i18n from '../../../utils/i18n/i18n.js';
+import i18n from '../../../../utils/i18n/i18n';
 
 const normalizeLang = (lang) => {
   if (!lang) return 'CZ';                  // fallback if nothing

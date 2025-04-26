@@ -1,5 +1,5 @@
 import React from 'react';
-import CarCard from '../components/CarCard';
+import CarCard from '../components/VehicleCard/CarCard';
 import styled from 'styled-components';
 import { cars } from '../data/carData';
 import { useTranslation } from 'react-i18next';

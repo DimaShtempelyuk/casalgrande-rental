@@ -1,14 +1,13 @@
-// CarDetailPage.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { cars } from '../../data/carData';
-import PriceTable from '../../components/PriceTable';
-import OrderForm from '../../components/CarDetailPageElements/OrderForm';
-import AutoImageCarousel from './CarDetailElements/AutoImageCarousel';
-import CompactDescription from './CarDetailElements/CompactDescription';
+import PriceTable from '../../components/VehicleCard/PriceTable'; // FIXED
+import OrderForm from '../../components/ContactForm/OrderForm'; // FIXED
+import AutoImageCarousel from './CarDetailElements/AutoImageCarousel'; // OK
+import CompactDescription from './CarDetailElements/CompactDescription'; // OK
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
+
 
   
 

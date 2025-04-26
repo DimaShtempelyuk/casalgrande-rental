@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
-import LogoSection from './HeaderSubComponents/LogoSection';
-import NavLinks from './HeaderSubComponents/Navigation';
-import IconsContainer from './HeaderSubComponents/IconsContainer';
-import BurgerMenuComponent from './HeaderSubComponents/BurgerMenuComponent';
+import LogoSection from './HeaderComponents/HeaderSubComponents/LogoSection';
+import NavLinks from './HeaderComponents/HeaderSubComponents/Navigation';
+import IconsContainer from './HeaderComponents/HeaderSubComponents/IconsContainer';
+import BurgerMenuComponent from './HeaderComponents/HeaderSubComponents/BurgerMenuComponent';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
