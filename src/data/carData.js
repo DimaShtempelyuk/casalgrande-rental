@@ -4,7 +4,12 @@ import RenaultMascott3_2 from '../assets/images/RenaultMascott3/RenaMasc3_2.jpg'
 import RenaultMascott3_3 from '../assets/images/RenaultMascott3/RenaMasc3_3.jpg'
 import Renault2_3 from '../assets/images/Renault2/Ren_2_3.jpg'
 import Renault2_4 from '../assets/images/Renault2/Ren_2_4.jpg'
-
+import RenaultMascottRed1 from '../assets/images/Mascott_Red/IMG_2026.jpeg'
+import RenaultMascottRed2 from '../assets/images/Mascott_Red/IMG_2027.jpeg'
+import RenaultMascottRed3 from '../assets/images/Mascott_Red/IMG_2028.jpeg'
+import RenaultMascottYellow1 from '../assets/images/Mascott_Yellow/Mascott_Yellow_1.jpeg'
+import RenaultMascottYellow2 from '../assets/images/Mascott_Yellow/Mascott_Yellow_2.jpeg'
+import RenaultMascottYellow3 from '../assets/images/Mascott_Yellow/Mascott_Yellow_3.jpeg'
 export const cars = [
   {
     id: 1,
@@ -75,9 +80,9 @@ export const cars = [
     id: 3,
     name: 'cars.renaultMascottThird.name', // Still a key for translation
     images: [
-      RenaultMascott3_1,
-      RenaultMascott3_2,
-      RenaultMascott3_3,
+      RenaultMascottRed1,
+      RenaultMascottRed2,
+      RenaultMascottRed3,
     ],
     description: 'cars.renaultMascottThird.description', // Still a key for translation
     specs: [
@@ -107,9 +112,9 @@ export const cars = [
     id: 4,
     name: 'cars.renaultMascottForth.name', // Still a key for translation
     images: [
-      RenaultMascott3_1,
-      RenaultMascott3_2,
-      RenaultMascott3_3,
+      RenaultMascottYellow1,
+      RenaultMascottYellow2,
+      RenaultMascottYellow3,
     ],
     description: 'cars.renaultMascottForth.description', // Still a key for translation
     specs: [

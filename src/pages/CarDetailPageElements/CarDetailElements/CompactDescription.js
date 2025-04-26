@@ -28,6 +28,8 @@ const CompactDescription = ({ car }) => {
   const namespaceMap = {
     1: 'renaultMascottSingle',
     2: 'renaultMascottDouble',
+    3: 'renaultMascottThird',
+    4: 'renaultMascottForth',
     // Add more car mappings as needed
   };
 

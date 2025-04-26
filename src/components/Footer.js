@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-      <FooterText>&copy; {currentYear} Casagrande Furgon Rental. All Rights Reserved.</FooterText>
+      <FooterText>&copy; {currentYear} CASALGRANDE s.r.o. All Rights Reserved.</FooterText>
       <FooterText>
         Contact us: <FooterLink href="mailto:rental@casalgrande.cz">rental@casalgrande.cz</FooterLink>
       </FooterText>

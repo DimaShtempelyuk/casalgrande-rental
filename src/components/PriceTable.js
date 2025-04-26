@@ -9,6 +9,8 @@ const PriceTable = ({ carId, priceRanges }) => {
   const namespaceMap = {
     1: 'renaultMascottSingle',
     2: 'renaultMascottDouble',
+    3: 'renaultMascottThird',
+    4: 'renaultMascottForth',
     // Add more mappings for new cars
   };
 
