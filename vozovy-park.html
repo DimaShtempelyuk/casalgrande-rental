@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vozový park – Casalgrande</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header"><div class="container"><div class="header-content">
+  <a href="index.html" class="logo" style="display:flex;align-items:center"><img src="images/logo.svg" alt="Casalgrande" style="height:48px;width:auto;display:block"></a>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-link">Domů</a><a href="sluzby.html" class="nav-link">Služby</a>
+    <a href="vozovy-park.html" class="nav-link active">Vozový park</a>
+    <a href="o-nas.html" class="nav-link">O nás</a><a href="kontakt.html" class="nav-link">Kontakt</a>
+  </nav>
+  <div class="header-actions"><a href="tel:+420724239319" class="phone-link">+420 724 239 319</a><a href="kontakt.html" class="btn btn-primary">Poptat pronájem</a></div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></div></header>
+<main>
+<section class="page-header"><div class="container">
+  <h1>Náš vozový park</h1>
+  <p>Pronájem vozidel Renault Mascott. Celková hmotnost 6,5 t, snížená provozně na 3,5 t — řidičský průkaz skupiny B stačí.</p>
+</div></section>
+<section class="fleet"><div class="container">
+  <div class="filter-bar">
+    <span class="filter-label">Filtrovat:</span>
+    <button class="filter-btn active" data-filter="all">Všechna vozidla</button>
+    <button class="filter-btn" data-filter="do-3-5t">Do 3,5 t</button>
+    <button class="filter-btn" data-filter="nad-3-5t">Nad 3,5 t</button>
+    <button class="filter-btn" data-filter="technika">Stavební mechanizace</button>
+    <button class="filter-btn" data-filter="privesy">Přívěsy a návěsy</button>
+  </div>
+  <p class="fleet-count">Zobrazena 4 vozidla</p>
+  <div class="coming-soon-banner" id="comingSoonBanner" style="display:none">
+    <div class="coming-soon-icon">⚙️</div>
+    <h3>Připravujeme</h3>
+    <p>Tato kategorie je aktuálně ve výstavbě. Brzy zde najdete naši nabídku.</p>
+    <a href="kontakt.html" class="btn btn-dark">Kontaktujte nás pro více info</a>
+  </div>
+  <div class="fleet-grid" id="fleetGrid">
+
+    <div class="vehicle-card" data-category="do-3-5t">
+      <div class="vehicle-gallery">
+        <div class="vehicle-main-img"><img src="images/kelimek/1.jpg" alt="Renault Mascott Kelímek" loading="lazy"></div>
+        <div class="vehicle-thumbs">
+          <img src="images/kelimek/1.jpg" onclick="setMainImg(this)" class="thumb active" alt="">
+          <img src="images/kelimek/2.jpg" onclick="setMainImg(this)" class="thumb" alt="">
+          <img src="images/kelimek/3.jpg" onclick="setMainImg(this)" class="thumb" alt="">
+        </div>
+      </div>
+      <div class="vehicle-content">
+        <p class="vehicle-category">Nákladní nad 3,5 t</p>
+        <h3 class="vehicle-name">Renault Mascott 150.65 <span class="vehicle-nickname">(Kelímek)</span></h3>
+        <ul class="vehicle-specs">
+          <li>Provozní váha: 6,5 t (ŘP skupiny B)</li>
+          <li>Skříňové provedení – uzavřený nákladní prostor</li>
+          <li>Posádka: 2–3 osoby</li>
+        </ul>
+        <div class="vehicle-footer">
+          <span class="availability-badge available">Dostupné</span>
+          <a href="kontakt.html" class="vehicle-btn vehicle-btn-primary">Odeslat poptávku</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card" data-category="do-3-5t">
+      <div class="vehicle-gallery">
+        <div class="vehicle-main-img"><img src="images/mascott/1.jpg" alt="Renault Mascott 150.65" loading="lazy"></div>
+        <div class="vehicle-thumbs">
+          <img src="images/mascott/1.jpg" onclick="setMainImg(this)" class="thumb active" alt="">
+          <img src="images/mascott/2.jpg" onclick="setMainImg(this)" class="thumb" alt="">
+          <img src="images/mascott/3.jpg" onclick="setMainImg(this)" class="thumb" alt="">
+        </div>
+      </div>
+      <div class="vehicle-content">
+        <p class="vehicle-category">Nákladní nad 3,5 t</p>
+        <h3 class="vehicle-name">Renault Mascott 150.65</h3>
+        <ul class="vehicle-specs">
+          <li>Provozní váha: 6,5 t (ŘP skupiny B)</li>
+          <li>Valníkové provedení – otevřená ložná plocha</li>
+          <li>Posádka: 2–3 osoby</li>
+        </ul>
+        <div class="vehicle-footer">
+          <span class="availability-badge available">Dostupné</span>
+          <a href="kontakt.html" class="vehicle-btn vehicle-btn-primary">Odeslat poptávku</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card" data-category="do-3-5t">
+      <div class="vehicle-gallery">
+        <div class="vehicle-main-img"><img src="images/rex/1.jpg" alt="Renault Mascott Rex" loading="lazy"></div>
+        <div class="vehicle-thumbs">
+          <img src="images/rex/1.jpg" onclick="setMainImg(this)" class="thumb active" alt="">
+          <img src="images/rex/2.jpg" onclick="setMainImg(this)" class="thumb" alt="">
+          <img src="images/rex/3.jpg" onclick="setMainImg(this)" class="thumb" alt="">
+        </div>
+      </div>
+      <div class="vehicle-content">
+        <p class="vehicle-category">Dodávka do 3,5 t</p>
+        <h3 class="vehicle-name">Renault Mascott 150.65 <span class="vehicle-nickname">(Rex)</span></h3>
+        <ul class="vehicle-specs">
+          <li>Provozní váha: 6,5 t (ŘP skupiny B)</li>
+          <li>Valníkové provedení – žlutá kabina</li>
+          <li>Posádka: 2–3 osoby</li>
+        </ul>
+        <div class="vehicle-footer">
+          <span class="availability-badge available">Dostupné</span>
+          <a href="kontakt.html" class="vehicle-btn vehicle-btn-primary">Odeslat poptávku</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card" data-category="do-3-5t">
+      <div class="vehicle-gallery">
+        <div class="vehicle-main-img"><img src="images/double/1.jpg" alt="Renault Mascott Double" loading="lazy"></div>
+        <div class="vehicle-thumbs">
+          <img src="images/double/1.jpg" onclick="setMainImg(this)" class="thumb active" alt="">
+          <img src="images/double/2.jpg" onclick="setMainImg(this)" class="thumb" alt="">
+        </div>
+      </div>
+      <div class="vehicle-content">
+        <p class="vehicle-category">Dodávka do 3,5 t</p>
+        <h3 class="vehicle-name">Renault Mascott 150.65 Double</h3>
+        <ul class="vehicle-specs">
+          <li>Provozní váha: 6,5 t (ŘP skupiny B)</li>
+          <li>Dvojitá kabina – rozšířený prostor pro posádku</li>
+          <li>Posádka: až 6 osob</li>
+        </ul>
+        <div class="vehicle-footer">
+          <span class="availability-badge available">Dostupné</span>
+          <a href="kontakt.html" class="vehicle-btn vehicle-btn-primary">Odeslat poptávku</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+</main>
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div><h4 class="footer-title">Navigace</h4><ul class="footer-links"><li><a href="index.html">Domů</a></li><li><a href="sluzby.html">Služby</a></li><li><a href="vozovy-park.html">Vozový park</a></li><li><a href="o-nas.html">O nás</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+    <div><h4 class="footer-title">Kontakt</h4><ul class="footer-links"><li><a href="tel:+420724239319">+420 724 239 319</a></li><li><a href="mailto:info@casalgrande.cz">info@casalgrande.cz</a></li><li>Masarykova 89/43, 252 19 Rudná</li></ul></div>
+    <div><h4 class="footer-title">Společnost</h4><ul class="footer-links"><li>CASALGRANDE s.r.o.</li><li>IČO: 27422879</li><li>DIČ: CZ27422879</li></ul></div>
+    <div><h4 class="footer-title">Právní</h4><ul class="footer-links"><li><a href="#">Obchodní podmínky</a></li><li><a href="#">GDPR</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 CASALGRANDE s.r.o. Všechna práva vyhrazena.</div>
+</div></footer>
+<script src="js/main.js"></script>
+</body></html>

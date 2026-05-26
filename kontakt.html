@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt – Casalgrande</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header"><div class="container"><div class="header-content">
+  <a href="index.html" class="logo" style="display:flex;align-items:center"><img src="images/logo.svg" alt="Casalgrande" style="height:48px;width:auto;display:block"></a>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-link">Domů</a><a href="sluzby.html" class="nav-link">Služby</a>
+    <a href="vozovy-park.html" class="nav-link">Vozový park</a>
+    <a href="o-nas.html" class="nav-link">O nás</a><a href="kontakt.html" class="nav-link active">Kontakt</a>
+  </nav>
+  <div class="header-actions"><a href="tel:+420724239319" class="phone-link">+420 724 239 319</a><a href="kontakt.html" class="btn btn-primary">Poptat pronájem</a></div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></div></header>
+<main>
+<section class="page-header"><div class="container">
+  <h1>Kontaktujte nás</h1>
+  <p>Napište nám ohledně dostupnosti, cen nebo jakýchkoliv dotazů k pronájmu.</p>
+</div></section>
+<section class="contact-section"><div class="container">
+  <div class="contact-grid">
+    <div class="contact-form-wrapper">
+      <h2>Pošlete nám zprávu</h2>
+      <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="1ea75007-39de-4559-bb32-c449d3ef5860">
+        <div class="form-group"><label>Jméno *</label><input type="text" name="name" placeholder="Vaše jméno" required></div>
+        <div class="form-row">
+          <div class="form-group"><label>Email *</label><input type="email" name="email" placeholder="váš@email.com" required></div>
+          <div class="form-group"><label>Telefon *</label><input type="tel" name="phone" placeholder="+420" required></div>
+        </div>
+        <div class="form-group">
+          <label>Typ vozidla</label>
+          <select name="vehicle-type">
+            <option value="">Vyberte typ vozidla</option>
+            <option>Dodávky do 3,5 t</option>
+            <option>Nákladní vozidla nad 3,5 t</option>
+            <option>Stavební mechanizace</option>
+            <option>Přívěsy a návěsy</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Doba pronájmu</label><input type="text" name="period" placeholder="např. 1 týden, 2 měsíce"></div>
+        <div class="form-group"><label>Zpráva *</label><textarea name="message" placeholder="Popište vaše požadavky..." required></textarea></div>
+        <div class="form-group">
+          <label class="checkbox-label"><input type="checkbox" required> Souhlasím se zpracováním osobních údajů (GDPR) *</label>
+        </div>
+        <button type="submit" class="btn btn-dark btn-large" style="width:100%">Odeslat poptávku</button>
+      </form>
+      <div id="formSuccess" class="form-success">
+        <h3>Děkujeme za vaši zprávu!</h3>
+        <p>Brzy se vám ozveme.</p>
+      </div>
+    </div>
+    <div class="contact-info-wrapper">
+      <h2>Kontaktní informace</h2>
+      <div class="info-card"><div class="info-label">Telefon</div><div class="info-value"><a href="tel:+420724239319">+420 724 239 319</a></div></div>
+      <div class="info-card"><div class="info-label">Email</div><div class="info-value"><a href="mailto:info@casalgrande.cz">info@casalgrande.cz</a></div></div>
+      <div class="info-card"><div class="info-label">Lokalita</div><div class="info-value">Masarykova 89/43, 252 19 Rudná<br>Praha &amp; Středočeský kraj</div></div>
+      <div class="info-card"><div class="info-label">Provozní doba</div><div class="info-value">Pondělí – Neděle: 7:00 – 18:00</div></div>
+      <div class="emergency-box">
+        <h4>Rychlý kontakt</h4>
+        <p>Pro rychlé dotazy a rezervace volejte přímo:</p>
+        <a href="tel:+420724239319">+420 724 239 319</a>
+      </div>
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560!2d14.2283!3d49.9825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b7c9b1f2a4a4b%3A0x5a2e0c7f1d3e8b2c!2sMasarykova+89%2F43%2C+252+19+Rudn%C3%A1!5e0!3m2!1scs!2scz!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</div></section>
+</main>
+<footer class="footer"><div class="container">
+  <div class="footer-grid">
+    <div><h4 class="footer-title">Navigace</h4><ul class="footer-links"><li><a href="index.html">Domů</a></li><li><a href="sluzby.html">Služby</a></li><li><a href="vozovy-park.html">Vozový park</a></li><li><a href="o-nas.html">O nás</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+    <div><h4 class="footer-title">Kontakt</h4><ul class="footer-links"><li><a href="tel:+420724239319">+420 724 239 319</a></li><li><a href="mailto:info@casalgrande.cz">info@casalgrande.cz</a></li><li>Masarykova 89/43, 252 19 Rudná</li></ul></div>
+    <div><h4 class="footer-title">Společnost</h4><ul class="footer-links"><li>CASALGRANDE s.r.o.</li><li>IČO: 27422879</li><li>DIČ: CZ27422879</li></ul></div>
+    <div><h4 class="footer-title">Právní</h4><ul class="footer-links"><li><a href="#">Obchodní podmínky</a></li><li><a href="#">GDPR</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 CASALGRANDE s.r.o. Všechna práva vyhrazena.</div>
+</div></footer>
+<script src="js/main.js"></script>
+</body></html>
